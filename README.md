@@ -81,16 +81,16 @@ import * as Strukt from '@ayka/domistrukt';
 
 ```typescript
 type data = {
-	valueString: string;
-	valueNumber: number;
-	valueBoolean: boolean;
+  valueString: string;
+  valueNumber: number;
+  valueBoolean: boolean;
 };
 
 class Example extends Strukt.init<data>() {}
 const instance = new Example({
-	valueString: '1',
-	valueNumber: 1,
-	valueBoolean: true,
+  valueString: '1',
+  valueNumber: 1,
+  valueBoolean: true,
 });
 console.log(instance);
 ```
@@ -99,12 +99,12 @@ console.log(instance);
 
 ```typescript
 class ExampleWithCreate extends Strukt.init<data>({
-	create: (input) => ({ ...input, valueNumber: input.valueNumber + 1 }),
+  create: (input) => ({ ...input, valueNumber: input.valueNumber + 1 }),
 }) {}
 const instanceWithCreate = new ExampleWithCreate({
-	valueString: '1',
-	valueNumber: 1,
-	valueBoolean: true,
+  valueString: '1',
+  valueNumber: 1,
+  valueBoolean: true,
 });
 console.log(instanceWithCreate);
 ```
@@ -113,11 +113,11 @@ console.log(instanceWithCreate);
 
 ```typescript
 class ExampleDifferentTypes extends Strukt.init<data, number>({
-	create: (input) => ({
-		valueNumber: input,
-		valueString: '1',
-		valueBoolean: true,
-	}),
+  create: (input) => ({
+    valueNumber: input,
+    valueString: '1',
+    valueBoolean: true,
+  }),
 }) {}
 const instanceDifferentTypes = new ExampleDifferentTypes(1);
 console.log(instanceDifferentTypes);
@@ -127,11 +127,11 @@ console.log(instanceDifferentTypes);
 
 ```typescript
 class ExampleUndefinedInput extends Strukt.init<data, undefined>({
-	create: () => ({
-		valueNumber: 1,
-		valueString: '1',
-		valueBoolean: true,
-	}),
+  create: () => ({
+    valueNumber: 1,
+    valueString: '1',
+    valueBoolean: true,
+  }),
 }) {}
 const instanceUndefinedInput = new ExampleUndefinedInput();
 console.log(instanceUndefinedInput);
@@ -141,12 +141,12 @@ console.log(instanceUndefinedInput);
 
 ```typescript
 class ExampleWithAccessors extends Strukt.init<data>({
-	asAccessor: ['valueNumber'],
+  asAccessor: ['valueNumber'],
 }) {}
 const instanceWithAccessors = new ExampleWithAccessors({
-	valueString: '1',
-	valueNumber: 1,
-	valueBoolean: true,
+  valueString: '1',
+  valueNumber: 1,
+  valueBoolean: true,
 });
 console.log(instanceWithAccessors.valueNumber);
 ```
@@ -155,12 +155,12 @@ console.log(instanceWithAccessors.valueNumber);
 
 ```typescript
 class StaticErrorExample extends Strukt.staticError({
-	message: 'This is a static error message',
+  message: 'This is a static error message',
 }) {}
 try {
-	throw new StaticErrorExample();
+  throw new StaticErrorExample();
 } catch (error) {
-	console.error(error.message); // Output: This is a static error message
+  console.error(error.message); // Output: This is a static error message
 }
 ```
 
@@ -168,18 +168,18 @@ try {
 
 ```typescript
 type errorData = {
-	errorCode: number;
-	errorMessage: string;
+  errorCode: number;
+  errorMessage: string;
 };
 
 class CustomErrorExample extends Strukt.error<errorData>({
-	message: (data) => `Error ${data.errorCode}: ${data.errorMessage}`,
+  message: (data) => `Error ${data.errorCode}: ${data.errorMessage}`,
 }) {}
 try {
-	throw new CustomErrorExample({ errorCode: 404, errorMessage: 'Not Found' });
+  throw new CustomErrorExample({ errorCode: 404, errorMessage: 'Not Found' });
 } catch (error) {
-	console.log(error.data.errorCode); // Output: 404
-	console.error(error.message); // Output: Error 404: Not Found
+  console.log(error.data.errorCode); // Output: 404
+  console.error(error.message); // Output: Error 404: Not Found
 }
 ```
 
@@ -187,25 +187,25 @@ try {
 
 ```typescript
 type errorInput = {
-	errorCode: number;
+  errorCode: number;
 };
 
 type errorData = {
-	errorCode: number;
-	timestamp: Date;
+  errorCode: number;
+  timestamp: Date;
 };
 
 class CustomErrorWithTransformation extends Strukt.error({
-	create: (data: errorData) => ({
-		errorCode: data.errorCode,
-		timestamp: Date.now(),
-	}),
+  create: (data: errorData) => ({
+    errorCode: data.errorCode,
+    timestamp: Date.now(),
+  }),
 }) {}
 
 const instanceCustomErrorWithTransformation = new CustomErrorWithTransformation(
-	{
-		errorCode: 404,
-	},
+  {
+    errorCode: 404,
+  },
 );
 console.log(instanceCustomErrorWithTransformation);
 console.log(instanceCustomErrorWithTransformation.data.errorCode); // 404
@@ -218,47 +218,47 @@ import * as Strukt from '@ayka/domistrukt';
 
 // Example demonstrating metadata, cause, and message override.
 class CustomErrorWithMeta extends Strukt.staticError({
-	message: 'Default static error message',
+  message: 'Default static error message',
 }) {}
 
 try {
-	const causeError = new Error('Original cause of the error');
-	throw new CustomErrorWithMeta({
-		message: 'Overridden error message',
-		cause: causeError,
-		additionalInfo: 'Some additional context',
-	});
+  const causeError = new Error('Original cause of the error');
+  throw new CustomErrorWithMeta({
+    message: 'Overridden error message',
+    cause: causeError,
+    additionalInfo: 'Some additional context',
+  });
 } catch (error) {
-	console.error(error.message); // Output: Overridden error message
-	console.error(error.meta); // Output: { additionalInfo: 'Some additional context' }
-	console.error(error.cause); // Output: Error: Original cause of the error
+  console.error(error.message); // Output: Overridden error message
+  console.error(error.meta); // Output: { additionalInfo: 'Some additional context' }
+  console.error(error.cause); // Output: Error: Original cause of the error
 }
 
 // Example with dynamic error class
 type errorData = {
-	errorCode: number;
-	errorMessage: string;
+  errorCode: number;
+  errorMessage: string;
 };
 
 class DynamicErrorWithMeta extends Strukt.error<errorData>({
-	message: (data) => `Error ${data.errorCode}: ${data.errorMessage}`,
+  message: (data) => `Error ${data.errorCode}: ${data.errorMessage}`,
 }) {}
 
 try {
-	const causeError = new Error('Original cause of the error');
-	throw new DynamicErrorWithMeta(
-		{ errorCode: 500, errorMessage: 'Internal Server Error' },
-		{
-			message: 'Overridden dynamic error message',
-			cause: causeError,
-			additionalInfo: 'Some additional context',
-		},
-	);
+  const causeError = new Error('Original cause of the error');
+  throw new DynamicErrorWithMeta(
+    { errorCode: 500, errorMessage: 'Internal Server Error' },
+    {
+      message: 'Overridden dynamic error message',
+      cause: causeError,
+      additionalInfo: 'Some additional context',
+    },
+  );
 } catch (error) {
-	console.error(error.message); // Output: Overridden dynamic error message
-	console.error(error.data); // Output: { errorCode: 500, errorMessage: 'Internal Server Error' }
-	console.error(error.meta); // Output: { additionalInfo: 'Some additional context' }
-	console.error(error.cause); // Output: Error: Original cause of the error
+  console.error(error.message); // Output: Overridden dynamic error message
+  console.error(error.data); // Output: { errorCode: 500, errorMessage: 'Internal Server Error' }
+  console.error(error.meta); // Output: { additionalInfo: 'Some additional context' }
+  console.error(error.cause); // Output: Error: Original cause of the error
 }
 ```
 
