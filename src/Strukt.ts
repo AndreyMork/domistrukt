@@ -14,6 +14,7 @@ import type * as T from './Types/Types.d.ts';
 export type config<input, output> = {
 	create?: T.createFn<input, output>;
 	asAccessor?: (keyof output)[];
+	checkPrototype?: boolean;
 };
 
 export type struktClass<input, output> = [input] extends [
@@ -94,6 +95,10 @@ const idHandler = <t>(x: t): t => x;
  * console.log(instanceDifferentTypes);
  */
 
+const defaults = {
+	checkPrototype: false,
+};
+
 export function init<output>(
 	params?: configWithoutHandler<output, output>,
 ): struktClass<output, output>;
@@ -105,12 +110,26 @@ export function init<output, input>(
 	params?: config<input, output>,
 ): struktClass<input, output> {
 	const createFn = params?.create ?? (idHandler as T.createFn<input, output>);
+	const { checkPrototype = defaults.checkPrototype } = params ?? {};
 
 	const asAccessor = params?.asAccessor ?? [];
 	class Strukt {
 		constructor(input: Readonly<input>) {
 			const data = createFn(input);
-			Object.assign(this, data);
+
+			if (!checkPrototype) {
+				Object.assign(this, data);
+			} else {
+				// @ts-expect-error
+				const proto: Record<string, any> = this.__proto__;
+
+				for (const key in data) {
+					if (!Object.hasOwn(proto, key)) {
+						Reflect.set(this, key, data[key]);
+					}
+				}
+			}
+
 			Lib.redefinePropsAsAccessors(this as unknown as output, asAccessor);
 		}
 	}

@@ -149,6 +149,43 @@ test.group('Strukt - init', () => {
 		expect(instance).toHaveProperty('valueBoolean', true);
 		expect(instance).toHaveProperty('extra', 'extra'); // NOTE: no way to filter extra properties currently
 	});
+
+	// TODO: docs
+	test('should not override methods from child class', ({
+		expect,
+		expectTypeOf,
+	}) => {
+		type data = { x: number; fn: string };
+		class TestClass extends Strukt.init<data>({ checkPrototype: true }) {
+			// @ts-expect-error
+			override fn() {}
+		}
+
+		const instance = new TestClass({ x: 1, fn: '1' });
+
+		expect(typeof instance.fn).toBe('function');
+		expect(() => instance.fn()).not.toThrow();
+		expectTypeOf(instance.fn).toBeFunction();
+		expect(instance.x).toBe(1);
+
+		class TestClass2 extends Strukt.init<data>() {
+			// @ts-expect-error
+			override fn() {}
+		}
+
+		const instance2 = new TestClass2({ x: 1, fn: '1' });
+		expect(instance2.fn).toBe('1');
+		expect(instance2.x).toBe(1);
+
+		class TestClass3 extends Strukt.init<data>({ checkPrototype: false }) {
+			// @ts-expect-error
+			override fn() {}
+		}
+
+		const instance3 = new TestClass3({ x: 1, fn: '1' });
+		expect(instance3.fn).toBe('1');
+		expect(instance3.x).toBe(1);
+	});
 });
 
 test.group('Strukt - types', () => {
