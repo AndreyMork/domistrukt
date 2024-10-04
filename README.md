@@ -16,7 +16,7 @@
 
 ## Overview
 
-`@ayka/domistrukt` is a lightweight TypeScript library designed to facilitate the creation of structured data objects. It provides a type-safe and flexible API for defining and initializing classes with custom properties and behaviors, simplifying the management of complex data structures in TypeScript projects.
+`@ayka/domistrukt` is a lightweight TypeScript library that simplifies the creation of structured data objects. It offers a type-safe and flexible API for defining and initializing classes with custom properties and behaviors, making it easier to manage complex data structures in TypeScript projects.
 
 ### Key Features
 

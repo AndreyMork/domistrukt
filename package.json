@@ -3,8 +3,17 @@
 	"version": "2.0.0-rc.0",
 	"type": "module",
 	"license": "MIT",
-	"description": "",
-	"keywords": [],
+	"description": "A TypeScript library for creating structured data objects with ease.",
+	"keywords": [
+		"typescript",
+		"structured-data",
+		"type-safe",
+		"data-object",
+		"error",
+		"custom-errors",
+		"error-handling",
+		"data-structures"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/AndreyMork/domistrukt.git"
