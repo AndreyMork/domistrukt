@@ -1,0 +1,9 @@
+name: Setup
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: extractions/setup-just@v2
+    - uses: actions/setup-node@v4
+    - run: npm install
+      shell: bash

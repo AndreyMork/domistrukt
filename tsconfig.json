@@ -1,0 +1,13 @@
+{
+	"include": ["src", "dev", "tests", "tsup.config.ts", "package.json"],
+	"exclude": ["**/dist/*"],
+	"extends": "@ayka/tsconfig/esm.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"#PackageJSON": ["./package.json"],
+			"#Src/*": ["./src/*"],
+			"#Main": ["./src/Main.ts"]
+		}
+	}
+}
