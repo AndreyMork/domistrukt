@@ -10,7 +10,7 @@ export { init } from './Strukt.ts';
 export type { config } from './Strukt.ts';
 export * as Strukt from './Strukt.ts';
 
-export { init as error, staticError } from './Error.ts';
+export { error, staticError } from './Error.ts';
 export type { config as errorConfig, messageFn } from './Error.ts';
 export * as Err from './Error.ts';
 

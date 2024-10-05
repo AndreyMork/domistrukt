@@ -154,7 +154,7 @@ test.group('Strukt.Error', () => {
 		const messageFn = (output: output) =>
 			`${output.value} is ${output.isEven ? 'even' : 'odd'}`;
 
-		class MyError extends Strukt.error<output, input>({
+		class MyError extends Strukt.error({
 			message: messageFn,
 			create,
 		}) {}
@@ -173,7 +173,7 @@ test.group('Strukt.Error', () => {
 			isEven: boolean;
 		};
 
-		class MyError extends Strukt.error<output, input>({
+		class MyError extends Strukt.error({
 			create: (input: input): output => ({
 				value: input.value,
 				isEven: input.value % 2 === 0,
@@ -207,25 +207,13 @@ test.group('Strukt.Error', () => {
 		>();
 	});
 
-	test('should require `create` for non-matching input and output types', ({
-		expectTypeOf,
-	}) => {
-		type input = { value: number };
-		type data = { value: number; str: string };
-
-		type parameters = Parameters<typeof Strukt.error<data, input>>[0];
-
-		expectTypeOf<parameters>().not.toBeNullable();
-		expectTypeOf<parameters['create']>().not.toBeNullable();
-	});
-
 	test('should have correct types for transformed input', ({
 		expectTypeOf,
 	}) => {
 		type input = { value: number };
 		type data = { value: number; str: string };
 
-		class MyError extends Strukt.error<data, input>({
+		class MyError extends Strukt.error({
 			create: (input: input): data => ({
 				...input,
 				str: input.value.toString(),
@@ -294,7 +282,7 @@ test.group('Strukt.Error', () => {
 			[data?: undefined, meta?: Strukt.Err.errorMeta] | []
 		>();
 
-		class MyError2 extends Strukt.error<number, undefined>({
+		class MyError2 extends Strukt.error({
 			create: () => 1,
 		}) {}
 		const error2 = new MyError2();

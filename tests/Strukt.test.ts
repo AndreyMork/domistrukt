@@ -4,15 +4,15 @@ import * as Strukt from '#Main';
 
 const test = Japa.test;
 
-test.group('Strukt - init', () => {
+test.group('Strukt - Initialization', () => {
 	type data = {
 		valueString: string;
 		valueNumber: number;
 		valueBoolean: boolean;
 	};
 
-	test('should create an instance with correct properties', ({ expect }) => {
-		class TestClass extends Strukt.init<data>() {}
+	test('creates instance with correct initial properties', ({ expect }) => {
+		class A extends Strukt.init<data>() {}
 
 		const inputData = {
 			valueString: '1',
@@ -20,7 +20,7 @@ test.group('Strukt - init', () => {
 			valueBoolean: true,
 		};
 
-		const instance = new TestClass(inputData);
+		const instance = new A(inputData);
 
 		const targetData = {
 			valueString: '1',
@@ -28,16 +28,16 @@ test.group('Strukt - init', () => {
 			valueBoolean: true,
 		};
 
-		expect(instance).toBeInstanceOf(TestClass);
+		expect(instance).toBeInstanceOf(A);
 		expect(instance).toEqual(targetData);
 		expect(instance).not.toStrictEqual(targetData);
 	});
 
-	test('should create an instance with modified properties using custom create function', ({
-		expect,
-	}) => {
-		class TestClass extends Strukt.init<data>({
-			create: (input) => ({ ...input, valueNumber: input.valueNumber + 1 }),
+	test('applies custom create function to modify properties', ({ expect }) => {
+		class A extends Strukt.init({
+			create(input: data) {
+				return { ...input, valueNumber: input.valueNumber + 1 };
+			},
 		}) {}
 
 		const inputData = {
@@ -46,7 +46,7 @@ test.group('Strukt - init', () => {
 			valueBoolean: true,
 		};
 
-		const instance = new TestClass(inputData);
+		const instance = new A(inputData);
 
 		const targetData = {
 			valueString: '1',
@@ -58,18 +58,20 @@ test.group('Strukt - init', () => {
 		expect(instance).not.toStrictEqual(targetData);
 	});
 
-	test('should create an instance with different input and output types', ({
+	test('handles different input and output types in create function', ({
 		expect,
 	}) => {
-		class TestClass extends Strukt.init<data, number>({
-			create: (input) => ({
-				valueNumber: input,
-				valueString: '1',
-				valueBoolean: true,
-			}),
+		class A extends Strukt.init({
+			create(input: number) {
+				return {
+					valueNumber: input,
+					valueString: '1',
+					valueBoolean: true,
+				};
+			},
 		}) {}
 
-		const instance = new TestClass(1);
+		const instance = new A(1);
 		const targetData = {
 			valueNumber: 1,
 			valueString: '1',
@@ -80,8 +82,8 @@ test.group('Strukt - init', () => {
 		expect(instance).not.toStrictEqual(targetData);
 	});
 
-	test('should handle undefined input correctly', ({ expect }) => {
-		class TestClass extends Strukt.init<data, undefined>({
+	test('handles undefined input by using default values', ({ expect }) => {
+		class A extends Strukt.init({
 			create: () => ({
 				valueNumber: 1,
 				valueString: '1',
@@ -89,7 +91,7 @@ test.group('Strukt - init', () => {
 			}),
 		}) {}
 
-		const instance = new TestClass();
+		const instance = new A();
 		const targetData = {
 			valueNumber: 1,
 			valueString: '1',
@@ -100,12 +102,12 @@ test.group('Strukt - init', () => {
 		expect(instance).not.toStrictEqual(targetData);
 	});
 
-	test('should create accessors for specified properties', ({ expect }) => {
-		class TestClass extends Strukt.init<data>({
+	test('creates accessors for specified properties', ({ expect }) => {
+		class A extends Strukt.init<data>({
 			asAccessor: ['valueNumber'],
 		}) {}
 
-		const instance = new TestClass({
+		const instance = new A({
 			valueNumber: 1,
 			valueString: '1',
 			valueBoolean: true,
@@ -130,8 +132,8 @@ test.group('Strukt - init', () => {
 		expect(valueStringDescriptor).toHaveProperty('value');
 	});
 
-	test('retains extra properties in the instance', ({ expect }) => {
-		class TestClass extends Strukt.init<data>({
+	test('retains additional properties in the instance', ({ expect }) => {
+		class A extends Strukt.init<data>({
 			asAccessor: ['valueNumber'],
 		}) {}
 
@@ -142,7 +144,7 @@ test.group('Strukt - init', () => {
 			extra: 'extra',
 		};
 
-		const instance = new TestClass(data);
+		const instance = new A(data);
 
 		expect(instance).toHaveProperty('valueNumber', 1);
 		expect(instance).toHaveProperty('valueString', '1');
@@ -150,45 +152,44 @@ test.group('Strukt - init', () => {
 		expect(instance).toHaveProperty('extra', 'extra'); // NOTE: no way to filter extra properties currently
 	});
 
-	// TODO: docs
-	test('should not override methods from child class', ({
+	test('preserves child class methods without overriding', ({
 		expect,
 		expectTypeOf,
 	}) => {
 		type data = { x: number; fn: string };
-		class TestClass extends Strukt.init<data>({ checkPrototype: true }) {
+		class A extends Strukt.init<data>({ checkPrototype: true }) {
 			// @ts-expect-error
 			override fn() {}
 		}
 
-		const instance = new TestClass({ x: 1, fn: '1' });
+		const instance = new A({ x: 1, fn: '1' });
 
 		expect(typeof instance.fn).toBe('function');
 		expect(() => instance.fn()).not.toThrow();
 		expectTypeOf(instance.fn).toBeFunction();
 		expect(instance.x).toBe(1);
 
-		class TestClass2 extends Strukt.init<data>() {
+		class B extends Strukt.init<data>() {
 			// @ts-expect-error
 			override fn() {}
 		}
 
-		const instance2 = new TestClass2({ x: 1, fn: '1' });
+		const instance2 = new B({ x: 1, fn: '1' });
 		expect(instance2.fn).toBe('1');
 		expect(instance2.x).toBe(1);
 
-		class TestClass3 extends Strukt.init<data>({ checkPrototype: false }) {
+		class C extends Strukt.init<data>({ checkPrototype: false }) {
 			// @ts-expect-error
 			override fn() {}
 		}
 
-		const instance3 = new TestClass3({ x: 1, fn: '1' });
+		const instance3 = new C({ x: 1, fn: '1' });
 		expect(instance3.fn).toBe('1');
 		expect(instance3.x).toBe(1);
 	});
 });
 
-test.group('Strukt - types', () => {
+test.group('Strukt - Type Handling', () => {
 	type data = {
 		valueString: string;
 		valueNumber: number;
@@ -198,7 +199,9 @@ test.group('Strukt - types', () => {
 
 	type input = { value: number };
 
-	test('constructor parameter should match data type', ({ expectTypeOf }) => {
+	test('ensures constructor parameter matches data type', ({
+		expectTypeOf,
+	}) => {
 		class TestClass extends Strukt.init<data>() {}
 		const instance = new TestClass({
 			valueString: '1',
@@ -210,11 +213,11 @@ test.group('Strukt - types', () => {
 		expectTypeOf(TestClass).constructorParameters.toEqualTypeOf<[data]>();
 	});
 
-	test('constructor parameter should be optional when input is undefined', ({
+	test('makes constructor parameter optional when input is undefined', ({
 		expectTypeOf,
 	}) => {
-		class TestClass extends Strukt.init<data, undefined>({
-			create: () => ({
+		class TestClass extends Strukt.init({
+			create: (): data => ({
 				valueString: '1',
 				valueNumber: 1,
 				valueBoolean: true,
@@ -229,11 +232,11 @@ test.group('Strukt - types', () => {
 		>();
 	});
 
-	test('constructor parameter should be optional when input is optional', ({
+	test('makes constructor parameter optional when input is optional', ({
 		expectTypeOf,
 	}) => {
-		class TestClass extends Strukt.init<data, undefined | number>({
-			create: (input) => ({
+		class TestClass extends Strukt.init({
+			create: (input?: number): data => ({
 				valueString: '1',
 				valueNumber: input ?? 1,
 				valueBoolean: true,
@@ -248,26 +251,7 @@ test.group('Strukt - types', () => {
 		>();
 	});
 
-	test('constructor parameter should be of type input when input type specified', ({
-		expectTypeOf,
-	}) => {
-		class TestClass extends Strukt.init<data, input>({
-			create: (input) => ({
-				valueString: '1',
-				valueNumber: input.value,
-				valueBoolean: true,
-			}),
-		}) {}
-
-		const instance = new TestClass({ value: 1 });
-
-		expectTypeOf(instance).toEqualTypeOf<data>();
-		expectTypeOf(TestClass).constructorParameters.toEqualTypeOf<
-			[input: input]
-		>();
-	});
-
-	test('constructor parameter should be inferred from create function', ({
+	test('ensures constructor parameter is of type input when specified', ({
 		expectTypeOf,
 	}) => {
 		class TestClass extends Strukt.init({
@@ -286,7 +270,26 @@ test.group('Strukt - types', () => {
 		>();
 	});
 
-	test('parameter should be inferred from create function when output type is the same as data type', ({
+	test('infers constructor parameter from create function', ({
+		expectTypeOf,
+	}) => {
+		class TestClass extends Strukt.init({
+			create: (input: input): data => ({
+				valueString: '1',
+				valueNumber: input.value,
+				valueBoolean: true,
+			}),
+		}) {}
+
+		const instance = new TestClass({ value: 1 });
+
+		expectTypeOf(instance).toEqualTypeOf<data>();
+		expectTypeOf(TestClass).constructorParameters.toEqualTypeOf<
+			[input: input]
+		>();
+	});
+
+	test('infers parameter from create function when output type matches data type', ({
 		expectTypeOf,
 	}) => {
 		class TestClass extends Strukt.init({

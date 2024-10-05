@@ -36,4 +36,7 @@ export type classInputTypeN<
  */
 export type classInputType1<t extends klass> = classInputTypeN<t, 0>;
 
-export type createFn<input, output> = (input: Readonly<input>) => output;
+export type createFn<input, output> = (input: input) => output;
+
+export type createInput<fn extends createFn<any, any>> = Parameters<fn>[0];
+export type createOutput<fn extends createFn<any, any>> = ReturnType<fn>;

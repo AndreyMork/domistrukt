@@ -1,17 +1,82 @@
 import type * as T from './Types/Types.d.ts';
 
+/**
+ * Configuration options for creating a static error class.
+ *
+ * @template data - The type of the error data.
+ * @property {messageParam<data>} [message] - Function or string for error message.
+ *   String: static message for all instances.
+ *   Function: called with error data to generate message.
+ *   If omitted: empty string as default.
+ *   Note: `meta.message` overrides this if provided during instantiation.
+ */
+export type opts<data> = {
+	message?: messageParam<data>;
+};
+
+/**
+ * Configuration for creating a dynamic error class.
+ *
+ * @template input - The type of the input data for the error.
+ * @template output - The type of the error data after processing.
+ * @property {messageParam<output>} [message] - Function or string for error message.
+ *   String: static message for all instances.
+ *   Function: called with error data to generate message.
+ *   If omitted: empty string as default.
+ *   Note: `meta.message` overrides this if provided during instantiation.
+ * @property {T.createFn<input, output>} [create] - Function to transform input to output data.
+ *   If omitted, input is used as output without transformation.
+ */
+export type config<input, output> = opts<output> & {
+	create: T.createFn<input, output>;
+};
+
+/**
+ * Metadata for error instances.
+ *
+ * @property {string} [message] - Optional message for the error.
+ * @property {any} [cause] - Optional cause of the error.
+ */
 export type errorMeta = Record<string, any> & { message?: string; cause?: any };
 
+/**
+ * Function type for generating error messages.
+ *
+ * @template t - The type of the data used to generate the message.
+ * @param {Readonly<t>} [opts] - Optional data for generating the message.
+ * @returns {string} The generated message.
+ */
 export type messageFn<t> = t extends undefined
 	? () => string
 	: (opts: Readonly<t>) => string;
+
+/**
+ * Parameter type for specifying error messages.
+ *
+ * @template t - The type of the data used to generate the message.
+ * @type {string | messageFn<t>} - A static string or a function to generate the message.
+ */
 export type messageParam<t> = string | messageFn<t>;
 
+/**
+ * Creates a message function from a given message parameter.
+ *
+ * @template t - The type of the data used to generate the message.
+ * @param {messageParam<t>} message - The message parameter.
+ * @returns {messageFn<t>} A function to generate the message.
+ */
 export const makeMessageFn = <t>(message: messageParam<t>): messageFn<t> =>
 	typeof message === 'function'
 		? message
 		: (((): string => message) as messageFn<t>);
 
+/**
+ * Base class for structured errors.
+ *
+ * @extends {Error}
+ * @property {string} message - The error message.
+ * @property {errorMeta} meta - Additional metadata for the error.
+ */
 export class StruktErrorBase extends Error {
 	override message: string;
 	readonly meta: errorMeta;
@@ -107,64 +172,28 @@ export type errorClass<input, output> = [input] extends [
 		};
 
 /**
- * Configuration for creating a dynamic error class.
+ * Initializes and returns a custom error class with configurable message and data transformation.
  *
- * @template output - The type of the error data.
- * @template input - The type of the input data for the error.
- * @property {messageParam<output>} [message] - Function or string for error message.
- *   String: static message for all instances.
- *   Function: called with error data to generate message.
- *   If omitted: empty string as default.
- *   Note: `meta.message` overrides this if provided during instantiation.
- * @property {create<input, output>} [create] - Function to transform input to output data.
- *   If omitted, input is used as output without transformation.
- *
- * Used with `init` function to create custom error classes with dynamic messages.
- */
-export type config<input, output> = {
-	message?: messageParam<output>;
-	create?: T.createFn<input, output>;
-};
-
-export type configWithoutHandler<input, output> = Omit<
-	config<input, output>,
-	'create'
->;
-export type configWithHandler<input, output> = configWithoutHandler<
-	input,
-	output
-> & {
-	create: T.createFn<input, output>;
-};
-
-export const idHandler = <t>(x: t): t => x;
-
-/**
- * Initializes and returns a custom error class.
- *
- * @template output - The type of the error data after processing.
- * @template input - The type of the input data for the error.
- * @param {config<output, input>} [params] - Configuration options for the error class.
- * @param {messageParam<output>} [params.message] - Function or string for error message.
- * @param {create<input, output>} [params.create] - Function to transform input to output data.
- * @returns {errorClass<output, input>} A custom error class with the specified configuration.
+ * @template data - The type of the error data.
+ * @param {opts<data> | config<any, any>} [params] - Configuration options for the error class.
+ * @returns {errorClass<any, any>} A custom error class with the specified configuration.
  *
  * @description
- * This function creates a custom error class based on the provided configuration.
- * It can be called with or without a handler function (create) to transform the input.
+ * The `init` function creates a custom error class based on the provided configuration.
+ * It allows for optional transformation of input data and generation of error messages.
  * The resulting error class will have a constructor that accepts input data and an optional metadata object.
  *
  * @example
- * // Creating a simple error class without input transformation
- * const SimpleError = init<string>({
+ * // Example 1: Creating a simple error class without input transformation
+ * class SimpleError extends init<string>({
  *   message: (data) => `Simple error occurred: ${data}`
- * });
+ * }) {}
  *
  * const error = new SimpleError("Something went wrong");
  * console.log(error.message); // Output: "Simple error occurred: Something went wrong"
  *
  * @example
- * // Creating an error class with input transformation
+ * // Example 2: Creating an error class with input transformation
  * type inputData = {
  *   code: number;
  *   details: string;
@@ -176,32 +205,33 @@ export const idHandler = <t>(x: t): t => x;
  *   timestamp: Date;
  * };
  *
- * class ComplexError extends init<outputData, inputData>({
- *   message: (data) => `Error ${data.errorCode}: ${data.errorDetails}`,
- *   create: (input) => ({
+ * class ComplexError extends init({
+ *   message: (data: outputData) => `Error ${data.errorCode}: ${data.errorDetails}`,
+ *   create: (input: inputData) => ({
  *     errorCode: input.code,
  *     errorDetails: input.details,
  *     timestamp: new Date()
  *   })
- * });
+ * }) {}
  *
  * const complexError = new ComplexError({ code: 404, details: "Not Found" });
  * console.log(complexError.message); // Output: "Error 404: Not Found"
  * console.log(complexError.data); // Output: { errorCode: 404, errorDetails: "Not Found", timestamp: [Date object] }
  */
-export function init<output>(
-	params?: configWithoutHandler<output, output>,
-): errorClass<output, output>;
-export function init<output, input>(
-	params: configWithHandler<input, output>,
-): errorClass<input, output>;
+export function error<data>(params?: opts<data>): errorClass<data, data>;
+export function error<
+	createFn extends T.createFn<undefined, unknown>,
+	input = T.createInput<createFn>,
+	output = T.createOutput<createFn>,
+>(params: config<input, output>): errorClass<input, output>;
 
-export function init<output, input>(
-	params?: config<input, output>,
-): errorClass<input, output> {
-	const create = params?.create ?? (idHandler as T.createFn<input, output>);
+export function error<
+	createFn extends T.createFn<undefined, unknown>,
+	input = T.createInput<createFn>,
+	output = T.createOutput<createFn>,
+>(params?: Partial<config<input, output>>): errorClass<input, output> {
 	const messageFn = makeMessageFn(params?.message ?? '');
-
+	const create = params?.create ?? (idHandler as T.createFn<input, output>);
 	class StruktError extends StruktErrorBase {
 		readonly data: output;
 
@@ -215,3 +245,5 @@ export function init<output, input>(
 
 	return StruktError as errorClass<input, output>;
 }
+
+const idHandler = <t>(x: t): t => x;

@@ -14,14 +14,14 @@
 
 ## Overview
 
-`@ayka/domistrukt` is a lightweight TypeScript library that simplifies the creation of structured data objects. It offers a type-safe and flexible API for defining and initializing classes with custom properties and behaviors, making it easier to manage complex data structures in TypeScript projects.
+`@ayka/domistrukt` is a lightweight TypeScript library designed to simplify the creation of structured data objects. It provides a type-safe and flexible API for defining and initializing classes with custom properties and behaviors, making it easier to manage complex data structures in TypeScript projects.
 
 ### Key Features
 
 - **Type-safe Class Initialization**: Ensures that classes are initialized with the correct types.
-- **Custom Property Management**: Allows creation and modification of properties with ease.
-- **Versatile Input/Output Support**: Handles different input and output types seamlessly.
-- **Automatic Accessor Generation**: Generates accessors for specified properties automatically.
+- **Custom Property Management**: Allows easy creation and modification of properties.
+- **Versatile Input/Output Support**: Seamlessly handles different input and output types.
+- **Automatic Accessor Generation**: Automatically generates accessors for specified properties.
 - **Flexible Configuration**: Offers various configuration options to suit different needs.
 - **Helper Functions**: Includes utilities for key selection, initializer creation, cloning, and property redefinition.
 
@@ -34,9 +34,9 @@
 - [Usage](#usage)
   - [Basic Usage](#basic-usage)
   - [Custom Create Function](#custom-create-function)
-  - [Handling Different Input and Output Types](#handling-different-input-and-output-types)
   - [Handling Undefined Input](#handling-undefined-input)
   - [Creating Accessors for Properties](#creating-accessors-for-properties)
+  - [Different Input and Data Types](#different-input-and-data-types)
   - [Error Handling](#error-handling)
     - [Static Error Classes](#static-error-classes)
     - [Dynamic Error Classes](#dynamic-error-classes)
@@ -86,6 +86,7 @@ type data = {
   valueBoolean: boolean;
 };
 
+// Basic initialization with type-safe properties
 class Example extends Strukt.init<data>() {}
 const instance = new Example({
   valueString: '1',
@@ -98,8 +99,9 @@ console.log(instance);
 ### Custom Create Function
 
 ```typescript
-class ExampleWithCreate extends Strukt.init<data>({
-  create: (input) => ({ ...input, valueNumber: input.valueNumber + 1 }),
+// Initialization with a custom create function
+class ExampleWithCreate extends Strukt.init({
+  create: (input: data) => ({ ...input, valueNumber: input.valueNumber + 1 }),
 }) {}
 const instanceWithCreate = new ExampleWithCreate({
   valueString: '1',
@@ -109,24 +111,11 @@ const instanceWithCreate = new ExampleWithCreate({
 console.log(instanceWithCreate);
 ```
 
-### Handling Different Input and Output Types
-
-```typescript
-class ExampleDifferentTypes extends Strukt.init<data, number>({
-  create: (input) => ({
-    valueNumber: input,
-    valueString: '1',
-    valueBoolean: true,
-  }),
-}) {}
-const instanceDifferentTypes = new ExampleDifferentTypes(1);
-console.log(instanceDifferentTypes);
-```
-
 ### Handling Undefined Input
 
 ```typescript
-class ExampleUndefinedInput extends Strukt.init<data, undefined>({
+// Handling undefined input by using default values
+class ExampleUndefinedInput extends Strukt.init({
   create: () => ({
     valueNumber: 1,
     valueString: '1',
@@ -139,9 +128,10 @@ console.log(instanceUndefinedInput);
 
 ### Creating Accessors for Properties
 
-This feature is useful for hiding values from logging. By defining certain properties as accessors, which can help in preventing sensitive information from being exposed in logs.
+This feature is useful for hiding values from logging. By defining certain properties as accessors, you can prevent sensitive information from being exposed in logs.
 
 ```typescript
+// Using accessors to protect sensitive data
 class ExampleWithAccessors extends Strukt.init<data>({
   asAccessor: ['apiKey'],
 }) {}
@@ -152,6 +142,31 @@ const instanceWithAccessors = new ExampleWithAccessors({
 });
 
 console.log(instanceWithAccessors); // { someKey: 'someValue', apiKey: [Getter/Setter] }
+```
+
+### Different Input and Data Types
+
+When the input and data types are different, the `create` function can be used to transform the input into the desired data structure. The types are inferred from the `create` function, so they should not be provided in the generic.
+
+```typescript
+type input = { value: number };
+type data = {
+  valueString: string;
+  valueNumber: number;
+  valueBoolean: boolean;
+};
+
+// Transforming input to a different data structure
+class ExampleDifferentTypes extends Strukt.init({
+  create: (input: input) => ({
+    valueNumber: input.value,
+    valueString: input.value.toString(),
+    valueBoolean: input.value > 0,
+  }),
+}) {}
+
+const instanceDifferentTypes = new ExampleDifferentTypes({ value: 42 });
+console.log(instanceDifferentTypes); // { valueNumber: 42, valueString: '42', valueBoolean: true }
 ```
 
 ### Error Handling
@@ -254,7 +269,7 @@ type output = {
   isEven: boolean;
 };
 
-class MyError extends Strukt.error<output, input>({
+class MyError extends Strukt.error({
   create: (input: input): output => ({
     value: input.value,
     isEven: input.value % 2 === 0,
@@ -274,36 +289,88 @@ console.log(error.data); // Output: { value: 42, isEven: true }
 
 ### Strukt Module
 
-#### `init<output, input = output>(params?: config<input, output>): struktClass<input, output>`
+#### `init<data>(params?: config<data>): struktClass<data>`
 
-Creates a new class with structured initialization.
+The `init` function is a core feature of the `@ayka/domistrukt` library. It allows you to create a new class with structured initialization, providing a type-safe way to define and manage data structures.
 
-- **output**: The type of the resulting instance.
-- **input**: The type of the input data (defaults to `output` if not specified).
+- **data**: The type of the input data. This defines the shape of the data that the class will manage. **Note**: When a `create` function is provided generic **MUST NOT** be provided, the types are inferred from the function itself.
+
 - **params**: Configuration options for initialization.
-  - **create**: Function to transform input to output.
-  - **asAccessor**: Array of keys to be defined as accessors.
+  - **create**: A function that transforms input data. This is useful for processing or validating input before it is used to initialize the class.
+  - **asAccessor**: An array of keys that should be defined as accessors (getters and setters). This is useful for controlling access to certain properties, such as hiding sensitive information from logs.
 
-Returns a class constructor that creates instances of type `output` from input of type `input`.
+**Example Usage:**
+
+```typescript
+type data = {
+  valueString: string;
+  valueNumber: number;
+  valueBoolean: boolean;
+};
+
+// Basic initialization with type-safe properties
+class Example extends Strukt.init<data>() {}
+const instance = new Example({
+  valueString: '1',
+  valueNumber: 1,
+  valueBoolean: true,
+});
+console.log(instance);
+
+// Initialization with a custom create function
+class ExampleWithCreate extends Strukt.init<data>({
+  create: (input) => ({ ...input, valueNumber: input.valueNumber + 1 }),
+}) {}
+const instanceWithCreate = new ExampleWithCreate({
+  valueString: '1',
+  valueNumber: 1,
+  valueBoolean: true,
+});
+console.log(instanceWithCreate);
+
+// Using accessors to protect sensitive data
+class ExampleWithAccessors extends Strukt.init<data>({
+  asAccessor: ['apiKey'],
+}) {}
+const instanceWithAccessors = new ExampleWithAccessors({
+  someKey: 'someValue',
+  apiKey: '1234567890',
+});
+console.log(instanceWithAccessors); // { someKey: 'someValue', apiKey: [Getter/Setter] }
+```
+
+The `init` function is designed to be flexible and powerful, allowing you to define complex data structures with ease. By leveraging TypeScript's type system, it ensures that your data is always type-safe and consistent.
 
 ### Error Module
 
+The Error Module in `@ayka/domistrukt` provides a robust framework for creating and managing errors with both static and dynamic messages. This module allows you to define error classes with customizable messages and data transformation capabilities.
+
 #### `staticError(params?: staticErrorConfig): staticErrorClass`
 
-Creates a static error class with a predefined message.
+Creates a static error class with a predefined message. This is useful for errors that have a consistent message across all instances.
 
-- **params.message**: Static message or function to generate it.
+- **params.message**: A static message or a function to generate the message. If a function is provided, it will be called without arguments to generate the message.
 
 Returns a new error class extending `StruktErrorBase`.
 
-#### `init<output, input = output>(params?: config<input, output>): errorClass<input, output>`
+**Example Usage:**
 
-Creates a custom error class with dynamic message generation.
+```typescript
+// Static error with a predefined message
+class MyStaticError extends Strukt.staticError({
+  message: 'A static error occurred',
+}) {}
 
-- **output**: The type of the error data after processing.
-- **input**: The type of the input data for the error.
-- **params.message**: Message or function to generate it.
-- **params.create**: Function to transform input to output data.
+throw new MyStaticError({ additionalInfo: 'Some context' });
+// Output: Error with message "A static error occurred" and meta { additionalInfo: 'Some context' }
+```
+
+#### `error(params?: config)`
+
+Creates a custom error class with dynamic message generation and optional data transformation. This is ideal for errors that need to convey specific information based on input data.
+
+- **params.message**: A message or function to generate it. The function can use the processed data to create a detailed message.
+- **params.create**: A function to transform input data into output data. This allows for preprocessing of input data before it is used in the error message.
 
 Returns a custom error class with the specified configuration.
 
