@@ -2,9 +2,10 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
 [![NPM License](https://img.shields.io/npm/l/%40ayka%2Fdomistrukt)](https://opensource.org/license/MIT)
+[![NPM Downloads](https://img.shields.io/npm/dm/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
+
 [![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40ayka%2Fdomistrukt)](https://bundlejs.com/?q=%40ayka%2Fdomistrukt)
 [![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
-[![NPM Downloads](https://img.shields.io/npm/dm/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
 
 [![Tests and Code Quality](https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg)](https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml)
 [![CodeQL](https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql)

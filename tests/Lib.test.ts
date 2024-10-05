@@ -221,3 +221,18 @@ test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
 		expect(Object.keys(jsonParsed)).toEqual(['a', 'b', 'c']);
 	});
 });
+
+test.group('Strukt.Lib - misc', () => {
+	test('`klass` creates a class', ({ expect, expectTypeOf }) => {
+		type t = {
+			a: string;
+			b: number;
+		};
+
+		class A extends Lib.klass<t>() {}
+
+		const instance = new A();
+		expect(instance).toBeInstanceOf(A);
+		expectTypeOf(instance).toEqualTypeOf<t>();
+	});
+});
