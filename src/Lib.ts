@@ -1,4 +1,7 @@
 import type * as T from './Types/Types.d.ts';
+
+export const klass = <t>(): T.klass<[], t> => class {} as any;
+
 /**
  * Selects specified keys from a target object in a type-safe manner.
  *

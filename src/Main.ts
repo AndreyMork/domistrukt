@@ -1,4 +1,5 @@
 export {
+	klass,
 	selectKeys,
 	createInitFn,
 	createCloneFn,
@@ -16,8 +17,6 @@ export * as Err from './Error.ts';
 
 export type * as Types from './Types/Types.d.ts';
 export type {
-	klass,
-	klass1,
 	classInputType,
 	classInputType1,
 	classInputTypeN,
