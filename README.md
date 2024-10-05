@@ -1,7 +1,8 @@
 # @ayka/domistrukt
 
 [![NPM Version](https://img.shields.io/npm/v/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
-[![NPM License](https://img.shields.io/npm/l/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
+[![NPM License](https://img.shields.io/npm/l/%40ayka%2Fdomistrukt)](https://opensource.org/license/MIT)
+[![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40ayka%2Fdomistrukt)](https://bundlejs.com/?q=%40ayka%2Fdomistrukt)
 [![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
 [![NPM Downloads](https://img.shields.io/npm/dm/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
 
