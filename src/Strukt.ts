@@ -7,27 +7,15 @@ import type * as T from './Types/Types.d.ts';
  * @template input - The type of the input data.
  * @template output - The type of the resulting instance.
  *
+ * @property {T.createFn<input, output>} [create] - Function to transform input to output.
  * @property {(keyof output)[]} [asAccessor] - Array of keys to be defined as accessors.
- * @property {boolean} [checkPrototype] - Whether to check the prototype chain for existing properties.
  */
-export type opts<data> = {
-	asAccessor?: (keyof data)[];
+
+export type config<input, output> = {
+	create?: T.createFn<input, output>;
+	asAccessor?: (keyof output)[];
 	checkPrototype?: boolean;
 };
-
-/**
- * Configuration options for creating a structured class.
- *
- * @template input - The type of the input data.
- * @template output - The type of the resulting instance.
- *
- * @property {T.createFn<input, output>} create - Function to transform input to output.
- * @property {(keyof output)[]} [asAccessor] - Array of keys to be defined as accessors.
- * @property {boolean} [checkPrototype] - Whether to check the prototype chain for existing properties.
- */
-export type config<input, output> = {
-	create: T.createFn<input, output>;
-} & opts<output>;
 
 export type struktClass<input, output> = [input] extends [
 	Exclude<input, undefined>,
@@ -39,58 +27,88 @@ export type struktClass<input, output> = [input] extends [
 			new (input?: input): output;
 		};
 
+export type configWithoutHandler<input, output> = Omit<
+	config<input, output>,
+	'create'
+>;
+export type configWithHandler<input, output> = configWithoutHandler<
+	input,
+	output
+> & {
+	create: T.createFn<input, output>;
+};
+
 const idHandler = <t>(x: t): t => x;
+
+/**
+ * Initializes a structured class with the specified configuration.
+ *
+ * @template output - The type of the resulting instance.
+ * @template input - The type of the input data (defaults to `output` if not specified).
+ *
+ * @param {config<input, output>} [params] - Configuration options for initialization.
+ * @param {T.createFn<input, output>} [params.create] - Function to transform input to output.
+ * @param {(keyof output)[]} [params.asAccessor] - Array of keys to be defined as accessors.
+ *
+ * @returns {struktClass<input, output>} - A class constructor that creates instances of type `output` from input of type `input`.
+ *
+ * @warning Extra properties in the input are not stripped and will be included in the resulting instance.
+ *
+ * @example
+ * // Example 1: Basic usage
+ * type data = {
+ *   valueString: string;
+ *   valueNumber: number;
+ *   valueBoolean: boolean;
+ * };
+ *
+ * class TestClass extends Strukt.init<data>() {}
+ * const instance = new TestClass({
+ *   valueString: '1',
+ *   valueNumber: 1,
+ *   valueBoolean: true,
+ * });
+ * console.log(instance);
+ *
+ * @example
+ * // Example 2: Using custom create function
+ * class TestClassWithCreate extends Strukt.init<data>({
+ *   create: (input) => ({ ...input, valueNumber: input.valueNumber + 1 }),
+ * }) {}
+ * const instanceWithCreate = new TestClassWithCreate({
+ *   valueString: '1',
+ *   valueNumber: 1,
+ *   valueBoolean: true,
+ * });
+ * console.log(instanceWithCreate);
+ *
+ * @example
+ * // Example 3: Different input and output types
+ * class TestClassDifferentTypes extends Strukt.init({
+ *   create: (input: number): data => ({
+ *     valueNumber: input,
+ *     valueString: '1',
+ *     valueBoolean: true,
+ *   }),
+ * }) {}
+ * const instanceDifferentTypes = new TestClassDifferentTypes(1);
+ * console.log(instanceDifferentTypes);
+ */
+
 const defaults = {
 	checkPrototype: false,
 };
 
-/**
- * Initializes a structured class with the specified configuration.
- *
- * @template data - The type of the input and output data.
- * @param {opts<data>} [params] - Configuration options for initialization.
- * @returns {struktClass<data, data>} - A class constructor that creates instances of type `data`.
- *
- * @example
- * // Basic usage with default configuration
- * type data = { value: string };
- * class MyClass extends Strukt.init<data>() {}
- * const instance = new MyClass({ value: 'example' });
- * console.log(instance.value); // Output: 'example'
- */
-export function init<data>(params?: opts<data>): struktClass<data, data>;
+export function init<output>(
+	params?: configWithoutHandler<output, output>,
+): struktClass<output, output>;
+export function init<output, input = output>(
+	params: configWithHandler<input, output>,
+): struktClass<input, output>;
 
-/**
- * Initializes a structured class with the specified configuration.
- *
- * @template createFn - The type of the create function.
- * @template input - The type of the input data.
- * @template output - The type of the resulting instance.
- * @param {config<input, output>} params - Configuration options for initialization.
- * @returns {struktClass<input, output>} - A class constructor that creates instances of type `output` from input of type `input`.
- *
- * @example
- * // Using a custom create function to transform input
- * // Note: Specify types directly in the create function, not as generics on init.
- * type input = { value: number };
- * type output = { value: string };
- * class MyClass extends Strukt.init({
- *   create: (input: input): output => ({ value: input.value.toString() }),
- * }) {}
- * const instance = new MyClass({ value: 123 });
- * console.log(instance.value); // Output: '123'
- */
-export function init<
-	createFn extends T.createFn<undefined, unknown>,
-	input = T.createInput<createFn>,
-	output = T.createOutput<createFn>,
->(params: config<input, output>): struktClass<input, output>;
-
-export function init<
-	createFn extends T.createFn<undefined, unknown>,
-	input = T.createInput<createFn>,
-	output = T.createOutput<createFn>,
->(params?: Partial<config<input, output>>): struktClass<input, output> {
+export function init<output, input>(
+	params?: config<input, output>,
+): struktClass<input, output> {
 	const createFn = params?.create ?? (idHandler as T.createFn<input, output>);
 	const { checkPrototype = defaults.checkPrototype } = params ?? {};
 
