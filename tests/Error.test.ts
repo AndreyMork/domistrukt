@@ -61,6 +61,15 @@ test.group('Strukt.StaticError', () => {
 		expect(error1.message).not.toBe(error2.message);
 	});
 
+	test('should override message function with message argument', ({
+		expect,
+	}) => {
+		const messageFn = () => `Error: ${Math.random()}`;
+		class MyError extends Strukt.staticError({ message: messageFn }) {}
+		const error = new MyError('Overridden message');
+		expect(error).toHaveProperty('message', 'Overridden message');
+	});
+
 	test('should have correct types', ({ expectTypeOf }) => {
 		class MyError extends Strukt.staticError() {}
 		const error = new MyError();
@@ -69,7 +78,7 @@ test.group('Strukt.StaticError', () => {
 		expectTypeOf(error.meta).toBeObject();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[meta?: Strukt.Err.errorMeta] | []
+			[] | [message: string, meta?: Strukt.Err.errorMeta | undefined]
 		>();
 	});
 });

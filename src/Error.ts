@@ -36,6 +36,7 @@ export type staticErrorInstance = StruktErrorBase;
 
 export type staticErrorClass = {
 	new (meta?: errorMeta): staticErrorInstance;
+	new (message: string, meta?: errorMeta): staticErrorInstance;
 };
 
 /**
@@ -57,24 +58,34 @@ export type staticErrorConfig = {
  * Creates a static error class with a predefined message.
  *
  * @param {staticErrorConfig} [params] - Configuration for the static error.
- * @param {messageParam<undefined>} [params.message] - The error message or a function to generate it.
  * @returns {staticErrorClass} A new error class with the specified behavior.
  *
  * @example
- * class MyCustomError extends StaticError({ message: 'A static error occurred' }) {}
- * throw new MyCustomError({ additionalInfo: 'Some context' });
+ * // Example 1: Using a static string message
+ * class MyStaticError extends staticError({ message: 'A static error occurred' }) {}
+ * throw new MyStaticError({ additionalInfo: 'Some context' });
+ * // Output: Error with message "A static error occurred" and meta { additionalInfo: 'Some context' }
  *
  * @example
- * class MyCustomError extends StaticError({ message: () => `Error at ${new Date().toISOString()}` }) {}
- * throw new MyCustomError();
+ * // Example 2: Using a function to generate a message
+ * class MyGeneratedError extends staticError({ message: () => `Error at ${new Date().toISOString()}` }) {}
+ * throw new MyGeneratedError();
+ * // Output: Error with a message generated at runtime, e.g., "Error at 2023-10-05T14:48:00.000Z"
+ *
+ * @example
+ * // Example 3: Overriding the message with meta.message
+ * class MyOverriddenError extends staticError({ message: 'Default message' }) {}
+ * throw new MyOverriddenError('Overridden message', { additionalInfo: 'Some context' });
+ * // Output: Error with message "Overridden message" and meta { additionalInfo: 'Some context' }
  */
-
 export const staticError = (params?: staticErrorConfig): staticErrorClass => {
 	const messageFn = makeMessageFn(params?.message ?? '');
 
 	class StaticStruktError extends StruktErrorBase {
-		constructor(meta?: errorMeta) {
-			super(messageFn, meta);
+		constructor(param1?: string | errorMeta, param2?: errorMeta) {
+			const meta = typeof param1 === 'string' ? param2 : param1;
+			const message = typeof param1 === 'string' ? () => param1 : messageFn;
+			super(message, meta);
 		}
 	}
 

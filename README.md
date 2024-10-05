@@ -12,8 +12,6 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage)](https://codeclimate.com/github/AndreyMork/domistrukt/test_coverage)
 [![Mutation testing badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Fdomistrukt%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/domistrukt/main)
 
-<!-- ![npms.io](https://img.shields.io/npms-io/final-score/%40ayka%2Fdomistrukt) -->
-
 ## Overview
 
 `@ayka/domistrukt` is a lightweight TypeScript library that simplifies the creation of structured data objects. It offers a type-safe and flexible API for defining and initializing classes with custom properties and behaviors, making it easier to manage complex data structures in TypeScript projects.
@@ -27,20 +25,22 @@
 - **Flexible Configuration**: Offers various configuration options to suit different needs.
 - **Helper Functions**: Includes utilities for key selection, initializer creation, cloning, and property redefinition.
 
-### Error Handling
-
-The library also includes robust error handling features:
-
-- **Custom Error Classes**: Create error classes with additional properties.
-- **Type-safe Error Creation**: Define errors with custom input types.
-- **Formatted Error Messages**: Define and format error messages based on input parameters.
-
 ## Table of Contents
 
 - [Overview](#overview)
+  - [Key Features](#key-features)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+  - [Basic Usage](#basic-usage)
+  - [Custom Create Function](#custom-create-function)
+  - [Handling Different Input and Output Types](#handling-different-input-and-output-types)
+  - [Handling Undefined Input](#handling-undefined-input)
+  - [Creating Accessors for Properties](#creating-accessors-for-properties)
+  - [Error Handling](#error-handling)
+    - [Static Error Classes](#static-error-classes)
+    - [Dynamic Error Classes](#dynamic-error-classes)
+    - [Error Class with Input Transformation](#error-class-with-input-transformation)
 - [API Reference](#api-reference)
   - [Strukt Module](#strukt-module)
   - [Error Module](#error-module)
@@ -109,7 +109,7 @@ const instanceWithCreate = new ExampleWithCreate({
 console.log(instanceWithCreate);
 ```
 
-### Different Input and Output Types
+### Handling Different Input and Output Types
 
 ```typescript
 class ExampleDifferentTypes extends Strukt.init<data, number>({
@@ -137,36 +137,93 @@ const instanceUndefinedInput = new ExampleUndefinedInput();
 console.log(instanceUndefinedInput);
 ```
 
-### Creating Accessors
+### Creating Accessors for Properties
+
+This feature is useful for hiding values from logging. By defining certain properties as accessors, which can help in preventing sensitive information from being exposed in logs.
 
 ```typescript
 class ExampleWithAccessors extends Strukt.init<data>({
-  asAccessor: ['valueNumber'],
+  asAccessor: ['apiKey'],
 }) {}
+
 const instanceWithAccessors = new ExampleWithAccessors({
-  valueString: '1',
-  valueNumber: 1,
-  valueBoolean: true,
+  someKey: 'someValue',
+  apiKey: '1234567890',
 });
-console.log(instanceWithAccessors.valueNumber);
+
+console.log(instanceWithAccessors); // { someKey: 'someValue', apiKey: [Getter/Setter] }
 ```
 
-### Static Error Usage
+### Error Handling
+
+The `@ayka/domistrukt` library provides robust error handling capabilities, allowing you to define both static and dynamic error classes. This section will guide you through creating and using these error classes effectively.
+
+#### Static Error Classes
+
+Static error classes in `@ayka/domistrukt` provide a way to define errors with consistent messages across all instances. These messages can be predefined and optionally overridden when needed.
+
+##### Importing the Module
+
+To use static error classes, first import the necessary module:
 
 ```typescript
-class StaticErrorExample extends Strukt.staticError({
-  message: 'This is a static error message',
+import * as Strukt from '@ayka/domistrukt';
+```
+
+##### Example 1: Static Error with Default Message
+
+Create a static error class with a default message. This message will be used for all instances unless overridden.
+
+```typescript
+class MyStaticError extends Strukt.staticError({
+  message: 'A static error occurred',
 }) {}
-try {
-  throw new StaticErrorExample();
-} catch (error) {
-  console.error(error.message); // Output: This is a static error message
-}
+
+// Usage
+throw new MyStaticError({ additionalInfo: 'Some context' });
+// Output: Error with message "A static error occurred" and meta { additionalInfo: 'Some context' }
 ```
 
-### Custom Error with Dynamic Message
+##### Example 2: Overriding the Default Message
+
+You can override the default message when throwing the error, providing more context-specific information.
 
 ```typescript
+class MyOverriddenError extends Strukt.staticError({
+  message: 'Default message',
+}) {}
+
+// Usage
+throw new MyOverriddenError('Overridden message', {
+  additionalInfo: 'Some context',
+});
+// Output: Error with message "Overridden message" and meta { additionalInfo: 'Some context' }
+```
+
+##### Example 3: Overriding Message in Constructor Parameter
+
+You can also override the message directly in the constructor parameter, similar to the standard `Error` class.
+
+```typescript
+class MyError extends Strukt.staticError({
+  message: 'Default message',
+}) {}
+
+// Usage
+const errorInstance = new MyError('Custom message', {
+  additionalInfo: 'Some context',
+});
+throw errorInstance;
+// Output: Error with message "Custom message" and meta { additionalInfo: 'Some context' }
+```
+
+#### Dynamic Error Classes
+
+Dynamic error classes allow you to define error messages based on input data, making them ideal for conveying specific information about the context in which they occurred.
+
+```typescript
+import * as Strukt from '@ayka/domistrukt';
+
 type errorData = {
   errorCode: number;
   errorMessage: string;
@@ -175,6 +232,7 @@ type errorData = {
 class CustomErrorExample extends Strukt.error<errorData>({
   message: (data) => `Error ${data.errorCode}: ${data.errorMessage}`,
 }) {}
+
 try {
   throw new CustomErrorExample({ errorCode: 404, errorMessage: 'Not Found' });
 } catch (error) {
@@ -183,83 +241,33 @@ try {
 }
 ```
 
-### Custom Error with Transformation
+#### Error Class with Input Transformation
 
-```typescript
-type errorInput = {
-  errorCode: number;
-};
-
-type errorData = {
-  errorCode: number;
-  timestamp: Date;
-};
-
-class CustomErrorWithTransformation extends Strukt.error({
-  create: (data: errorData) => ({
-    errorCode: data.errorCode,
-    timestamp: Date.now(),
-  }),
-}) {}
-
-const instanceCustomErrorWithTransformation = new CustomErrorWithTransformation(
-  {
-    errorCode: 404,
-  },
-);
-console.log(instanceCustomErrorWithTransformation);
-console.log(instanceCustomErrorWithTransformation.data.errorCode); // 404
-```
-
-### Custom Error with Metadata, Cause, and Message Override
+You can define error classes that transform input data before using it to generate error messages. This is useful when the error message needs to be derived from processed data.
 
 ```typescript
 import * as Strukt from '@ayka/domistrukt';
 
-// Example demonstrating metadata, cause, and message override.
-class CustomErrorWithMeta extends Strukt.staticError({
-  message: 'Default static error message',
-}) {}
-
-try {
-  const causeError = new Error('Original cause of the error');
-  throw new CustomErrorWithMeta({
-    message: 'Overridden error message',
-    cause: causeError,
-    additionalInfo: 'Some additional context',
-  });
-} catch (error) {
-  console.error(error.message); // Output: Overridden error message
-  console.error(error.meta); // Output: { additionalInfo: 'Some additional context' }
-  console.error(error.cause); // Output: Error: Original cause of the error
-}
-
-// Example with dynamic error class
-type errorData = {
-  errorCode: number;
-  errorMessage: string;
+type input = { value: number };
+type output = {
+  value: number;
+  isEven: boolean;
 };
 
-class DynamicErrorWithMeta extends Strukt.error<errorData>({
-  message: (data) => `Error ${data.errorCode}: ${data.errorMessage}`,
+class MyError extends Strukt.error<output, input>({
+  create: (input: input): output => ({
+    value: input.value,
+    isEven: input.value % 2 === 0,
+  }),
+  message: (output: output) =>
+    `${output.value} is ${output.isEven ? 'even' : 'odd'}`,
 }) {}
 
-try {
-  const causeError = new Error('Original cause of the error');
-  throw new DynamicErrorWithMeta(
-    { errorCode: 500, errorMessage: 'Internal Server Error' },
-    {
-      message: 'Overridden dynamic error message',
-      cause: causeError,
-      additionalInfo: 'Some additional context',
-    },
-  );
-} catch (error) {
-  console.error(error.message); // Output: Overridden dynamic error message
-  console.error(error.data); // Output: { errorCode: 500, errorMessage: 'Internal Server Error' }
-  console.error(error.meta); // Output: { additionalInfo: 'Some additional context' }
-  console.error(error.cause); // Output: Error: Original cause of the error
-}
+const inputData = { value: 42 };
+const error = new MyError(inputData);
+
+console.log(error.message); // Output: "42 is even"
+console.log(error.data); // Output: { value: 42, isEven: true }
 ```
 
 ## API Reference
