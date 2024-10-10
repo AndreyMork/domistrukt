@@ -105,14 +105,6 @@ format-justfile:
 format-utils: format-justfile
 
 [group('Maintenance')]
-check-deps-versions:
-    @ if [ {{ ci }} = "true" ]; then \
-        npx ncu --errorLevel=2; \
-    else \
-        npx ncu; \
-    fi
-
-[group('Maintenance')]
 update-deps:
     npx ncu
 

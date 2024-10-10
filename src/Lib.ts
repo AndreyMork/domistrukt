@@ -183,3 +183,57 @@ export const redefinePropsAsAccessors = <t, key extends keyof t>(
 
 	return target;
 };
+
+export type lazyOpts = {
+	useValue?: boolean;
+	configurable?: boolean;
+	enumerable?: boolean;
+	writable?: boolean;
+};
+
+export const lazy = (opts?: lazyOpts) => {
+	const {
+		useValue = true,
+		configurable = true,
+		writable = true,
+		enumerable = useValue,
+	} = opts ?? {};
+
+	return (
+		_target: any,
+		propertyKey: PropertyKey,
+		descriptor: PropertyDescriptor,
+	) => {
+		if (descriptor.get == null) {
+			return;
+		}
+
+		const fn = descriptor.get;
+
+		descriptor.get = function lazy() {
+			let value = fn.call(this);
+
+			const property = useValue
+				? {
+						value,
+						writable,
+						enumerable,
+						configurable,
+					}
+				: {
+						get() {
+							return value;
+						},
+						set(newValue: any) {
+							value = newValue;
+						},
+						configurable,
+						enumerable,
+					};
+
+			Object.defineProperty(this, propertyKey, property);
+
+			return value;
+		};
+	};
+};
