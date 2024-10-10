@@ -3,6 +3,7 @@ export {
 	selectKeys,
 	createInitFn,
 	createCloneFn,
+	createUpdateFn,
 	redefinePropsAsAccessors,
 } from './Lib.ts';
 export * as Lib from './Lib.ts';
