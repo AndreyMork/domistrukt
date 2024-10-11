@@ -17,6 +17,9 @@ export { init as error, staticError } from './Error.ts';
 export type { config as errorConfig, messageFn } from './Error.ts';
 export * as Err from './Error.ts';
 
+export { toFlatObject, copy, flatObject, isTrueObject } from './FlatObject.ts';
+export * as FlatObject from './FlatObject.ts';
+
 export type * as Types from './Types/Types.d.ts';
 export type {
 	classInputType,
