@@ -1,3 +1,5 @@
+ship-delete-tracking-branch = true
+
 [branches]
 main = "develop"
 perennials = ["main", "next"]
