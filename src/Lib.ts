@@ -57,11 +57,11 @@ export const selectKeys = <t, key extends keyof t = keyof t>(
  *   constructor(public name: string, public age: number) {}
  * }
  *
- * const initPerson = createInitFn(Person);
+ * const initPerson = makeConstructor(Person);
  * const john = initPerson('John', 30);
  * console.log(john); // Person { name: 'John', age: 30 }
  */
-export const createInitFn =
+export const makeConstructor =
 	<k extends T.klass>(klass: k) =>
 	(...params: ConstructorParameters<k>): InstanceType<k> =>
 		Reflect.construct(klass, params);

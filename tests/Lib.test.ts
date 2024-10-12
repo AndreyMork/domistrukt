@@ -39,7 +39,7 @@ test.group('Strukt/Lib: `selectKeys`', () => {
 	});
 });
 
-test.group('Strukt/Lib: `createInitFn`', () => {
+test.group('Strukt/Lib: `makeConstructor`', () => {
 	class Person {
 		constructor(
 			readonly name: string,
@@ -50,7 +50,7 @@ test.group('Strukt/Lib: `createInitFn`', () => {
 	test('creates a function that initializes an instance of a given class', ({
 		expect,
 	}) => {
-		const initPerson = Lib.createInitFn(Person);
+		const initPerson = Lib.makeConstructor(Person);
 		const john = initPerson('John', 30);
 		expect(john).toBeInstanceOf(Person);
 		expect(john.name).toBe('John');
@@ -60,7 +60,7 @@ test.group('Strukt/Lib: `createInitFn`', () => {
 	test('infers type correctly for function and return value', ({
 		expectTypeOf,
 	}) => {
-		const initPerson = Lib.createInitFn(Person);
+		const initPerson = Lib.makeConstructor(Person);
 		const john = initPerson('John', 30);
 		expectTypeOf(initPerson).returns.toEqualTypeOf<Person>();
 		expectTypeOf(Person).constructorParameters.toEqualTypeOf<

@@ -7,7 +7,7 @@ export type { params } from './Strukt.ts';
 
 export * as Error from './Error.ts';
 export { init as error, staticError } from './Error.ts';
-export type { config as errorConfig, messageFn } from './Error.ts';
+export type { params as errorParams } from './Error.ts';
 
 export * as Errors from './Errors.ts';
 

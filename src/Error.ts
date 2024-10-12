@@ -1,27 +1,22 @@
 import type * as T from './Types/Types.d.ts';
 
+/**
+ * Represents metadata for an error, including optional message and cause.
+ */
 export type errorMeta = Record<string, any> & { message?: string; cause?: any };
 
-type createFn<input, output> = (input: input) => output;
-
-export type messageFn<t> = t extends undefined
-	? () => string
-	: (opts: Readonly<t>) => string;
-export type messageParam<t> = string | messageFn<t>;
-
-export const makeMessageFn = <t>(message: messageParam<t>): messageFn<t> =>
-	typeof message === 'function'
-		? message
-		: (((): string => message) as messageFn<t>);
-
+/**
+ * Base class for structured errors with metadata.
+ */
 export class StruktErrorBase extends Error {
 	override message: string;
 	readonly meta: errorMeta;
 
-	constructor(messageFn: messageFn<undefined>, metaInput?: errorMeta) {
+	constructor(msg: string, metaInput?: errorMeta) {
 		const meta = { ...metaInput };
 
-		const message = meta.message ?? messageFn();
+		const message = meta.message ?? msg;
+
 		super(message, meta.cause == null ? undefined : { cause: meta.cause });
 		this.message = message;
 		this.name = this.constructor.name;
@@ -42,51 +37,36 @@ export type staticErrorClass = {
 };
 
 /**
- * Configuration for creating a static error class.
- *
- * @property {messageParam<undefined>} [message] - Function or string for error message.
- *   String: static message for all instances.
- *   Function: called without args to generate message.
- *   If omitted: empty string as default.
- *   Note: `meta.message` overrides this if provided during instantiation.
- *
- * Used with `staticError` function to create custom error classes with predefined messages.
+ * Parameters for creating a static error.
  */
-export type staticErrorConfig = {
-	message?: messageParam<undefined>;
+export type staticParams = {
+	message?: string;
 };
 
 /**
- * Creates a static error class with a predefined message.
- *
- * @param {staticErrorConfig} [params] - Configuration for the static error.
- * @returns {staticErrorClass} A new error class with the specified behavior.
- *
+ * Creates a static error class with optional parameters.
+ * @param params - Optional parameters for the static error.
+ * @returns A class for creating static error instances.
  * @example
- * // Example 1: Using a static string message
- * class MyStaticError extends staticError({ message: 'A static error occurred' }) {}
- * throw new MyStaticError({ additionalInfo: 'Some context' });
- * // Output: Error with message "A static error occurred" and meta { additionalInfo: 'Some context' }
+ * // Create a static error class with a default message
+ * class MyError extends staticError({ message: 'Default error message' }) {}
  *
- * @example
- * // Example 2: Using a function to generate a message
- * class MyGeneratedError extends staticError({ message: () => `Error at ${new Date().toISOString()}` }) {}
- * throw new MyGeneratedError();
- * // Output: Error with a message generated at runtime, e.g., "Error at 2023-10-05T14:48:00.000Z"
+ * // Create an instance of the error with a specific message
+ * const errorInstance = new MyError('Specific error message');
+ * console.log(errorInstance.message); // Output: 'Specific error message'
  *
- * @example
- * // Example 3: Overriding the message with meta.message
- * class MyOverriddenError extends staticError({ message: 'Default message' }) {}
- * throw new MyOverriddenError('Overridden message', { additionalInfo: 'Some context' });
- * // Output: Error with message "Overridden message" and meta { additionalInfo: 'Some context' }
+ * // Create an instance with metadata
+ * const meta = { annotation: 'test' };
+ * const errorWithMeta = new MyError(meta);
+ * console.log(errorWithMeta.meta); // Output: { annotation: 'test' }
  */
-export const staticError = (params?: staticErrorConfig): staticErrorClass => {
-	const messageFn = makeMessageFn(params?.message ?? '');
+export const staticError = (params?: staticParams): staticErrorClass => {
+	const msg = params?.message ?? '';
 
 	class StaticStruktError extends StruktErrorBase {
 		constructor(param1?: string | errorMeta, param2?: errorMeta) {
 			const meta = typeof param1 === 'string' ? param2 : param1;
-			const message = typeof param1 === 'string' ? () => param1 : messageFn;
+			const message = typeof param1 === 'string' ? param1 : msg;
 			super(message, meta);
 		}
 	}
@@ -94,126 +74,88 @@ export const staticError = (params?: staticErrorConfig): staticErrorClass => {
 	return StaticStruktError as staticErrorClass;
 };
 
+/**
+ * Represents an instance of an error with data.
+ */
 export type errorInstance<t> = staticErrorInstance & {
 	data: t;
 };
 
-export type errorClass<input, output> = [input] extends [
-	Exclude<input, undefined>,
-]
-	? {
-			new (data: input, meta?: errorMeta): errorInstance<output>;
-		}
-	: {
-			new (data?: input, meta?: errorMeta): errorInstance<output>;
-		};
+export type errorClass<constructor extends anyErrConstructor> =
+	T.fnParam1<constructor> extends Exclude<T.fnParam1<constructor>, undefined>
+		? {
+				new (
+					args: T.fnParam1<constructor>,
+					meta?: errorMeta,
+				): errorInstance<constructorData<constructor>>;
+			}
+		: {
+				new (
+					args?: T.fnParam1<constructor>,
+					meta?: errorMeta,
+				): errorInstance<constructorData<constructor>>;
+			};
 
 /**
- * Configuration for creating a dynamic error class.
- *
- * @template output - The type of the error data.
- * @template input - The type of the input data for the error.
- * @property {messageParam<output>} [message] - Function or string for error message.
- *   String: static message for all instances.
- *   Function: called with error data to generate message.
- *   If omitted: empty string as default.
- *   Note: `meta.message` overrides this if provided during instantiation.
- * @property {create<input, output>} [create] - Function to transform input to output data.
- *   If omitted, input is used as output without transformation.
- *
- * Used with `init` function to create custom error classes with dynamic messages.
+ * Extracts the data type from a constructor function.
  */
-export type config<input, output> = {
-	message?: messageParam<output>;
-	create?: createFn<input, output>;
-};
-
-export type configWithoutHandler<input, output> = Omit<
-	config<input, output>,
-	'create'
->;
-export type configWithHandler<input, output> = configWithoutHandler<
-	input,
-	output
-> & {
-	create: createFn<input, output>;
-};
-
-export const idHandler = <t>(x: t): t => x;
+export type constructorData<fn extends anyErrConstructor> =
+	ReturnType<fn>['data'];
 
 /**
- * Initializes and returns a custom error class.
- *
- * @template output - The type of the error data after processing.
- * @template input - The type of the input data for the error.
- * @param {config<output, input>} [params] - Configuration options for the error class.
- * @param {messageParam<output>} [params.message] - Function or string for error message.
- * @param {create<input, output>} [params.create] - Function to transform input to output data.
- * @returns {errorClass<output, input>} A custom error class with the specified configuration.
- *
- * @description
- * This function creates a custom error class based on the provided configuration.
- * It can be called with or without a handler function (create) to transform the input.
- * The resulting error class will have a constructor that accepts input data and an optional metadata object.
- *
- * @example
- * // Creating a simple error class without input transformation
- * const SimpleError = init<string>({
- *   message: (data) => `Simple error occurred: ${data}`
- * });
- *
- * const error = new SimpleError("Something went wrong");
- * console.log(error.message); // Output: "Simple error occurred: Something went wrong"
- *
- * @example
- * // Creating an error class with input transformation
- * type inputData = {
- *   code: number;
- *   details: string;
- * };
- *
- * type outputData = {
- *   errorCode: number;
- *   errorDetails: string;
- *   timestamp: Date;
- * };
- *
- * class ComplexError extends init<outputData, inputData>({
- *   message: (data) => `Error ${data.errorCode}: ${data.errorDetails}`,
- *   create: (input) => ({
- *     errorCode: input.code,
- *     errorDetails: input.details,
- *     timestamp: new Date()
- *   })
- * });
- *
- * const complexError = new ComplexError({ code: 404, details: "Not Found" });
- * console.log(complexError.message); // Output: "Error 404: Not Found"
- * console.log(complexError.data); // Output: { errorCode: 404, errorDetails: "Not Found", timestamp: [Date object] }
+ * Represents a constructor function for errors.
  */
-export function init<output>(
-	params?: configWithoutHandler<output, output>,
-): errorClass<output, output>;
-export function init<output, input>(
-	params: configWithHandler<input, output>,
-): errorClass<input, output>;
+export type errConstructor<input, data> = (input: input) => {
+	data?: data;
+	message?: string;
+};
+export type anyErrConstructor = errConstructor<any, any>;
 
-export function init<output, input>(
-	params?: config<input, output>,
-): errorClass<input, output> {
-	const create = params?.create ?? (idHandler as createFn<input, output>);
-	const messageFn = makeMessageFn(params?.message ?? '');
+/**
+ * Parameters for initializing an error class.
+ */
+export type params<constructor extends anyErrConstructor> = {
+	constructor: constructor;
+};
+
+/**
+ * Initializes an error class with a given constructor.
+ * @param params - Parameters including the constructor function.
+ * @returns A class for creating error instances.
+ * @example
+ * // Define a constructor function for the error
+ * class MyError extends init({
+ *   constructor(input: { value: number }) {
+ *     return {
+ *       data: { value: input.value, isEven: input.value % 2 === 0 },
+ *       message: `Error with value ${input.value}`,
+ *     };
+ *   }
+ * }) {}
+ *
+ * // Create an instance of the error
+ * const errorInstance = new MyError({ value: 42 });
+ * console.log(errorInstance.message); // Output: 'Error with value 42'
+ * console.log(errorInstance.data); // Output: { value: 42, isEven: true }
+ */
+export const init = <constructor extends anyErrConstructor>(
+	params: params<constructor>,
+): errorClass<constructor> => {
+	type input = Parameters<constructor>[0];
+	type data = ReturnType<constructor>;
+
+	const constructorFn: constructor = params.constructor;
 
 	class StruktError extends StruktErrorBase {
-		readonly data: output;
+		readonly data: data;
 
 		constructor(input: input, meta?: errorMeta) {
-			const data = create(input);
+			const { data, message } = constructorFn(input);
 
-			super(() => messageFn(data), meta);
+			super(message ?? '', meta);
 			this.data = data;
 		}
 	}
 
-	return StruktError as errorClass<input, output>;
-}
+	return StruktError;
+};

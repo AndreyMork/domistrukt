@@ -41,3 +41,6 @@ export type classArgs1<t extends klass> = classArgsN<t, 0>;
  * @type {(...args: any[]) => any}
  */
 export type anyConstructor = (...args: any[]) => any;
+export type anyConstructor1 = (arg: any) => any;
+
+export type fnParam1<fn extends anyConstructor> = Parameters<fn>[0];

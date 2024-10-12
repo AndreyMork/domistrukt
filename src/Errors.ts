@@ -6,13 +6,12 @@ import * as Err from './Error.ts';
  * Error thrown when the number of arguments is incorrect for an update.
  */
 export class UpdateArgsLengthError extends Err.init({
-	create(argsLen: number) {
+	constructor(argsLen: number) {
 		return {
-			argsLen,
+			message: `Update is only for classes with one argument, but this class has ${argsLen} arguments`,
+			data: {
+				argsLen,
+			},
 		};
-	},
-
-	message(data: { argsLen: number }) {
-		return `Update is only for classes with one argument, but this class has ${data.argsLen} arguments`;
 	},
 }) {}
