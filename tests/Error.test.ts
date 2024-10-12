@@ -9,7 +9,7 @@ test.group('Strukt.StaticError', () => {
 		class MyError extends Strukt.staticError() {}
 		const error = new MyError();
 		expect(error).toBeInstanceOf(Error);
-		expect(error).toBeInstanceOf(Strukt.Err.StruktErrorBase);
+		expect(error).toBeInstanceOf(Strukt.Error.StruktErrorBase);
 	});
 
 	test('should set `meta` property correctly', ({ expect }) => {
@@ -78,7 +78,7 @@ test.group('Strukt.StaticError', () => {
 		expectTypeOf(error.meta).toBeObject();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[] | [message: string, meta?: Strukt.Err.errorMeta | undefined]
+			[] | [message: string, meta?: Strukt.Error.errorMeta | undefined]
 		>();
 	});
 });
@@ -88,7 +88,7 @@ test.group('Strukt.Error', () => {
 		class MyError extends Strukt.error<any>() {}
 		const error = new MyError({});
 		expect(error).toBeInstanceOf(Error);
-		expect(error).toBeInstanceOf(Strukt.Err.StruktErrorBase);
+		expect(error).toBeInstanceOf(Strukt.Error.StruktErrorBase);
 	});
 
 	test('should set `meta` property correctly', ({ expect }) => {
@@ -199,11 +199,11 @@ test.group('Strukt.Error', () => {
 		expectTypeOf(error.data).toEqualTypeOf<data>();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[data: data, meta?: Strukt.Err.errorMeta]
+			[data: data, meta?: Strukt.Error.errorMeta]
 		>();
 
 		expectTypeOf(MyError).constructorParameters.not.toEqualTypeOf<
-			[data?: data, meta?: Strukt.Err.errorMeta]
+			[data?: data, meta?: Strukt.Error.errorMeta]
 		>();
 	});
 
@@ -235,11 +235,11 @@ test.group('Strukt.Error', () => {
 		expectTypeOf(error.data).toEqualTypeOf<data>();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[data: input, meta?: Strukt.Err.errorMeta]
+			[data: input, meta?: Strukt.Error.errorMeta]
 		>();
 
 		expectTypeOf(MyError).constructorParameters.not.toEqualTypeOf<
-			[data: data, meta?: Strukt.Err.errorMeta]
+			[data: data, meta?: Strukt.Error.errorMeta]
 		>();
 	});
 
@@ -256,7 +256,7 @@ test.group('Strukt.Error', () => {
 		expectTypeOf(error.data).toEqualTypeOf<data>();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[data: data, meta?: Strukt.Err.errorMeta]
+			[data: data, meta?: Strukt.Error.errorMeta]
 		>();
 	});
 
@@ -277,11 +277,11 @@ test.group('Strukt.Error', () => {
 		expectTypeOf(error.data).toEqualTypeOf<data>();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[data: input, meta?: Strukt.Err.errorMeta]
+			[data: input, meta?: Strukt.Error.errorMeta]
 		>();
 
 		expectTypeOf(MyError).constructorParameters.not.toEqualTypeOf<
-			[data: data, meta?: Strukt.Err.errorMeta]
+			[data: data, meta?: Strukt.Error.errorMeta]
 		>();
 	});
 
@@ -291,7 +291,7 @@ test.group('Strukt.Error', () => {
 		expectTypeOf(error.data).toBeUndefined();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[data?: undefined, meta?: Strukt.Err.errorMeta] | []
+			[data?: undefined, meta?: Strukt.Error.errorMeta] | []
 		>();
 
 		class MyError2 extends Strukt.error<number, undefined>({
@@ -301,11 +301,11 @@ test.group('Strukt.Error', () => {
 		expectTypeOf(error2.data).toBeNumber();
 
 		expectTypeOf(MyError2).constructorParameters.toEqualTypeOf<
-			[data?: undefined, meta?: Strukt.Err.errorMeta] | []
+			[data?: undefined, meta?: Strukt.Error.errorMeta] | []
 		>();
 
 		expectTypeOf(MyError2).constructorParameters.not.toEqualTypeOf<
-			[data: number, meta?: Strukt.Err.errorMeta]
+			[data: number, meta?: Strukt.Error.errorMeta]
 		>();
 	});
 });

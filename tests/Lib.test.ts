@@ -5,7 +5,7 @@ import * as Lib from '#Src/Lib.ts';
 
 const test = Japa.test;
 
-test.group('Strukt.Lib - `selectKeys`', () => {
+test.group('Strukt/Lib: `selectKeys`', () => {
 	test('returns object with only specified keys', ({
 		expect,
 		expectTypeOf,
@@ -39,7 +39,7 @@ test.group('Strukt.Lib - `selectKeys`', () => {
 	});
 });
 
-test.group('Strukt.Lib - `createInitFn`', () => {
+test.group('Strukt/Lib: `createInitFn`', () => {
 	class Person {
 		constructor(
 			readonly name: string,
@@ -70,85 +70,10 @@ test.group('Strukt.Lib - `createInitFn`', () => {
 	});
 });
 
-test.group('Strukt.Lib - `createUpdateFn`', () => {
-	class Person {
-		name: string;
-		age: number;
-
-		constructor(params: { name: string; age: number }) {
-			this.name = params.name;
-			this.age = params.age;
-		}
-	}
-
-	test('creates a function that updates an instance of a given class', ({
-		expect,
-	}) => {
-		const updatePerson = Lib.createUpdateFn(Person);
-		const john = new Person({ name: 'John', age: 30 });
-		const updatedJohn = updatePerson(john, { age: 31 });
-		expect(john.age).toBe(30);
-		expect(updatedJohn).toBeInstanceOf(Person);
-		expect(updatedJohn.name).toBe('John');
-		expect(updatedJohn.age).toBe(31);
-		expect(updatedJohn).not.toBe(john);
-	});
-
-	test('infers type correctly for function and return value', ({
-		expectTypeOf,
-	}) => {
-		const updatePerson = Lib.createUpdateFn(Person);
-		const john = new Person({ name: 'John', age: 30 });
-		const updatedJohn = updatePerson(john, { age: 31 });
-		expectTypeOf(updatePerson).parameters.toEqualTypeOf<
-			[Person, Partial<{ name: string; age: number }>]
-		>();
-		expectTypeOf(updatePerson).returns.toEqualTypeOf<Person>();
-		expectTypeOf(updatedJohn).toEqualTypeOf<Person>();
-	});
-});
-
-test.group('Strukt.Lib - `createCloneFn`', () => {
-	class Person {
-		name: string;
-		age: number;
-
-		constructor(params: { name: string; age: number }) {
-			this.name = params.name;
-			this.age = params.age;
-		}
-	}
-
-	test('creates a function that clones an instance of a given class', ({
-		expect,
-	}) => {
-		const clonePerson = Lib.createCloneFn(Person);
-		const john = new Person({ name: 'John', age: 30 });
-		const johnClone = clonePerson(john);
-		expect(johnClone).toBeInstanceOf(Person);
-		expect(johnClone.name).toBe('John');
-		expect(johnClone.age).toBe(30);
-		expect(johnClone).not.toBe(john);
-	});
-
-	test('infers type correctly for function and return value', ({
-		expectTypeOf,
-	}) => {
-		const clonePerson = Lib.createCloneFn(Person);
-		const john = new Person({ name: 'John', age: 30 });
-		const johnClone = clonePerson(john);
-		expectTypeOf(clonePerson).returns.toEqualTypeOf<Person>();
-		expectTypeOf(Person).constructorParameters.toEqualTypeOf<
-			Parameters<typeof clonePerson>
-		>();
-		expectTypeOf(johnClone).toEqualTypeOf<Person>();
-	});
-});
-
-test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
+test.group('Strukt/Lib: `redefineAsAccessors`', () => {
 	test('redefines specified properties as accessors', ({ expect }) => {
 		const obj = { a: 1, b: 2, c: 3 };
-		const updated = Lib.redefinePropsAsAccessors(obj, ['a', 'b']);
+		const updated = Lib.redefineAsAccessors(obj, ['a', 'b']);
 
 		expect(updated).toBe(obj);
 		expect(obj).toEqual({ a: 1, b: 2, c: 3 });
@@ -172,7 +97,7 @@ test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
 
 	test('allows getting and setting redefined properties', ({ expect }) => {
 		const obj = { a: 1, b: 2, c: 3 };
-		Lib.redefinePropsAsAccessors(obj, ['a']);
+		Lib.redefineAsAccessors(obj, ['a']);
 
 		expect(obj.a).toBe(1);
 		obj.a = 10;
@@ -181,7 +106,7 @@ test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
 
 	test('mutates original object', ({ expect }) => {
 		const obj = { a: 1, b: 2, c: 3 };
-		const result = Lib.redefinePropsAsAccessors(obj, ['a', 'b']);
+		const result = Lib.redefineAsAccessors(obj, ['a', 'b']);
 
 		expect(result).toBe(obj);
 		expect(obj).toEqual({ a: 1, b: 2, c: 3 });
@@ -191,7 +116,7 @@ test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
 
 	test('preserves properties when spread', ({ expect }) => {
 		const obj = { a: 1, b: 2, c: 3 };
-		Lib.redefinePropsAsAccessors(obj, ['a', 'b']);
+		Lib.redefineAsAccessors(obj, ['a', 'b']);
 
 		const spread = { ...obj };
 
@@ -201,7 +126,7 @@ test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
 
 	test('preserves properties when Object.assign is used', ({ expect }) => {
 		const obj = { a: 1, b: 2, c: 3 };
-		Lib.redefinePropsAsAccessors(obj, ['a', 'b']);
+		Lib.redefineAsAccessors(obj, ['a', 'b']);
 
 		const assigned = Object.assign({}, obj);
 
@@ -213,7 +138,7 @@ test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
 		expect,
 	}) => {
 		const obj = { a: 1, b: 2, c: 3 };
-		Lib.redefinePropsAsAccessors(obj, ['a', 'b']);
+		Lib.redefineAsAccessors(obj, ['a', 'b']);
 
 		const jsonParsed = JSON.parse(JSON.stringify(obj));
 
@@ -222,7 +147,7 @@ test.group('Strukt.Lib - `redefinePropsAsAccessors`', () => {
 	});
 });
 
-test.group('Strukt.Lib - `lazy` decorator', () => {
+test.group('Strukt/Lib: `lazy` decorator', () => {
 	test('should lazily initialize a property', ({ expect }) => {
 		class TestClass {
 			counter = 0;
@@ -386,10 +311,8 @@ test.group('Strukt.Lib - `lazy` decorator', () => {
 		expect(descriptor).toBeUndefined();
 		expect(instance.value).toBe(42);
 	});
-});
 
-test.group('Strukt.Lib - `lazy` decorator options', () => {
-	test('should handle configurable option', ({ expect }) => {
+	test('should handle options', ({ expect }) => {
 		class TestClass {
 			@Lib.lazy({ configurable: false, enumerable: false, writable: false })
 			get computedValue() {
@@ -432,7 +355,7 @@ test.group('Strukt.Lib - `lazy` decorator options', () => {
 	});
 });
 
-test.group('Strukt.Lib - misc', () => {
+test.group('Strukt/Lib: misc', () => {
 	test('`klass` creates a class', ({ expect, expectTypeOf }) => {
 		type t = {
 			a: string;

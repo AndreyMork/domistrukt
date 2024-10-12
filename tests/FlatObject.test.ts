@@ -6,7 +6,7 @@ import * as Utils from '#Tests/Utils.ts';
 
 const test = Japa.test;
 
-test.group('FlatObject', () => {
+test.group('Strukt/FlatObject', () => {
 	test('`fromObject` should create a FlatObject from a nested object', ({
 		expect,
 	}) => {

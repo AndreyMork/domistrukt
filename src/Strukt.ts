@@ -1,138 +1,159 @@
+import * as Errors from './Errors.ts';
 import * as Lib from './Lib.ts';
 import type * as T from './Types/Types.d.ts';
 
 /**
- * Configuration options for initializing a structured class.
- *
- * @template input - The type of the input data.
- * @template output - The type of the resulting instance.
- *
- * @property {T.createFn<input, output>} [create] - Function to transform input to output.
- * @property {(keyof output)[]} [asAccessor] - Array of keys to be defined as accessors.
+ * Parameters for initializing a Strukt.
+ * @template constructor - The constructor type.
+ * @property {constructor} constructor - The constructor function.
+ * @property {(keyof ReturnType<constructor>)[]} [hidden] - Optional keys to be hidden.
  */
-
-export type config<input, output> = {
-	create?: T.createFn<input, output>;
-	asAccessor?: (keyof output)[];
-	checkPrototype?: boolean;
+export type params<constructor extends T.anyConstructor> = {
+	constructor: constructor;
+	hidden?: (keyof ReturnType<constructor>)[];
 };
-
-export type struktClass<input, output> = [input] extends [
-	Exclude<input, undefined>,
-]
-	? {
-			new (input: input): output;
-		}
-	: {
-			new (input?: input): output;
-		};
-
-export type configWithoutHandler<input, output> = Omit<
-	config<input, output>,
-	'create'
->;
-export type configWithHandler<input, output> = configWithoutHandler<
-	input,
-	output
-> & {
-	create: T.createFn<input, output>;
-};
-
-const idHandler = <t>(x: t): t => x;
 
 /**
- * Initializes a structured class with the specified configuration.
- *
- * @template output - The type of the resulting instance.
- * @template input - The type of the input data (defaults to `output` if not specified).
- *
- * @param {config<input, output>} [params] - Configuration options for initialization.
- * @param {T.createFn<input, output>} [params.create] - Function to transform input to output.
- * @param {(keyof output)[]} [params.asAccessor] - Array of keys to be defined as accessors.
- *
- * @returns {struktClass<input, output>} - A class constructor that creates instances of type `output` from input of type `input`.
- *
- * @warning Extra properties in the input are not stripped and will be included in the resulting instance.
- *
- * @example
- * // Example 1: Basic usage
- * type data = {
- *   valueString: string;
- *   valueNumber: number;
- *   valueBoolean: boolean;
- * };
- *
- * class TestClass extends Strukt.init<data>() {}
- * const instance = new TestClass({
- *   valueString: '1',
- *   valueNumber: 1,
- *   valueBoolean: true,
- * });
- * console.log(instance);
- *
- * @example
- * // Example 2: Using custom create function
- * class TestClassWithCreate extends Strukt.init<data>({
- *   create: (input) => ({ ...input, valueNumber: input.valueNumber + 1 }),
- * }) {}
- * const instanceWithCreate = new TestClassWithCreate({
- *   valueString: '1',
- *   valueNumber: 1,
- *   valueBoolean: true,
- * });
- * console.log(instanceWithCreate);
- *
- * @example
- * // Example 3: Different input and output types
- * class TestClassDifferentTypes extends Strukt.init({
- *   create: (input: number): data => ({
- *     valueNumber: input,
- *     valueString: '1',
- *     valueBoolean: true,
- *   }),
- * }) {}
- * const instanceDifferentTypes = new TestClassDifferentTypes(1);
- * console.log(instanceDifferentTypes);
+ * Base class for Strukt.
+ * @template args - The type of arguments.
  */
+export class StruktBase<args extends any[]> {
+	readonly #args: args;
 
-const defaults = {
-	checkPrototype: false,
+	constructor(...args: args) {
+		this.#args = args;
+	}
+
+	/**
+	 * Returns the arguments with which the instance was created.
+	 * @returns {args} The arguments used during instantiation.
+	 * @example
+	 * const instance = new StruktBase(1, 2, 3);
+	 * console.log(instance.$args); // Output: [1, 2, 3]
+	 */
+	get $args() {
+		return this.#args;
+	}
+
+	/**
+	 * Returns the first argument with which the instance was created.
+	 * @returns {args[0]} The first argument.
+	 * @example
+	 * const instance = new StruktBase('first', 'second');
+	 * console.log(instance.$args1); // Output: 'first'
+	 */
+	get $args1(): args[0] {
+		return this.#args[0];
+	}
+
+	/**
+	 * Selects keys from the instance.
+	 * @template keys - The keys to select.
+	 * @param {keys[]} keys - The keys to select.
+	 * @returns {Partial<this>} The selected keys.
+	 * @example
+	 * const instance = new StruktBase({ a: 1, b: 2, c: 3 });
+	 * console.log(instance.$selectKeys(['a', 'c'])); // Output: { a: 1, c: 3 }
+	 */
+	$selectKeys<keys extends keyof this>(keys: keys[]) {
+		return Lib.selectKeys(this, keys);
+	}
+
+	/**
+	 * Creates a new instance with the given arguments.
+	 * @param {...args} args - The arguments for the new instance.
+	 * @returns {this} The new instance.
+	 */
+	$create(...args: args): this {
+		// @ts-expect-error
+		return new this.constructor(...args);
+	}
+
+	/**
+	 * Clones the current instance.
+	 * @returns {this} The cloned instance.
+	 * @example
+	 * const instance = new StruktBase(1, 2, 3);
+	 * const clone = instance.$clone();
+	 * console.log(clone.$args); // Output: [1, 2, 3]
+	 */
+	$clone(): this {
+		return this.$create(...this.#args);
+	}
+
+	/**
+	 * Updates the instance with a patch.
+	 * @param {Partial<typeof this.$args1>} patch - The patch to apply.
+	 * @returns {args extends [any] ? this : never} The updated instance.
+	 * @throws {UpdateArgsLengthError} If the number of arguments is greater than one.
+	 * @example
+	 * const instance = new StruktBase({ a: 1, b: 2 });
+	 * const updated = instance.$update({ b: 3 });
+	 * console.log(updated.$args1); // Output: { a: 1, b: 3 }
+	 */
+	$update(
+		patch: Partial<typeof this.$args1>,
+	): args extends [any] ? this : never {
+		if (this.#args.length === 0) {
+			// @ts-expect-error
+			return this.$clone() as this;
+		}
+
+		if (this.#args.length > 1) {
+			throw new Errors.UpdateArgsLengthError(this.#args.length);
+		}
+
+		const args = { ...this.$args1, ...patch };
+
+		// @ts-expect-error
+		return this.$create(args);
+	}
+}
+
+export type struktClass<constructor extends T.anyConstructor> = {
+	new (
+		...params: Parameters<constructor>
+	): StruktBase<Parameters<constructor>> & ReturnType<constructor>;
 };
 
-export function init<output>(
-	params?: configWithoutHandler<output, output>,
-): struktClass<output, output>;
-export function init<output, input = output>(
-	params: configWithHandler<input, output>,
-): struktClass<input, output>;
+// export const defaults = {};
 
-export function init<output, input>(
-	params?: config<input, output>,
-): struktClass<input, output> {
-	const createFn = params?.create ?? (idHandler as T.createFn<input, output>);
-	const { checkPrototype = defaults.checkPrototype } = params ?? {};
+/**
+ * Initializes a Strukt class.
+ * @template constructor - The constructor type.
+ * @param {params<constructor>} params - The parameters for initialization.
+ * @returns {struktClass<constructor>} The initialized Strukt class.
+ * @example
+ * class MyClass extends init({
+ *   constructor (args: { x: number, y: number }) {
+ *     return {
+ *       x: args.x,
+ *       y: args.y,
+ *       sum: args.x + args.y
+ *     };
+ *   },
+ *   hidden: ['sum']
+ * }) {}
+ * const instance = new MyClass({ x: 1, y: 2 });
+ * console.log(instance); // Output: MyClass { x: 1, y: 2, sum: 3 }
+ */
+export const init = <constructor extends T.anyConstructor>(
+	params: params<constructor>,
+): struktClass<constructor> => {
+	type args = Parameters<constructor>;
+	type output = ReturnType<constructor>;
 
-	const asAccessor = params?.asAccessor ?? [];
-	class Strukt {
-		constructor(input: Readonly<input>) {
-			const data = createFn(input);
+	const constructorFn: constructor = params.constructor;
+	const asAccessors = params.hidden ?? [];
 
-			if (!checkPrototype) {
-				Object.assign(this, data);
-			} else {
-				// @ts-expect-error
-				const proto: Record<string, any> = this.__proto__;
-
-				for (const key in data) {
-					if (!Object.hasOwn(proto, key)) {
-						Reflect.set(this, key, data[key]);
-					}
-				}
-			}
-
-			Lib.redefinePropsAsAccessors(this as unknown as output, asAccessor);
+	class Strukt extends StruktBase<args> {
+		constructor(...args: args) {
+			super(...args);
+			const data: output = constructorFn(...args);
+			Object.assign(this, data);
+			Lib.redefineAsAccessors(this as output, asAccessors);
 		}
 	}
 
-	return Strukt as struktClass<input, output>;
-}
+	return Strukt as struktClass<constructor>;
+};

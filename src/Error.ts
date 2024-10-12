@@ -2,6 +2,8 @@ import type * as T from './Types/Types.d.ts';
 
 export type errorMeta = Record<string, any> & { message?: string; cause?: any };
 
+type createFn<input, output> = (input: input) => output;
+
 export type messageFn<t> = t extends undefined
 	? () => string
 	: (opts: Readonly<t>) => string;
@@ -123,7 +125,7 @@ export type errorClass<input, output> = [input] extends [
  */
 export type config<input, output> = {
 	message?: messageParam<output>;
-	create?: T.createFn<input, output>;
+	create?: createFn<input, output>;
 };
 
 export type configWithoutHandler<input, output> = Omit<
@@ -134,7 +136,7 @@ export type configWithHandler<input, output> = configWithoutHandler<
 	input,
 	output
 > & {
-	create: T.createFn<input, output>;
+	create: createFn<input, output>;
 };
 
 export const idHandler = <t>(x: t): t => x;
@@ -199,7 +201,7 @@ export function init<output, input>(
 export function init<output, input>(
 	params?: config<input, output>,
 ): errorClass<input, output> {
-	const create = params?.create ?? (idHandler as T.createFn<input, output>);
+	const create = params?.create ?? (idHandler as createFn<input, output>);
 	const messageFn = makeMessageFn(params?.message ?? '');
 
 	class StruktError extends StruktErrorBase {
