@@ -2,7 +2,7 @@ ship-delete-tracking-branch = true
 
 [branches]
 main = "develop"
-perennials = ["main", "next"]
+perennials = ["main"]
 
 [sync-strategies]
 feature-branch = "rebase"

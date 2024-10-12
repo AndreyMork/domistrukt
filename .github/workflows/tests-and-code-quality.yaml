@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: '0 8 * * WED'
   push:
-    branches: [main, next, develop]
+    branches: [main, develop]
 
 jobs:
   format-check:
