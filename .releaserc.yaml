@@ -1,0 +1,21 @@
+dryRun: true
+
+repositoryUrl: git@github.com:AndreyMork/domistrukt.git
+
+ci: false
+
+branches:
+  - main
+  - name: next
+    prerelease: 'rc'
+    channel: next
+
+plugins:
+  - - '@semantic-release/commit-analyzer'
+    - preset: conventionalcommits
+  - - '@semantic-release/release-notes-generator'
+    - preset: conventionalcommits
+      writerOpts: [scope, subject]
+  - - '@semantic-release/npm'
+    # - tarballDir:
+  # - '@semantic-release/github'

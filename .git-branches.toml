@@ -1,3 +1,6 @@
 [branches]
 main = "develop"
 perennials = ["main", "next"]
+
+[sync-strategies]
+feature-branch = "rebase"
