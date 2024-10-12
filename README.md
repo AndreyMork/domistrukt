@@ -15,13 +15,14 @@
 
 [actions-tests-and-code-quality]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml
 [actions-codeql]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql
+[actions-tests-and-quality-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg
+[actions-codeql-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg
 
 <!-- Code Climate -->
 
-[codeclimate-maintainability]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability
-[codeclimate-test-coverage]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage
-[codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability
-[codeclimate-test-coverage-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage
+[codeclimate-url]: https://codeclimate.com/github/AndreyMork/domistrukt
+[codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/6b269725db17b3e72636/maintainability
+[codeclimate-test-coverage-badge]: https://api.codeclimate.com/v1/badges/6b269725db17b3e72636/test_coverage
 
 <!-- Misc -->
 
@@ -29,6 +30,8 @@
 [license-badge]: https://img.shields.io/npm/l/%40ayka%2Fdomistrukt
 [mutation-testing-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Fdomistrukt%2Fmain
 [mutation-testing-url]: https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/domistrukt/main
+
+<!-- Badges -->
 
 [![NPM Version][npm-version-badge]][npm-url]
 [![NPM Version][npm-version-next-badge]][npm-next-url]
@@ -38,14 +41,11 @@
 [![npm package minimized gzipped size][bundle-js-badge]][bundle-js-url]
 [![NPM Unpacked Size][npm-unpacked-size-badge]][npm-url]
 
-[actions-tests-and-quality-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg
-[actions-codeql-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg
-
 [![Tests and Code Quality][actions-tests-and-quality-badge]][actions-tests-and-code-quality]
 [![CodeQL][actions-codeql-badge]][actions-codeql]
 
-[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability]
-[![Test Coverage][codeclimate-test-coverage-badge]][codeclimate-test-coverage]
+[![Maintainability][codeclimate-maintainability-badge]][codeclimate-url]
+[![Test Coverage][codeclimate-test-coverage-badge]][codeclimate-url]
 [![Mutation testing badge][mutation-testing-badge]][mutation-testing-url]
 
 ## Overview
