@@ -4,6 +4,9 @@
 	"type": "module",
 	"license": "MIT",
 	"description": "A TypeScript library for creating structured data objects with ease.",
+	"publishConfig": {
+		"access": "public"
+	},
 	"keywords": [
 		"typescript",
 		"structured-data",
@@ -14,10 +17,7 @@
 		"error-handling",
 		"data-structures"
 	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/AndreyMork/domistrukt.git"
-	},
+	"repository": "github:AndreyMork/domistrukt",
 	"files": [
 		"dist/"
 	],
@@ -35,8 +35,7 @@
 		"test": "just test"
 	},
 	"dependencies": {
-		"immutable": "^4.3.7",
-		"zod": "^3.23.8"
+		"immutable": "^4.3.7"
 	},
 	"devDependencies": {
 		"@ayka/biome-config": "^1.0.0",

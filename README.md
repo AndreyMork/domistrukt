@@ -1,18 +1,52 @@
 # @ayka/domistrukt
 
-[![NPM Version](https://img.shields.io/npm/v/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
-[![NPM License](https://img.shields.io/npm/l/%40ayka%2Fdomistrukt)](https://opensource.org/license/MIT)
-[![NPM Downloads](https://img.shields.io/npm/dm/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
+<!-- Package -->
 
-[![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/%40ayka%2Fdomistrukt)](https://bundlejs.com/?q=%40ayka%2Fdomistrukt)
-[![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40ayka%2Fdomistrukt)](https://www.npmjs.com/package/@ayka/domistrukt)
+[npm-url]: https://www.npmjs.com/package/@ayka/domistrukt
+[npm-next-url]: https://www.npmjs.com/package/@ayka/domistrukt/v/next
+[npm-version-badge]: https://img.shields.io/npm/v/%40ayka%2Fdomistrukt/latest
+[npm-version-next-badge]: https://img.shields.io/npm/v/%40ayka%2Fdomistrukt/next
+[npm-downloads-badge]: https://img.shields.io/npm/dm/%40ayka%2Fdomistrukt
+[npm-unpacked-size-badge]: https://img.shields.io/npm/unpacked-size/%40ayka%2Fdomistrukt
+[bundle-js-url]: https://bundlejs.com/?q=%40ayka%2Fdomistrukt
+[bundle-js-badge]: https://img.shields.io/bundlejs/size/%40ayka%2Fdomistrukt
 
-[![Tests and Code Quality](https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg)](https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml)
-[![CodeQL](https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql)
+<!-- GitHub Actions -->
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability)](https://codeclimate.com/github/AndreyMork/domistrukt/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage)](https://codeclimate.com/github/AndreyMork/domistrukt/test_coverage)
-[![Mutation testing badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Fdomistrukt%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/domistrukt/main)
+[actions-tests-and-code-quality]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml
+[actions-codeql]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql
+
+<!-- Code Climate -->
+
+[codeclimate-maintainability]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability
+[codeclimate-test-coverage]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage
+[codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/maintainability
+[codeclimate-test-coverage-badge]: https://api.codeclimate.com/v1/badges/511e23db3f9fe9026c49/test_coverage
+
+<!-- Misc -->
+
+[license-url]: https://opensource.org/license/MIT
+[license-badge]: https://img.shields.io/npm/l/%40ayka%2Fdomistrukt
+[mutation-testing-badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FAndreyMork%2Fdomistrukt%2Fmain
+[mutation-testing-url]: https://dashboard.stryker-mutator.io/reports/github.com/AndreyMork/domistrukt/main
+
+[![NPM Version][npm-version-badge]][npm-url]
+[![NPM Version][npm-version-next-badge]][npm-next-url]
+[![NPM License][license-badge]][license-url]
+[![NPM Downloads][npm-downloads-badge]][npm-url]
+
+[![npm package minimized gzipped size][bundle-js-badge]][bundle-js-url]
+[![NPM Unpacked Size][npm-unpacked-size-badge]][npm-url]
+
+[actions-tests-and-quality-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg
+[actions-codeql-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg
+
+[![Tests and Code Quality][actions-tests-and-quality-badge]][actions-tests-and-code-quality]
+[![CodeQL][actions-codeql-badge]][actions-codeql]
+
+[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability]
+[![Test Coverage][codeclimate-test-coverage-badge]][codeclimate-test-coverage]
+[![Mutation testing badge][mutation-testing-badge]][mutation-testing-url]
 
 ## Overview
 
