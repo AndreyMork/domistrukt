@@ -1,5 +1,5 @@
 name: Trivy Vulnerability Scan
-run-name: 'Trivy vulnerability scan for [${{ github.event.head_commit.message }}] #${{ github.event_name }}'
+run-name: 'Trivy vulnerability scan [#${{ github.event_name}} ${{ github.event.head_commit.message }}]'
 
 on:
   workflow_dispatch: {}

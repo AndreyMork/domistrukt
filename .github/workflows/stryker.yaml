@@ -1,5 +1,5 @@
 name: Stryker Mutator Coverage
-run-name: 'Stryker Mutator coverage for [${{ github.event.head_commit.message }}] #${{ github.event_name }}'
+run-name: 'Stryker Mutator coverage [#${{ github.event_name}} ${{ github.event.head_commit.message }}]'
 
 on:
   workflow_dispatch: {}
