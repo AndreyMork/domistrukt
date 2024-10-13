@@ -119,34 +119,78 @@ test.group('Strukt/FlatObject', () => {
 		FC.assert(copyWorks);
 	});
 
-	test('`Property` should store keys and value correctly', ({ expect }) => {
-		const keys = FlatObject.makeKeys(['a', 'b']);
-		const value = 42;
-		const property = new FlatObject.Property(keys, value);
+	test('`keys` should return all keys in the FlatObject', ({ expect }) => {
+		const obj = { a: 1, b: { c: 2 } };
+		const flatObj = FlatObject.fromObject(obj);
 
-		expect(property.keys).toEqual(keys);
-		expect(property.value).toBe(value);
+		const keys = flatObj.keys();
+		expect(keys.toJS()).toEqual([['a'], ['b', 'c']]);
 	});
 
-	test('`Property.setValue` should update the value and return a new Property', ({
+	test('`values` should return all values in the FlatObject', ({ expect }) => {
+		const obj = { a: 1, b: { c: 2 } };
+		const flatObj = FlatObject.fromObject(obj);
+
+		const values = flatObj.values();
+		expect(values.toJS()).toEqual([1, 2]);
+	});
+
+	test('`entries` should return all entries in the FlatObject', ({
 		expect,
 	}) => {
-		const keys = FlatObject.makeKeys(['a', 'b']);
-		const initialValue = 42;
-		const newValue = 100;
-		const property = new FlatObject.Property(keys, initialValue);
+		const obj = { a: 1, b: { c: 2 } };
+		const flatObj = FlatObject.fromObject(obj);
 
-		const newProperty = property.setValue(newValue);
-
-		expect(newProperty).not.toBe(property);
-		expect(newProperty.value).toBe(newValue);
-		expect(newProperty.keys).toEqual(keys);
-		expect(property.value).toBe(initialValue);
+		const entries = flatObj.entries();
+		expect(entries.toJS()).toEqual([
+			{ keys: ['a'], value: 1 },
+			{ keys: ['b', 'c'], value: 2 },
+		]);
 	});
 
-	test('`flatObject` should work without arguments', ({ expect }) => {
-		const obj = FlatObject.flatObject();
-		expect(obj).toBeInstanceOf(FlatObject.t);
-		expect(obj.index.size).toBe(0);
+	test('`flatObject` should return an empty FlatObject when no input is provided', ({
+		expect,
+	}) => {
+		const emptyFlatObj = FlatObject.flatObject();
+		expect(emptyFlatObj.isEmpty()).toBe(true);
+	});
+
+	test('`size` should return the correct number of entries in the FlatObject', ({
+		expect,
+	}) => {
+		const obj = { a: 1, b: { c: 2 } };
+		const flatObj = FlatObject.fromObject(obj);
+
+		expect(flatObj.size).toBe(2);
+	});
+
+	test('`isEmpty` should return true for an empty FlatObject', ({ expect }) => {
+		const emptyFlatObj = FlatObject.flatObject();
+		expect(emptyFlatObj.isEmpty()).toBe(true);
+	});
+
+	test('`isEmpty` should return false for a non-empty FlatObject', ({
+		expect,
+	}) => {
+		const obj = { a: 1 };
+		const flatObj = FlatObject.fromObject(obj);
+
+		expect(flatObj.isEmpty()).toBe(false);
+	});
+
+	test('`isNotEmpty` should return true for a non-empty FlatObject', ({
+		expect,
+	}) => {
+		const obj = { a: 1 };
+		const flatObj = FlatObject.fromObject(obj);
+
+		expect(flatObj.isNotEmpty()).toBe(true);
+	});
+
+	test('`isNotEmpty` should return false for an empty FlatObject', ({
+		expect,
+	}) => {
+		const emptyFlatObj = FlatObject.flatObject();
+		expect(emptyFlatObj.isNotEmpty()).toBe(false);
 	});
 });

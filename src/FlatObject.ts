@@ -17,12 +17,6 @@ export type keysLike = Exclude<Iterable<string>, string>;
  */
 export type index<t> = Im.Map<keys, t>;
 
-/**
- * Represents a list of properties within a FlatObject.
- * @template t - The type of values stored in the properties.
- */
-export type properties<t> = Im.List<Property<t>>;
-
 export { fromObject as toFlatObject };
 
 /**
@@ -79,15 +73,6 @@ export const copy = <t extends Record<string, any>>(obj: t): t =>
 	fromObject(obj).toJS<t>();
 
 /**
- * Creates a new Property instance.
- * @param keys - The keys associated with the property.
- * @param value - The value of the property.
- * @returns A new Property instance.
- */
-export const prop = <t>(keys: keys, value: t): Property<t> =>
-	new Property(keys, value);
-
-/**
  * Creates a new FlatObject instance from an index map.
  * @param index - The index map for the FlatObject.
  * @returns A new FlatObject instance.
@@ -107,14 +92,9 @@ export { FlatObject as t };
  */
 export class FlatObject<t = any> {
 	index: index<t>;
-	readonly properties: Im.List<Property<t>>;
 
 	constructor(index: index<t>) {
 		this.index = index;
-		this.properties = this.index
-			.entrySeq()
-			.map(([keys, value]) => prop(keys, value))
-			.toList();
 	}
 
 	/**
@@ -179,7 +159,7 @@ export class FlatObject<t = any> {
 	 */
 	toJS<r>(): r {
 		const result = {};
-		this.properties.forEach((property) => {
+		this.entries().forEach((property) => {
 			let target: any = result;
 
 			property.keys.butLast().forEach((key) => {
@@ -244,23 +224,34 @@ export class FlatObject<t = any> {
 	merge<r>(other: FlatObject<r>): FlatObject<t | r> {
 		return this.transform((index) => index.merge(other.index));
 	}
-}
 
-/**
- * Represents a property within a FlatObject.
- */
-export class Property<t> {
-	constructor(
-		readonly keys: keys,
-		readonly value: t,
-	) {}
+	keys(): Im.List<keys> {
+		return this.index.keySeq().toList();
+	}
 
-	/**
-	 * Sets a new value for the property.
-	 * @param value - The new value to set.
-	 * @returns A new Property instance with the updated value.
-	 */
-	setValue<k>(value: k): Property<k> {
-		return new Property(this.keys, value);
+	values(): Im.List<t> {
+		return this.index.valueSeq().toList();
+	}
+
+	entries(): Im.List<{ keys: keys; value: t }> {
+		return this.index
+			.entrySeq()
+			.map(([keys, value]) => ({
+				value,
+				keys,
+			}))
+			.toList();
+	}
+
+	get size(): number {
+		return this.index.size;
+	}
+
+	isEmpty(): boolean {
+		return this.index.isEmpty();
+	}
+
+	isNotEmpty(): boolean {
+		return !this.isEmpty();
 	}
 }
