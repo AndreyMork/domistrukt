@@ -17,6 +17,24 @@ test.group('Strukt/FlatObject', () => {
 		expect(flatObj.toJS()).toEqual(obj);
 	});
 
+	test('`toJS` should reconstruct the original object', ({ expect }) => {
+		const obj = { a: 1, b: { c: 2 } };
+		const flatObj = FlatObject.fromObject(obj);
+
+		const copy = flatObj.toJS();
+		expect(copy).toEqual(obj);
+		expect(copy).not.toBe(obj);
+	});
+
+	test('`toJS` should preserve arrays', ({ expect }) => {
+		const obj = { arr: [1, 2, 3] };
+		const flatObj = FlatObject.fromObject(obj);
+
+		const copy = flatObj.toJS<any>();
+		expect(Array.isArray(copy.arr)).toBe(true);
+		expect(copy.arr).toEqual([1, 2, 3]);
+	});
+
 	test('`get` should retrieve values correctly', ({ expect }) => {
 		const obj = { a: 1, b: { c: 2 } };
 		const flatObj = FlatObject.fromObject(obj);
