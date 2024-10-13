@@ -107,6 +107,7 @@ format-utils: format-justfile
 [group('Maintenance')]
 update-deps:
     npx ncu
+    just install
 
 # === Dev ===
 
