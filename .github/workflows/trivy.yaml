@@ -3,12 +3,12 @@ name: Trivy Vulnerability Scan
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 8 * * WED'
+    - cron: '0 4 * * *'
   push:
     branches: [main, develop]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.sha }}
   cancel-in-progress: true
 
 jobs:

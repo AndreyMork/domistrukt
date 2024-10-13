@@ -13,9 +13,9 @@
 
 <!-- GitHub Actions -->
 
-[actions-tests-and-code-quality]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml
+[actions-ci]: https://github.com/AndreyMork/domistrukt/actions/workflows/ci.yaml
 [actions-codeql]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql
-[actions-tests-and-quality-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/tests-and-code-quality.yaml/badge.svg
+[actions-ci-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/ci.yaml/badge.svg
 [actions-codeql-badge]: https://github.com/AndreyMork/domistrukt/actions/workflows/github-code-scanning/codeql/badge.svg
 
 <!-- Code Climate -->
@@ -41,7 +41,7 @@
 [![npm package minimized gzipped size][bundle-js-badge]][bundle-js-url]
 [![NPM Unpacked Size][npm-unpacked-size-badge]][npm-url]
 
-[![Tests and Code Quality][actions-tests-and-quality-badge]][actions-tests-and-code-quality]
+[![CI][actions-ci-badge]][actions-ci]
 [![CodeQL][actions-codeql-badge]][actions-codeql]
 
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-url]

@@ -15,8 +15,8 @@ install:
     pnpm install
 
 [group('Setup')]
-audit:
-    pnpm audit
+audit *args:
+    pnpm audit {{ args }}
 
 [group('Setup')]
 clean:
