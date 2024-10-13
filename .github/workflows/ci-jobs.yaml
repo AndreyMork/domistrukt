@@ -58,8 +58,8 @@ jobs:
           coverageCommand: just coverage --reporter lcov
           coverageLocations: coverage/lcov.info:lcov
 
-  prepack:
-    name: Prepack should work
+  build:
+    name: Build should work
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -68,3 +68,7 @@ jobs:
           node-version: ${{ inputs.node-version }}
       - name: Prepack
         run: just prepack
+      - name: Run esm
+        run: node dist/Main.js
+      - name: Run cjs
+        run: node dist/Main.cjs
