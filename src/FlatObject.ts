@@ -91,10 +91,14 @@ export { FlatObject as t };
  * Represents a flat structure of a nested object.
  */
 export class FlatObject<t = any> {
-	index: index<t>;
+	#index: index<t>;
 
 	constructor(index: index<t>) {
-		this.index = index;
+		this.#index = index;
+	}
+
+	get index() {
+		return this.#index;
 	}
 
 	/**
@@ -106,7 +110,7 @@ export class FlatObject<t = any> {
 	 * @returns The value associated with the keys.
 	 */
 	get<k>(keys: keysLike): k {
-		return this.index.get(makeKeys(keys)) as k;
+		return this.#index.get(makeKeys(keys)) as k;
 	}
 
 	/**
@@ -119,7 +123,7 @@ export class FlatObject<t = any> {
 	 * @returns A new FlatObject with the updated value.
 	 */
 	set(keys: keysLike, value: t) {
-		const index = this.index.set(makeKeys(keys), value);
+		const index = this.#index.set(makeKeys(keys), value);
 		return flatObject(index);
 	}
 
@@ -133,7 +137,7 @@ export class FlatObject<t = any> {
 	 * @returns The current FlatObject instance.
 	 */
 	setMut(keys: keysLike, value: t) {
-		this.index = this.index.set(makeKeys(keys), value);
+		this.#index = this.#index.set(makeKeys(keys), value);
 		return this;
 	}
 
@@ -146,7 +150,7 @@ export class FlatObject<t = any> {
 	 * @returns `true` if the keys exist, `false` otherwise.
 	 */
 	has(keys: keysLike): boolean {
-		return this.index.has(makeKeys(keys));
+		return this.#index.has(makeKeys(keys));
 	}
 
 	/**
@@ -187,7 +191,7 @@ export class FlatObject<t = any> {
 	 * @returns A new FlatObject with the transformed index.
 	 */
 	transform<r>(fn: (index: index<t>) => index<r>): FlatObject<r> {
-		const newIndex = fn(this.index);
+		const newIndex = fn(this.#index);
 		return flatObject(newIndex);
 	}
 
@@ -226,15 +230,15 @@ export class FlatObject<t = any> {
 	}
 
 	keys(): Im.List<keys> {
-		return this.index.keySeq().toList();
+		return this.#index.keySeq().toList();
 	}
 
 	values(): Im.List<t> {
-		return this.index.valueSeq().toList();
+		return this.#index.valueSeq().toList();
 	}
 
 	entries(): Im.List<{ keys: keys; value: t }> {
-		return this.index
+		return this.#index
 			.entrySeq()
 			.map(([keys, value]) => ({
 				value,
@@ -244,11 +248,11 @@ export class FlatObject<t = any> {
 	}
 
 	get size(): number {
-		return this.index.size;
+		return this.#index.size;
 	}
 
 	isEmpty(): boolean {
-		return this.index.isEmpty();
+		return this.#index.isEmpty();
 	}
 
 	isNotEmpty(): boolean {

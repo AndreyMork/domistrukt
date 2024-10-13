@@ -116,10 +116,10 @@ export const redefineAsAccessors = <t, key extends keyof t>(
 /**
  * Options for the lazy decorator.
  * @typedef {Object} lazyOpts
- * @property {boolean} [useValue=true] - Whether to use a value property instead of a getter/setter.
- * @property {boolean} [configurable=true] - Whether the property is configurable.
- * @property {boolean} [enumerable=true] - Whether the property is enumerable.
- * @property {boolean} [writable=true] - Whether the property is writable.
+ * @property {boolean} - Whether to use a value property instead of a getter/setter.
+ * @property {boolean} - Whether the property is configurable.
+ * @property {boolean} - Whether the property is enumerable.
+ * @property {boolean} - Whether the property is writable.
  */
 export type lazyOpts = {
 	useValue?: boolean;
@@ -151,7 +151,7 @@ export const lazy = (opts?: lazyOpts) => {
 		useValue = true,
 		configurable = true,
 		writable = true,
-		enumerable = useValue,
+		enumerable = true,
 	} = opts ?? {};
 
 	return (
