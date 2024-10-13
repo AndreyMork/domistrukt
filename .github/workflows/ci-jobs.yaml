@@ -51,12 +51,6 @@ jobs:
           node-version: ${{ inputs.node-version }}
       - name: Test
         run: just test
-      - uses: paambaati/codeclimate-action@v9
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: just coverage --reporter lcov
-          coverageLocations: coverage/lcov.info:lcov
 
   build:
     name: Build should work
