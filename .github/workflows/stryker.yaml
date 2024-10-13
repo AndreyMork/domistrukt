@@ -1,9 +1,10 @@
-name: Stryker Mutator Tests
+name: Stryker Mutator Coverage
+run-name: 'Stryker Mutator coverage for [${{ github.event.head_commit.message }}] #${{ github.event_name }}'
 
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 0 * * *'
   push:
     branches: [main]
 

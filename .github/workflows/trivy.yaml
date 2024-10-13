@@ -1,9 +1,10 @@
 name: Trivy Vulnerability Scan
+run-name: 'Trivy vulnerability scan for [${{ github.event.head_commit.message }}] #${{ github.event_name }}'
 
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 0 * * *'
   push:
     branches: [main, develop]
 
