@@ -49,6 +49,10 @@ update-branch branch:
     git town sync
     git switch main
 
+[group('Ops')]
+update-docs:
+    npx typedoc
+
 # === Maintenance ===
 
 [group('Maintenance')]
