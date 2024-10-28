@@ -1,4 +1,3 @@
-import type * as StruktBase from './StruktBase.ts';
 import type * as T from './Types/Types.d.ts';
 
 /**
