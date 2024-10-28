@@ -18,4 +18,4 @@ Parameters for creating a static error.
 
 ## Defined in
 
-[src/Error.ts:42](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Error.ts#L42)
+[src/Error.ts:42](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Error.ts#L42)

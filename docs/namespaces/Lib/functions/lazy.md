@@ -52,4 +52,4 @@ console.log(instance.expensiveValue); // Logs "42" without recalculating
 
 ## Defined in
 
-[src/Lib.ts:149](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Lib.ts#L149)
+[src/Lib.ts:149](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Lib.ts#L149)

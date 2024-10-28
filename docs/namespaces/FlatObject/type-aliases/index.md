@@ -18,4 +18,4 @@ The type of values stored in the index.
 
 ## Defined in
 
-[src/FlatObject.ts:18](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/FlatObject.ts#L18)
+[src/FlatObject.ts:18](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/FlatObject.ts#L18)

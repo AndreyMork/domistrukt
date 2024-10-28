@@ -5,3 +5,9 @@
 [@ayka/domistrukt](../../globals.md) / Errors
 
 # Errors
+
+## Index
+
+### Classes
+
+- [SwitchNoMatch](classes/SwitchNoMatch.md)

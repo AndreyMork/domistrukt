@@ -120,6 +120,12 @@ Re-exports [staticError](namespaces/Error/functions/staticError.md)
 
 ***
 
+### switchCase
+
+Re-exports [switchCase](namespaces/Switch/functions/switchCase.md)
+
+***
+
 ### toFlatObject
 
 Re-exports [toFlatObject](namespaces/FlatObject/functions/toFlatObject.md)
@@ -132,4 +138,5 @@ Re-exports [toFlatObject](namespaces/FlatObject/functions/toFlatObject.md)
 - [Lib](namespaces/Lib/README.md)
 - [Strukt](namespaces/Strukt/README.md)
 - [StruktBase](namespaces/StruktBase/README.md)
+- [Switch](namespaces/Switch/README.md)
 - [Types](namespaces/Types/README.md)

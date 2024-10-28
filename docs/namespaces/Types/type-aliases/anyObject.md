@@ -12,4 +12,4 @@ Represents a generic constructor function type.
 
 ## Defined in
 
-[src/Types/Types.d.ts:43](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Types/Types.d.ts#L43)
+[src/Types/Types.d.ts:45](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Types/Types.d.ts#L45)

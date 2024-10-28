@@ -50,4 +50,4 @@ console.log(john); // Person { name: 'John', age: 30 }
 
 ## Defined in
 
-[src/Lib.ts:65](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Lib.ts#L65)
+[src/Lib.ts:65](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Lib.ts#L65)
