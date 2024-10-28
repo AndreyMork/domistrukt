@@ -149,7 +149,9 @@ export const init = <constructor extends T.anyConstructor>(
 	class Strukt extends StruktBase<args> {
 		constructor(...args: args) {
 			super(...args);
-			const data: output = constructorFn(...args);
+			const data: output = { ...constructorFn(...args) };
+
+			Reflect.deleteProperty(data, '__proto__');
 			Object.assign(this, data);
 			Lib.redefineAsAccessors(this as output, asAccessors);
 		}

@@ -87,6 +87,51 @@ test.group('Strukt: creation', () => {
 		instance.secret = 'new secret';
 		expect(instance.secret).toBe('new secret');
 	});
+
+	test('protects from protype pollution', ({ expect }) => {
+		type data = { value: number };
+
+		class SimpleClass {
+			constructor(args: data) {
+				Object.assign(this, args);
+			}
+
+			get x() {
+				return 'original';
+			}
+
+			get y() {
+				return 'original';
+			}
+		}
+
+		class StruktClass extends Strukt.init({
+			constructor(args: data) {
+				return args;
+			},
+		}) {
+			get x() {
+				return 'original';
+			}
+
+			get y() {
+				return 'original';
+			}
+		}
+
+		const data = JSON.parse('{"value":1, "__proto__":{ "x": "notOriginal" }}');
+
+		const simple = new SimpleClass(data);
+		const strukt = new StruktClass(data);
+
+		expect(simple).not.toBeInstanceOf(SimpleClass);
+		expect(simple).toHaveProperty('x', 'notOriginal');
+		expect(simple).not.toHaveProperty('y');
+
+		expect(strukt).toBeInstanceOf(StruktClass);
+		expect(strukt).toHaveProperty('x', 'original');
+		expect(strukt).toHaveProperty('y', 'original');
+	});
 });
 
 test.group('Strukt: methods', () => {
