@@ -34,7 +34,7 @@ Base class for structured errors with metadata.
 
 #### Defined in
 
-[src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/ee84aeb0d3ada132fc6b9944abd48429a367a44b/src/Error.ts#L15)
+[src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Error.ts#L15)
 
 ## Properties
 
@@ -62,7 +62,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Defined in
 
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/ee84aeb0d3ada132fc6b9944abd48429a367a44b/src/Error.ts#L12)
+[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Error.ts#L12)
 
 ***
 
@@ -72,7 +72,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Defined in
 
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/ee84aeb0d3ada132fc6b9944abd48429a367a44b/src/Error.ts#L13)
+[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Error.ts#L13)
 
 ***
 
@@ -130,7 +130,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:143
+node\_modules/.pnpm/@types+node@22.8.1/node\_modules/@types/node/globals.d.ts:143
 
 ***
 
@@ -144,7 +144,7 @@ node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:14
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:145
+node\_modules/.pnpm/@types+node@22.8.1/node\_modules/@types/node/globals.d.ts:145
 
 ## Methods
 
@@ -170,4 +170,4 @@ Create .stack property on a target object
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.7.5/node\_modules/@types/node/globals.d.ts:136
+node\_modules/.pnpm/@types+node@22.8.1/node\_modules/@types/node/globals.d.ts:136

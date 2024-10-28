@@ -1,0 +1,221 @@
+[**@ayka/domistrukt**](../../../README.md) • **Docs**
+
+***
+
+[@ayka/domistrukt](../../../globals.md) / [StruktBase](../README.md) / StruktBase
+
+# Class: StruktBase\<args, data\>
+
+Base class for Strukt.
+
+## Type Parameters
+
+• **args** *extends* [`anyArgs`](../../Types/type-aliases/anyArgs.md)
+
+The type of arguments.
+
+• **data** *extends* [`anyObject`](../../Types/type-aliases/anyObject.md)
+
+The type of data.
+
+## Constructors
+
+### new StruktBase()
+
+> **new StruktBase**\<`args`, `data`\>(`params`): [`StruktBase`](StruktBase.md)\<`args`, `data`\>
+
+#### Parameters
+
+• **params**: [`params`](../type-aliases/params.md)\<`data`\>
+
+#### Returns
+
+[`StruktBase`](StruktBase.md)\<`args`, `data`\>
+
+#### Defined in
+
+[src/StruktBase.ts:42](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L42)
+
+## Accessors
+
+### $$args1T
+
+> `get` **$$args1T**(): `args`\[`0`\]
+
+Gets the first argument type.
+
+#### Returns
+
+`args`\[`0`\]
+
+The first argument type.
+
+#### Defined in
+
+[src/StruktBase.ts:66](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L66)
+
+***
+
+### $$argsT
+
+> `get` **$$argsT**(): `args`
+
+Gets the type of arguments.
+
+#### Returns
+
+`args`
+
+The type of arguments.
+
+#### Defined in
+
+[src/StruktBase.ts:57](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L57)
+
+***
+
+### $$dataT
+
+> `get` **$$dataT**(): `data`
+
+Gets the type of data returned by the constructor.
+
+#### Returns
+
+`data`
+
+The type of data.
+
+#### Defined in
+
+[src/StruktBase.ts:74](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L74)
+
+## Methods
+
+### $clone()
+
+> **$clone**(): `this`
+
+Creates a clone of the current object.
+
+#### Returns
+
+`this`
+
+A cloned instance of the object.
+
+#### Defined in
+
+[src/StruktBase.ts:114](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L114)
+
+***
+
+### $data()
+
+> **$data**(): `data`
+
+Creates a data object from the instance.
+
+#### Returns
+
+`data`
+
+The data object.
+
+#### Defined in
+
+[src/StruktBase.ts:91](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L91)
+
+***
+
+### $dataKeys()
+
+> **$dataKeys**(): keyof `data`[]
+
+Retrieves the keys of the data returned by the constructor.
+
+#### Returns
+
+keyof `data`[]
+
+An array of data keys.
+
+#### Defined in
+
+[src/StruktBase.ts:83](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L83)
+
+***
+
+### $patch()
+
+> **$patch**(`fn`): `this`
+
+Applies a patch function to the object.
+
+#### Parameters
+
+• **fn**
+
+The function that returns a patch.
+
+#### Returns
+
+`this`
+
+A new instance with the applied patch.
+
+#### Defined in
+
+[src/StruktBase.ts:148](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L148)
+
+***
+
+### $selectKeys()
+
+> **$selectKeys**\<`keys`\>(`keys`): `{ -readonly [k in keyof StruktBase<args, data>]: StruktBase<args, data>[k] }`
+
+Selects specific keys from the object.
+
+#### Type Parameters
+
+• **keys** *extends* keyof [`StruktBase`](StruktBase.md)\<`args`, `data`\>
+
+The keys to select.
+
+#### Parameters
+
+• **keys**: `keys`[]
+
+#### Returns
+
+`{ -readonly [k in keyof StruktBase<args, data>]: StruktBase<args, data>[k] }`
+
+An object with the selected keys.
+
+#### Defined in
+
+[src/StruktBase.ts:106](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L106)
+
+***
+
+### $update()
+
+> **$update**(`patch`): `this`
+
+Updates the object with a patch.
+
+#### Parameters
+
+• **patch**: `Partial`\<`data`\>
+
+The patch to apply.
+
+#### Returns
+
+`this`
+
+A new instance with the applied patch.
+
+#### Defined in
+
+[src/StruktBase.ts:131](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/StruktBase.ts#L131)

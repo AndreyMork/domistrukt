@@ -6,7 +6,7 @@
 
 # Type Alias: struktClass()\<constructor\>
 
-> **struktClass**\<`constructor`\>: (...`params`) => [`StruktBase`](../classes/StruktBase.md)\<`Parameters`\<`constructor`\>\> & `ReturnType`\<`constructor`\>
+> **struktClass**\<`constructor`\>: (...`params`) => [`StruktBase`](../../StruktBase/classes/StruktBase.md)\<`Parameters`\<`constructor`\>, `ReturnType`\<`constructor`\>\> & `ReturnType`\<`constructor`\>
 
 ## Type Parameters
 
@@ -18,8 +18,8 @@
 
 ## Returns
 
-[`StruktBase`](../classes/StruktBase.md)\<`Parameters`\<`constructor`\>\> & `ReturnType`\<`constructor`\>
+[`StruktBase`](../../StruktBase/classes/StruktBase.md)\<`Parameters`\<`constructor`\>, `ReturnType`\<`constructor`\>\> & `ReturnType`\<`constructor`\>
 
 ## Defined in
 
-[src/Strukt.ts:113](https://github.com/AndreyMork/domistrukt/blob/ee84aeb0d3ada132fc6b9944abd48429a367a44b/src/Strukt.ts#L113)
+[src/Strukt.ts:16](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Strukt.ts#L16)

@@ -5,9 +5,3 @@
 [@ayka/domistrukt](../../globals.md) / Errors
 
 # Errors
-
-## Index
-
-### Classes
-
-- [UpdateArgsLengthError](classes/UpdateArgsLengthError.md)

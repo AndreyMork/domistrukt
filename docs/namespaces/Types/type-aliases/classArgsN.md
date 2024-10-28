@@ -22,4 +22,4 @@ The index of the constructor parameter to extract.
 
 ## Defined in
 
-[src/Types/Types.d.ts:28](https://github.com/AndreyMork/domistrukt/blob/ee84aeb0d3ada132fc6b9944abd48429a367a44b/src/Types/Types.d.ts#L28)
+[src/Types/Types.d.ts:28](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Types/Types.d.ts#L28)

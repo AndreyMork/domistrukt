@@ -6,9 +6,7 @@
 
 # Type Alias: anyConstructor()
 
-> **anyConstructor**: (...`args`) => `any`
-
-Represents a generic constructor function type.
+> **anyConstructor**: (...`args`) => [`anyObject`](anyObject.md)
 
 ## Parameters
 
@@ -16,8 +14,8 @@ Represents a generic constructor function type.
 
 ## Returns
 
-`any`
+[`anyObject`](anyObject.md)
 
 ## Defined in
 
-[src/Types/Types.d.ts:43](https://github.com/AndreyMork/domistrukt/blob/ee84aeb0d3ada132fc6b9944abd48429a367a44b/src/Types/Types.d.ts#L43)
+[src/Types/Types.d.ts:46](https://github.com/AndreyMork/domistrukt/blob/9b256ecb394491e3c3ce021e778be2c15de76c25/src/Types/Types.d.ts#L46)

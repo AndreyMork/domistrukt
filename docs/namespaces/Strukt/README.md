@@ -8,10 +8,6 @@
 
 ## Index
 
-### Classes
-
-- [StruktBase](classes/StruktBase.md)
-
 ### Type Aliases
 
 - [params](type-aliases/params.md)

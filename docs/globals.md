@@ -8,7 +8,7 @@
 
 ### Base
 
-Renames and re-exports [StruktBase](namespaces/Strukt/classes/StruktBase.md)
+Renames and re-exports [StruktBase](namespaces/StruktBase/classes/StruktBase.md)
 
 ***
 
@@ -131,4 +131,5 @@ Re-exports [toFlatObject](namespaces/FlatObject/functions/toFlatObject.md)
 - [FlatObject](namespaces/FlatObject/README.md)
 - [Lib](namespaces/Lib/README.md)
 - [Strukt](namespaces/Strukt/README.md)
+- [StruktBase](namespaces/StruktBase/README.md)
 - [Types](namespaces/Types/README.md)
