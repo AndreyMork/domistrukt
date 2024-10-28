@@ -157,30 +157,6 @@ test.group('Strukt: methods', () => {
 		expect(instance.$selectKeys([])).toEqual({});
 	});
 
-	test('`$args` should return an object with the arguments passed to the constructor', ({
-		expect,
-	}) => {
-		class MyClass extends Strukt.init({
-			constructor(args: { x: number; y: number }, _value: number) {
-				return args;
-			},
-		}) {}
-
-		const instance = new MyClass({ x: 1, y: 2 }, 3);
-		expect(instance.$args).toEqual([{ x: 1, y: 2 }, 3]);
-	});
-
-	test('`$args1` returns first constructor argument', ({ expect }) => {
-		class MyClass extends Strukt.init({
-			constructor(args: { x: number; y: number }) {
-				return args;
-			},
-		}) {}
-
-		const instance = new MyClass({ x: 1, y: 2 });
-		expect(instance.$args1).toEqual({ x: 1, y: 2 });
-	});
-
 	test('`$clone` returns new instance with same properties', ({ expect }) => {
 		class MyClass extends Strukt.init({
 			constructor(args: { x: number; y: number }) {
@@ -202,7 +178,7 @@ test.group('Strukt: methods', () => {
 		expect(clone).not.toBe(instance);
 		expect(clone.secret).toBe(instance.secret);
 		expect(clone.sum).toBe(instance.sum);
-		expect(clone.salt).not.toBe(instance.salt);
+		expect(clone.salt).toBe(instance.salt);
 	});
 
 	test('`$update` returns new instance with updated properties', ({
@@ -235,26 +211,73 @@ test.group('Strukt: methods', () => {
 		}) {}
 
 		const instance = new MyClass();
-		// @ts-expect-error
 		const updated = instance.$update({ x: 2 });
 
 		expect(updated).not.toBe(instance);
-		expect(updated).toEqual({ x: 1 });
+		expect(updated).toEqual({ x: 2 });
 	});
 
-	test('`$update` throws error for classes with more than one argument', ({
-		expect,
-	}) => {
+	test('`$data` returns the correct data object', ({ expect }) => {
 		class MyClass extends Strukt.init({
-			constructor(x: number, y: number) {
-				return { x, y };
+			constructor(args: { x: number; y: number }) {
+				return args;
 			},
 		}) {}
 
-		const instance = new MyClass(1, 2);
-		expect(() => instance.$update(1)).toThrow(
-			Strukt.Errors.UpdateArgsLengthError,
-		);
+		const instance = new MyClass({ x: 1, y: 2 });
+		const data = instance.$data();
+
+		expect(data).toEqual({ x: 1, y: 2 });
+	});
+
+	test('`$dataKeys` returns the correct keys array', ({ expect }) => {
+		class MyClass extends Strukt.init({
+			constructor(args: { x: number; y: number }) {
+				return args;
+			},
+		}) {}
+
+		const instance = new MyClass({ x: 1, y: 2 });
+		const dataKeys = instance.$dataKeys();
+
+		expect(dataKeys).toEqual(['x', 'y']);
+	});
+
+	test('`$patch` applies the patch function correctly', ({ expect }) => {
+		class MyClass extends Strukt.init({
+			constructor(args: { x: number; y: number }) {
+				return args;
+			},
+		}) {}
+
+		const instance = new MyClass({ x: 1, y: 2 });
+		const patched = instance.$patch((data) => ({
+			x: data.x + 1,
+			y: data.y + 2,
+		}));
+
+		expect(patched).not.toBe(instance);
+		expect(patched.x).toBe(2);
+		expect(patched.y).toBe(4);
+	});
+
+	test('`$patch` does not mutate the original instance', ({ expect }) => {
+		class MyClass extends Strukt.init({
+			constructor(args: { x: number; y: number }) {
+				return args;
+			},
+		}) {}
+
+		const instance = new MyClass({ x: 1, y: 2 });
+		const patched = instance.$patch((data) => {
+			data.x = 3;
+			return data;
+		});
+
+		expect(patched).not.toBe(instance);
+		expect(patched.x).toBe(3);
+		expect(instance.x).toBe(1);
+		expect(instance.y).toBe(2);
 	});
 });
 
@@ -348,5 +371,85 @@ test.group('Strukt: types', () => {
 		expectTypeOf(TestClass).constructorParameters.toEqualTypeOf<
 			[input?: number] | []
 		>();
+	});
+
+	test('`$$argsT` exposes constructor arguments type', ({
+		expectTypeOf,
+		expect,
+	}) => {
+		class MyClass extends Strukt.init({
+			constructor(args: { x: number; y: number }, _value: number) {
+				return args;
+			},
+		}) {}
+
+		const instance = new MyClass({ x: 1, y: 2 }, 3);
+		expect(instance.$$argsT).toBeUndefined();
+		expectTypeOf(instance.$$argsT).not.toBeAny();
+		expectTypeOf(instance.$$argsT).toEqualTypeOf<
+			ConstructorParameters<typeof MyClass>
+		>();
+	});
+
+	test('`$$args1T` exposes first constructor argument type', ({
+		expectTypeOf,
+		expect,
+	}) => {
+		class MyClass extends Strukt.init({
+			constructor(args: { x: number; y: number }, _value: number) {
+				return args;
+			},
+		}) {}
+
+		const instance = new MyClass({ x: 1, y: 2 }, 3);
+		expect(instance.$$args1T).toBeUndefined();
+		expectTypeOf(instance.$$args1T).not.toBeAny();
+		expectTypeOf(instance.$$args1T).toEqualTypeOf<
+			ConstructorParameters<typeof MyClass>[0]
+		>();
+	});
+
+	test('`$$argsT` handles optional constructor argument', ({
+		expectTypeOf,
+	}) => {
+		class MyClass extends Strukt.init({
+			constructor(_value?: number) {
+				return {};
+			},
+		}) {}
+
+		const instance = new MyClass();
+		expectTypeOf(instance.$$argsT).not.toBeAny();
+		expectTypeOf(instance.$$argsT).toEqualTypeOf<[value?: number]>();
+		expectTypeOf(instance.$$args1T).toEqualTypeOf<number | undefined>();
+	});
+
+	test('`$$argsT` handles empty constructor arguments', ({ expectTypeOf }) => {
+		class MyClass extends Strukt.init({
+			constructor() {
+				return {};
+			},
+		}) {}
+
+		const instance = new MyClass();
+		expectTypeOf(instance.$$argsT).not.toBeAny();
+		expectTypeOf(instance.$$argsT).toEqualTypeOf<[]>();
+		expectTypeOf(instance.$$args1T).toBeUndefined();
+	});
+
+	test('`$$dataT` exposes instance data type', ({ expectTypeOf, expect }) => {
+		class MyClass extends Strukt.init({
+			constructor(x: number, y: number) {
+				return { x, y };
+			},
+		}) {}
+
+		const instance = new MyClass(1, 2);
+		expect(instance.$$dataT).toBeUndefined();
+		expectTypeOf(instance.$$dataT).not.toBeAny();
+		expectTypeOf(instance.$$dataT).toEqualTypeOf<{
+			x: number;
+			y: number;
+		}>();
 	});
 });

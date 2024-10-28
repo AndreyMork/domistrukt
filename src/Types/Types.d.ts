@@ -40,7 +40,10 @@ export type classArgs1<t extends klass> = classArgsN<t, 0>;
  * Represents a generic constructor function type.
  * @type {(...args: any[]) => any}
  */
-export type anyConstructor = (...args: any[]) => any;
-export type anyConstructor1 = (arg: any) => any;
+export type anyObject = Record<any, any>;
+export type anyArgs = any[];
+
+export type anyConstructor = (...args: any[]) => anyObject;
+export type anyConstructor1 = (arg: any) => anyObject;
 
 export type fnParam1<fn extends anyConstructor> = Parameters<fn>[0];

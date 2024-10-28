@@ -2,8 +2,11 @@ export * from './Lib.ts';
 export * as Lib from './Lib.ts';
 
 export * as Strukt from './Strukt.ts';
-export { init, StruktBase as Base } from './Strukt.ts';
+export { init } from './Strukt.ts';
 export type { params } from './Strukt.ts';
+
+export * as StruktBase from './StruktBase.ts';
+export { StruktBase as Base } from './StruktBase.ts';
 
 export * as Error from './Error.ts';
 export { init as error, staticError } from './Error.ts';
