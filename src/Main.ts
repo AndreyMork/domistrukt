@@ -8,6 +8,9 @@ export type { params } from './Strukt.ts';
 export * as StruktBase from './StruktBase.ts';
 export { StruktBase as Base } from './StruktBase.ts';
 
+export * as Switch from './Switch.ts';
+export { switchCase } from './Switch.ts';
+
 export * as Error from './Error.ts';
 export { init as error, staticError } from './Error.ts';
 export type { params as errorParams } from './Error.ts';
