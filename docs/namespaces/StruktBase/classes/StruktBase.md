@@ -8,6 +8,10 @@
 
 Base class for Strukt.
 
+## Extends
+
+- [`BasicStrukt`](BasicStrukt.md)
+
 ## Type Parameters
 
 • **args** *extends* [`anyArgs`](../../Types/type-aliases/anyArgs.md)
@@ -32,9 +36,13 @@ The type of data.
 
 [`StruktBase`](StruktBase.md)\<`args`, `data`\>
 
+#### Overrides
+
+[`BasicStrukt`](BasicStrukt.md).[`constructor`](BasicStrukt.md#constructors)
+
 #### Defined in
 
-[src/StruktBase.ts:42](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L42)
+[src/StruktBase.ts:55](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L55)
 
 ## Accessors
 
@@ -52,7 +60,7 @@ The first argument type.
 
 #### Defined in
 
-[src/StruktBase.ts:66](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L66)
+[src/StruktBase.ts:74](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L74)
 
 ***
 
@@ -70,7 +78,7 @@ The type of arguments.
 
 #### Defined in
 
-[src/StruktBase.ts:57](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L57)
+[src/StruktBase.ts:65](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L65)
 
 ***
 
@@ -88,7 +96,7 @@ The type of data.
 
 #### Defined in
 
-[src/StruktBase.ts:74](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L74)
+[src/StruktBase.ts:82](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L82)
 
 ## Methods
 
@@ -106,7 +114,7 @@ A cloned instance of the object.
 
 #### Defined in
 
-[src/StruktBase.ts:114](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L114)
+[src/StruktBase.ts:122](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L122)
 
 ***
 
@@ -124,7 +132,7 @@ The data object.
 
 #### Defined in
 
-[src/StruktBase.ts:91](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L91)
+[src/StruktBase.ts:99](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L99)
 
 ***
 
@@ -142,7 +150,7 @@ An array of data keys.
 
 #### Defined in
 
-[src/StruktBase.ts:83](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L83)
+[src/StruktBase.ts:91](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L91)
 
 ***
 
@@ -166,7 +174,7 @@ A new instance with the applied patch.
 
 #### Defined in
 
-[src/StruktBase.ts:148](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L148)
+[src/StruktBase.ts:156](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L156)
 
 ***
 
@@ -194,7 +202,7 @@ An object with the selected keys.
 
 #### Defined in
 
-[src/StruktBase.ts:106](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L106)
+[src/StruktBase.ts:114](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L114)
 
 ***
 
@@ -218,4 +226,4 @@ A new instance with the applied patch.
 
 #### Defined in
 
-[src/StruktBase.ts:131](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/StruktBase.ts#L131)
+[src/StruktBase.ts:139](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/StruktBase.ts#L139)

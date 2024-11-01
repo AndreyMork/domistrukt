@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[src/Types/Types.d.ts:46](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Types/Types.d.ts#L46)
+[src/Types/Types.d.ts:46](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Types/Types.d.ts#L46)

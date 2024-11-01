@@ -10,7 +10,7 @@
 
 ### Classes
 
-- [StruktErrorBase](classes/StruktErrorBase.md)
+- [ErrorStruktBase](classes/ErrorStruktBase.md)
 
 ### Type Aliases
 
@@ -28,4 +28,5 @@
 ### Functions
 
 - [init](functions/init.md)
+- [isErrorStrukt](functions/isErrorStrukt.md)
 - [staticError](functions/staticError.md)

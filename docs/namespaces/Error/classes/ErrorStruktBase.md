@@ -2,9 +2,9 @@
 
 ***
 
-[@ayka/domistrukt](../../../globals.md) / [Error](../README.md) / StruktErrorBase
+[@ayka/domistrukt](../../../globals.md) / [Error](../README.md) / ErrorStruktBase
 
-# Class: StruktErrorBase
+# Class: ErrorStruktBase
 
 Base class for structured errors with metadata.
 
@@ -14,9 +14,9 @@ Base class for structured errors with metadata.
 
 ## Constructors
 
-### new StruktErrorBase()
+### new ErrorStruktBase()
 
-> **new StruktErrorBase**(`msg`, `metaInput`?): [`StruktErrorBase`](StruktErrorBase.md)
+> **new ErrorStruktBase**(`msg`, `metaInput`?): [`ErrorStruktBase`](ErrorStruktBase.md)
 
 #### Parameters
 
@@ -26,7 +26,7 @@ Base class for structured errors with metadata.
 
 #### Returns
 
-[`StruktErrorBase`](StruktErrorBase.md)
+[`ErrorStruktBase`](ErrorStruktBase.md)
 
 #### Overrides
 
@@ -34,7 +34,7 @@ Base class for structured errors with metadata.
 
 #### Defined in
 
-[src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Error.ts#L15)
+[src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Error.ts#L15)
 
 ## Properties
 
@@ -62,7 +62,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Defined in
 
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Error.ts#L12)
+[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Error.ts#L12)
 
 ***
 
@@ -72,7 +72,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Defined in
 
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Error.ts#L13)
+[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Error.ts#L13)
 
 ***
 

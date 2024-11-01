@@ -10,6 +10,7 @@
 
 ### Classes
 
+- [BasicStrukt](classes/BasicStrukt.md)
 - [StruktBase](classes/StruktBase.md)
 
 ### Type Aliases

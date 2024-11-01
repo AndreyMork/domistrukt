@@ -40,4 +40,4 @@ console.log(errorWithMeta.meta); // Output: { annotation: 'test' }
 
 ## Defined in
 
-[src/Error.ts:63](https://github.com/AndreyMork/domistrukt/blob/6bf1571936bc40cdb9430004c5150bf2a16cf455/src/Error.ts#L63)
+[src/Error.ts:63](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Error.ts#L63)
