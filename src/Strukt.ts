@@ -13,6 +13,12 @@ export type params<constructor extends T.anyConstructor> = {
 	hidden?: (keyof ReturnType<constructor>)[];
 };
 
+export type basicStruktClass<constructor extends T.anyConstructor> = {
+	new (
+		...params: Parameters<constructor>
+	): StruktBase.BasicStrukt & ReturnType<constructor>;
+};
+
 export type struktClass<constructor extends T.anyConstructor> = {
 	new (
 		...params: Parameters<constructor>
@@ -59,3 +65,29 @@ export const init = <constructor extends T.anyConstructor>(
 
 	return Strukt as struktClass<constructor>;
 };
+
+export const initBasic = <constructor extends T.anyConstructor>(
+	params: params<constructor>,
+): basicStruktClass<constructor> => {
+	type args = Parameters<constructor>;
+	type output = ReturnType<constructor>;
+
+	const constructorFn: constructor = params.constructor;
+	const hidden = params.hidden ?? [];
+
+	class Strukt extends StruktBase.BasicStrukt {
+		constructor(...args: args) {
+			const data = constructorFn(...args) as output;
+			super({ data, hidden });
+		}
+	}
+
+	return Strukt as struktClass<constructor>;
+};
+
+export const isStrukt = (value: unknown): value is StruktBase.t<any, any> =>
+	value instanceof StruktBase.t;
+
+export const isBasicStrukt = (
+	value: unknown,
+): value is StruktBase.BasicStrukt => value instanceof StruktBase.BasicStrukt;

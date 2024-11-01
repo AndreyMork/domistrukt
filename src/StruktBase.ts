@@ -30,24 +30,32 @@ export const construct = (params: constructParams) => {
 	return params.target;
 };
 
+export class BasicStrukt {
+	constructor(params: params<any>) {
+		construct({
+			target: this,
+			data: params.data,
+			hidden: params.hidden,
+		});
+	}
+}
+
 /**
  * Base class for Strukt.
  * @template args - The type of arguments.
  * @template data - The type of data.
  */
-export class StruktBase<args extends T.anyArgs, data extends T.anyObject> {
+export class StruktBase<
+	args extends T.anyArgs,
+	data extends T.anyObject,
+> extends BasicStrukt {
 	readonly #dataKeys: Im.List<keyof data>;
 	readonly #hidden: readonly PropertyKey[];
 
 	constructor(params: params<data>) {
+		super(params);
 		this.#dataKeys = Im.List(Object.keys(params.data) as any);
 		this.#hidden = [...params.hidden];
-
-		construct({
-			target: this,
-			data: params.data,
-			hidden: this.#hidden,
-		});
 	}
 
 	/**

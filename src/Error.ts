@@ -8,7 +8,7 @@ export type errorMeta = Record<string, any> & { message?: string; cause?: any };
 /**
  * Base class for structured errors with metadata.
  */
-export class StruktErrorBase extends Error {
+export class ErrorStruktBase extends Error {
 	override message: string;
 	readonly meta: errorMeta;
 
@@ -29,7 +29,7 @@ export class StruktErrorBase extends Error {
 	}
 }
 
-export type staticErrorInstance = StruktErrorBase;
+export type staticErrorInstance = ErrorStruktBase;
 
 export type staticErrorClass = {
 	new (meta?: errorMeta): staticErrorInstance;
@@ -63,7 +63,7 @@ export type staticParams = {
 export const staticError = (params?: staticParams): staticErrorClass => {
 	const msg = params?.message ?? '';
 
-	class StaticStruktError extends StruktErrorBase {
+	class StaticStruktError extends ErrorStruktBase {
 		constructor(param1?: string | errorMeta, param2?: errorMeta) {
 			const meta = typeof param1 === 'string' ? param2 : param1;
 			const message = typeof param1 === 'string' ? param1 : msg;
@@ -146,7 +146,7 @@ export const init = <constructor extends anyErrConstructor>(
 
 	const constructorFn: constructor = params.constructor;
 
-	class StruktError extends StruktErrorBase {
+	class StruktError extends ErrorStruktBase {
 		readonly data: data;
 
 		constructor(input: input, meta?: errorMeta) {
@@ -159,3 +159,6 @@ export const init = <constructor extends anyErrConstructor>(
 
 	return StruktError;
 };
+
+export const isErrorStrukt = (value: unknown): value is ErrorStruktBase =>
+	value instanceof ErrorStruktBase;

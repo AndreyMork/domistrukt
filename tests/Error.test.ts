@@ -4,12 +4,12 @@ import * as Strukt from '#Main';
 
 const test = Japa.test;
 
-test.group('Strukt/Error: StaticError', () => {
+test.group('Strukt/Error: ErrorStruktBase', () => {
 	test('should be instance of `Error`', ({ expect }) => {
 		class MyError extends Strukt.staticError() {}
 		const error = new MyError();
 		expect(error).toBeInstanceOf(Error);
-		expect(error).toBeInstanceOf(Strukt.Error.StruktErrorBase);
+		expect(error).toBeInstanceOf(Strukt.Error.ErrorStruktBase);
 	});
 
 	test('should set `meta` property correctly', ({ expect }) => {
@@ -79,7 +79,7 @@ test.group('Strukt/Error', () => {
 		}) {}
 		const error = new MyError();
 		expect(error).toBeInstanceOf(Error);
-		expect(error).toBeInstanceOf(Strukt.Error.StruktErrorBase);
+		expect(error).toBeInstanceOf(Strukt.Error.ErrorStruktBase);
 	});
 
 	test('`constructor` should work correctly', ({ expect }) => {
@@ -211,5 +211,17 @@ test.group('Strukt/Error', () => {
 		expectTypeOf(MyError2).constructorParameters.not.toEqualTypeOf<
 			[data: number, meta?: Strukt.Error.errorMeta]
 		>();
+	});
+});
+
+test.group('Strukt/Error: helpers', () => {
+	test('`isErrorStrukt` should work correctly', ({ expect }) => {
+		class MyError extends Strukt.error({
+			constructor() {
+				return {};
+			},
+		}) {}
+
+		expect(Strukt.isErrorStrukt(new MyError())).toBe(true);
 	});
 });

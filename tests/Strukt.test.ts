@@ -132,6 +132,54 @@ test.group('Strukt: creation', () => {
 		expect(strukt).toHaveProperty('x', 'original');
 		expect(strukt).toHaveProperty('y', 'original');
 	});
+
+	test('`initBasic` should work correctly', ({ expect }) => {
+		class MyClass extends Strukt.initBasic({
+			constructor() {
+				return {};
+			},
+		}) {}
+
+		const instance = new MyClass();
+
+		expect(instance).toBeInstanceOf(Strukt.Basic);
+		expect(instance).not.toBeInstanceOf(Strukt.Base);
+		expect(instance).not.toHaveProperty('$data');
+	});
+
+	test('`isStrukt` should work correctly', ({ expect }) => {
+		class MyClass extends Strukt.init({
+			constructor() {
+				return {};
+			},
+		}) {}
+
+		class BasicClass extends Strukt.initBasic({
+			constructor() {
+				return {};
+			},
+		}) {}
+
+		expect(Strukt.isStrukt(new MyClass())).toBe(true);
+		expect(Strukt.isStrukt(new BasicClass())).toBe(false);
+	});
+
+	test('`isBasicStrukt` should work correctly', ({ expect }) => {
+		class MyClass extends Strukt.initBasic({
+			constructor() {
+				return {};
+			},
+		}) {}
+
+		class MyClass2 extends Strukt.init({
+			constructor() {
+				return {};
+			},
+		}) {}
+
+		expect(Strukt.isBasicStrukt(new MyClass())).toBe(true);
+		expect(Strukt.isBasicStrukt(new MyClass2())).toBe(true);
+	});
 });
 
 test.group('Strukt: methods', () => {
@@ -159,11 +207,13 @@ test.group('Strukt: methods', () => {
 
 	test('`$clone` returns new instance with same properties', ({ expect }) => {
 		class MyClass extends Strukt.init({
+			hidden: ['hidden'],
 			constructor(args: { x: number; y: number }) {
 				return {
 					...args,
 					sum: args.x + args.y,
 					salt: Math.random(),
+					hidden: 'hidden',
 				};
 			},
 		}) {
@@ -179,6 +229,13 @@ test.group('Strukt: methods', () => {
 		expect(clone.secret).toBe(instance.secret);
 		expect(clone.sum).toBe(instance.sum);
 		expect(clone.salt).toBe(instance.salt);
+		expect(clone.hidden).toBe(instance.hidden);
+
+		const hiddenProperty = Object.getOwnPropertyDescriptor(clone, 'hidden')!;
+		expect(hiddenProperty).not.toBeUndefined();
+		expect(hiddenProperty.value).toBeUndefined();
+		expect(hiddenProperty.get).not.toBeUndefined();
+		expect(hiddenProperty.set).not.toBeUndefined();
 	});
 
 	test('`$update` returns new instance with updated properties', ({
