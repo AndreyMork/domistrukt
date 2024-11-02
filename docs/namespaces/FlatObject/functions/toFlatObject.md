@@ -35,4 +35,4 @@ console.log(flat.get(['a', 'b'])); // Outputs: 1
 
 ## Defined in
 
-[src/FlatObject.ts:30](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/FlatObject.ts#L30)
+[src/FlatObject.ts:30](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L30)

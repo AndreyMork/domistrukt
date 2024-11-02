@@ -53,4 +53,4 @@ console.log(Object.getOwnPropertyDescriptor(obj, 'a')); // Shows getter and sett
 
 ## Defined in
 
-[src/Lib.ts:98](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Lib.ts#L98)
+[src/Lib.ts:98](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Lib.ts#L98)

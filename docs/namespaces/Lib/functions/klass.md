@@ -24,4 +24,4 @@ A class constructor type.
 
 ## Defined in
 
-[src/Lib.ts:8](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Lib.ts#L8)
+[src/Lib.ts:8](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Lib.ts#L8)

@@ -52,7 +52,7 @@ A function that takes a value and returns the result of the matching dispatcher'
 
 #### Defined in
 
-[src/Switch.ts:161](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L161)
+[src/Switch.ts:161](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L161)
 
 ***
 
@@ -76,7 +76,7 @@ The current instance of Switch for chaining.
 
 #### Defined in
 
-[src/Switch.ts:132](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L132)
+[src/Switch.ts:132](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L132)
 
 ***
 
@@ -108,7 +108,7 @@ The current instance of Switch for chaining.
 
 #### Defined in
 
-[src/Switch.ts:76](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L76)
+[src/Switch.ts:76](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L76)
 
 ***
 
@@ -140,7 +140,7 @@ The current instance of Switch for chaining.
 
 #### Defined in
 
-[src/Switch.ts:93](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L93)
+[src/Switch.ts:93](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L93)
 
 ***
 
@@ -168,7 +168,7 @@ The current instance of Switch for chaining.
 
 #### Defined in
 
-[src/Switch.ts:123](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L123)
+[src/Switch.ts:123](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L123)
 
 ***
 
@@ -196,7 +196,7 @@ If no dispatcher matches the value.
 
 #### Defined in
 
-[src/Switch.ts:147](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L147)
+[src/Switch.ts:147](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L147)
 
 ***
 
@@ -224,7 +224,7 @@ The current instance of Switch for chaining.
 
 #### Defined in
 
-[src/Switch.ts:113](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L113)
+[src/Switch.ts:113](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L113)
 
 ***
 
@@ -256,7 +256,7 @@ The current instance of Switch for chaining.
 
 #### Defined in
 
-[src/Switch.ts:42](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L42)
+[src/Switch.ts:42](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L42)
 
 ***
 
@@ -288,4 +288,4 @@ The current instance of Switch for chaining.
 
 #### Defined in
 
-[src/Switch.ts:57](https://github.com/AndreyMork/domistrukt/blob/e424882f37eb3cff2d317c2f62ddcbe7f7556be1/src/Switch.ts#L57)
+[src/Switch.ts:57](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L57)
