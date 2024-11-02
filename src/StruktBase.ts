@@ -157,6 +157,16 @@ export class StruktBase<
 		const patch = fn(this.$clone());
 		return this.$update(patch);
 	}
+
+	/**
+	 * Creates a new instance of the object.
+	 * @param args - The arguments to pass to the constructor.
+	 * @returns A new instance of the object.
+	 */
+	$create(...args: args): this {
+		// @ts-expect-error
+		return new this.constructor(...args);
+	}
 }
 
 export { StruktBase as t };

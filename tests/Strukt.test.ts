@@ -336,6 +336,32 @@ test.group('Strukt: methods', () => {
 		expect(instance.x).toBe(1);
 		expect(instance.y).toBe(2);
 	});
+
+	test('`$create` creates a new instance of the object', ({
+		expect,
+		expectTypeOf,
+	}) => {
+		let constructorCalled = false;
+		class MyClass extends Strukt.init({
+			constructor(value: number, value2: string) {
+				constructorCalled = true;
+				return {
+					value,
+					value2,
+				};
+			},
+		}) {}
+
+		const instance = new MyClass(1, '2');
+		const created = instance.$create(2, '3');
+
+		expect(created).toBeInstanceOf(MyClass);
+		expect(constructorCalled).toBe(true);
+		expect(created).not.toBe(instance);
+		expect(created.value).toBe(2);
+		expect(created.value2).toBe('3');
+		expectTypeOf(instance.$create).parameters.toMatchTypeOf<[number, string]>();
+	});
 });
 
 test.group('Strukt: types', () => {
