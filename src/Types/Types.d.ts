@@ -3,9 +3,9 @@
  * @template args - An array of types representing the constructor arguments. Defaults to any[].
  * @template instance - The type of the instance created by the constructor. Defaults to any.
  */
-export type klass<args extends Array<any> = Array<any>, instance = any> = new (
-	...args: args
-) => instance;
+export type klass<args extends Array<any> = Array<any>, instance = any> = {
+	new (...args: args): instance;
+};
 
 export type anyKlass = klass<any[], any>;
 

@@ -9,7 +9,7 @@ export * as StruktBase from './StruktBase.ts';
 export { StruktBase as Base, BasicStrukt as Basic } from './StruktBase.ts';
 
 export * as Switch from './Switch.ts';
-export { switchCase } from './Switch.ts';
+export { switchCase, compileSwitch } from './Switch.ts';
 
 export * as Error from './Error.ts';
 export { init as error, staticError, isErrorStrukt } from './Error.ts';

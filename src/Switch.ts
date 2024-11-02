@@ -1,175 +1,325 @@
 import * as Im from 'immutable';
 
 import * as Err from './Errors.ts';
-import * as Strukt from './Strukt.ts';
+// import * as Lib from './Lib.ts';
+// import * as Strukt from './Strukt.ts';
 import type * as T from './Types/Types.d.ts';
+
 export type callbackFn<data, result> = (value: data) => result;
 export type predicateFn<data> = (value: data) => boolean;
 
 // TODO tests
+// TODO instance structural exclude warning
 
-class Dispatcher extends Strukt.init({
-	constructor(params: {
-		test: predicateFn<any>;
-		callback: callbackFn<any, any>;
-	}) {
-		return {
-			test: params.test,
-			callback: params.callback,
-		};
-	},
-}) {}
+export type typeofName = 'string' | 'number' | 'boolean' | 'symbol' | 'bigint';
 
+type isNever<t> = [t] extends [never] ? true : false;
+
+type dispatcher = {
+	test: predicateFn<any>;
+	callback: callbackFn<any, any>;
+};
+
+type params<result> = {
+	dispatchers?: Im.List<dispatcher>;
+	mapper?: callbackFn<result, any>;
+	unsaved?: boolean;
+};
+
+export { Switch, Switch as t };
 /**
  * A class that allows for conditional execution of callbacks based on various criteria.
  * @template data - The type of data being tested.
  * @template result - The type of result returned by the callbacks.
+ * @template notChecked - The type of data that has not been checked.
  */
-export class Switch<data, result> {
-	#dispatchers: Im.List<Dispatcher> = Im.List();
+class Switch<target, result = never, notChecked = target> {
+	readonly target: target;
+	#dispatchers: Im.List<dispatcher>;
+	#mapper?: (result: result) => any;
+	#unsaved?: boolean;
 
-	#push(dispatcher: Dispatcher) {
-		this.#dispatchers = this.#dispatchers.push(dispatcher);
+	constructor(target: target, params?: params<result>) {
+		this.target = target;
+		this.#dispatchers = Im.List(params?.dispatchers);
+		this.#mapper = params?.mapper;
+		this.#unsaved = params?.unsaved ?? false;
+	}
+
+	#dispatch<t extends Switch<any, any, any>>(dispatcher: dispatcher): t {
+		return this.#update({
+			dispatchers: this.#dispatchers.push(dispatcher),
+		}) as t;
+	}
+
+	run(): result {
+		if (this.#unsaved) {
+			throw new Err.CannotRunUnsavedCompileSwitch();
+		}
+
+		for (const dispatcher of this.#dispatchers) {
+			if (!dispatcher.test(this.target)) {
+				continue;
+			}
+
+			const result = dispatcher.callback(this.target);
+
+			if (this.#mapper != null) {
+				return this.#mapper(result);
+			}
+
+			return result;
+		}
+
+		throw new Err.SwitchNoMatch(this.target);
+	}
+
+	verify(
+		..._notChecked: isNever<notChecked> extends true
+			? []
+			: [never, 'Not all cases are checked:', notChecked]
+	): this {
 		return this;
 	}
 
-	/**
-	 * Adds a dispatcher that matches a specific value.
-	 * @param value - The value to match.
-	 * @param callback - The callback to execute if the value matches.
-	 * @returns The current instance of Switch for chaining.
-	 */
-	value<val>(value: val, callback: callbackFn<val, result>) {
-		return this.#push(
-			new Dispatcher({
-				test: (x) => x === value,
-				callback,
-			}),
-		);
-	}
-
-	/**
-	 * Adds a dispatcher that matches any value in a given array.
-	 * @param values - An array of values to match.
-	 * @param callback - The callback to execute if any value matches.
-	 * @returns The current instance of Switch for chaining.
-	 */
-	values<values extends any[]>(
-		values: values,
-		callback: callbackFn<values[number], result>,
+	runStrict(
+		..._notChecked: isNever<notChecked> extends true
+			? []
+			: [never, 'Not all cases are checked:', notChecked]
 	) {
-		const set = Im.Set(values);
-		return this.#push(
-			new Dispatcher({
-				test: (x) => set.has(x),
-				callback,
-			}),
-		);
+		return this.run();
 	}
 
-	/**
-	 * Adds a dispatcher that matches instances of a specific class.
-	 * @param klass - The class to match instances of.
-	 * @param callback - The callback to execute if the instance matches.
-	 * @returns The current instance of Switch for chaining.
-	 */
-	instance<k extends T.anyKlass>(
-		klass: k,
-		callback: callbackFn<InstanceType<k>, result>,
+	clone() {
+		return this.#update();
+	}
+
+	#update(params?: Partial<params<result>> & { data?: target }) {
+		return new Switch(params?.data ?? this.target, {
+			dispatchers: params?.dispatchers ?? this.#dispatchers,
+			unsaved: params?.unsaved ?? this.#unsaved,
+			mapper: params?.mapper ?? this.#mapper,
+		});
+	}
+
+	#setData(data: target) {
+		// @ts-expect-error
+		this.target = data;
+		return this;
+	}
+
+	save() {
+		const saved = this.#update({ unsaved: false });
+		return (data: target): result => saved.#setData(data).run();
+	}
+
+	saveStrict(
+		..._notChecked: isNever<notChecked> extends true
+			? []
+			: [never, 'Not all cases are checked:', notChecked]
 	) {
-		return this.#push(
-			new Dispatcher({
-				test: (x) => x instanceof klass,
+		return this.save();
+	}
+
+	when<checked, res = result>(
+		test: boolean | predicateFn<target>,
+		callback: callbackFn<target, res>,
+	): Switch<target, result | res, Exclude<notChecked, checked>> {
+		if (typeof test === 'boolean') {
+			return this.#dispatch({
+				test: () => test,
 				callback,
-			}),
-		);
-	}
-	/**
-	 * Adds a dispatcher that matches any instance of the given classes.
-	 * @param klasses - An array of classes to match instances of.
-	 * @param callback - The callback to execute if any instance matches.
-	 * @returns The current instance of Switch for chaining.
-	 */
-	instances<klasses extends T.anyKlass[]>(
-		klasses: klasses,
-		callback: callbackFn<InstanceType<klasses[number]>, result>,
-	) {
-		const testValues = Im.List(klasses);
-
-		return this.#push(
-			new Dispatcher({
-				test: (x) => testValues.some((k) => x instanceof k),
-				callback,
-			}),
-		);
-	}
-
-	/**
-	 * Adds a dispatcher that matches a boolean flag.
-	 * @param flag - The boolean flag to match.
-	 * @param callback - The callback to execute if the flag is true.
-	 * @returns The current instance of Switch for chaining.
-	 */
-	test(flag: boolean, callback: callbackFn<data, result>) {
-		return this.#push(new Dispatcher({ test: () => flag, callback }));
-	}
-
-	/**
-	 * Adds a dispatcher that matches a custom predicate function.
-	 * @param test - The predicate function to match.
-	 * @param callback - The callback to execute if the predicate returns true.
-	 * @returns The current instance of Switch for chaining.
-	 */
-	predicate(test: predicateFn<data>, callback: callbackFn<data, result>) {
-		return this.#push(new Dispatcher({ test, callback }));
-	}
-
-	/**
-	 * Adds a default dispatcher that always matches.
-	 * @param fn - The callback to execute if no other dispatcher matches.
-	 * @returns The current instance of Switch for chaining.
-	 */
-	default(fn: () => result) {
-		return this.#push(
-			new Dispatcher({
-				test: () => true,
-				callback: fn,
-			}),
-		);
-	}
-
-	/**
-	 * Executes the first matching dispatcher for a given value.
-	 * @param value - The value to test against the dispatchers.
-	 * @returns The result of the matching dispatcher's callback.
-	 * @throws {Err.SwitchNoMatch} If no dispatcher matches the value.
-	 */
-	run(value: unknown): result {
-		for (const dispatcher of this.#dispatchers) {
-			if (dispatcher.test(value)) {
-				return dispatcher.callback(value);
-			}
+			});
 		}
 
-		throw new Err.SwitchNoMatch(value);
+		return this.#dispatch({
+			test,
+			callback,
+		});
 	}
 
-	/**
-	 * Compiles the switch into a function that can be executed with a value.
-	 * @returns A function that takes a value and returns the result of the matching dispatcher's callback.
-	 */
-	compile() {
-		return (value: data) => this.run(value);
+	otherwise<res>(
+		callback: callbackFn<notChecked, res>,
+	): Switch<target, result | res, never> {
+		return this.#dispatch({
+			test: () => true,
+			callback,
+		});
+	}
+
+	otherwiseThrow(error?: Error | ((cause: Error) => Error)) {
+		if (error == null) {
+			return this.otherwise(() => {
+				throw new Err.SwitchNoMatch(this.target);
+			});
+		}
+
+		if (error instanceof Error) {
+			return this.otherwise(() => {
+				throw error;
+			});
+		}
+
+		return this.otherwise(() => {
+			const cause = new Err.SwitchNoMatch(this.target);
+			throw error(cause);
+		});
+	}
+
+	whenValue<val extends any[], res>(
+		value: val,
+		callback: callbackFn<val[number], res>,
+	): Switch<target, result | res, Exclude<notChecked, val[number]>>;
+	whenValue<val, res>(
+		value: val,
+		callback: callbackFn<val, res>,
+	): Switch<target, result | res, Exclude<notChecked, val>>;
+	whenValue(value: unknown, callback: callbackFn<unknown, unknown>) {
+		if (!Array.isArray(value)) {
+			return this.#dispatch({
+				test: (x) => x === value,
+				callback,
+			});
+		}
+
+		const set = Im.Set(value);
+		return this.#dispatch({
+			test: (x) => set.has(x),
+			callback,
+		});
+	}
+
+	whenInstance<k extends T.anyKlass, res>(
+		klass: k,
+		callback: callbackFn<InstanceType<k>, res>,
+	): Switch<target, result | res, Exclude<notChecked, InstanceType<k>>>;
+	whenInstance<k extends T.anyKlass[], res>(
+		klasses: k,
+		callback: callbackFn<InstanceType<k[number]>, res>,
+	): Switch<target, result | res, Exclude<notChecked, InstanceType<k[number]>>>;
+	whenInstance(
+		klass: T.anyKlass | T.anyKlass[],
+		callback: callbackFn<unknown, unknown>,
+	) {
+		if (!Array.isArray(klass)) {
+			return this.#dispatch({
+				test: (x) => x instanceof klass,
+				callback,
+			});
+		}
+
+		return this.#dispatch({
+			test: (x) => klass.some((k) => x instanceof k),
+			callback,
+		});
+	}
+
+	whenString<res>(callback: callbackFn<string, res>) {
+		return this.whenTypeOf('string', callback);
+	}
+
+	whenNumber<res>(callback: callbackFn<number, res>) {
+		return this.whenTypeOf('number', callback);
+	}
+
+	whenBoolean<res>(callback: callbackFn<boolean, res>) {
+		return this.whenTypeOf('boolean', callback);
+	}
+
+	whenSymbol<res>(callback: callbackFn<symbol, res>) {
+		return this.whenTypeOf('symbol', callback);
+	}
+
+	whenBigint<res>(callback: callbackFn<bigint, res>) {
+		return this.whenTypeOf('bigint', callback);
+	}
+
+	whenTypeOf<res>(
+		type: 'string',
+		callback: callbackFn<string, res>,
+	): Switch<target, result | res, Exclude<notChecked, string>>;
+	whenTypeOf<res>(
+		type: 'number',
+		callback: callbackFn<number, res>,
+	): Switch<target, result | res, Exclude<notChecked, number>>;
+	whenTypeOf<res>(
+		type: 'boolean',
+		callback: callbackFn<boolean, res>,
+	): Switch<target, result | res, Exclude<notChecked, boolean>>;
+	whenTypeOf<res>(
+		type: 'symbol',
+		callback: callbackFn<symbol, res>,
+	): Switch<target, result | res, Exclude<notChecked, symbol>>;
+	whenTypeOf<res>(
+		type: 'bigint',
+		callback: callbackFn<bigint, res>,
+	): Switch<target, result | res, Exclude<notChecked, bigint>>;
+	whenTypeOf<res>(type: typeofName, callback: callbackFn<any, res>) {
+		return this.#dispatch({
+			// biome-ignore lint/suspicious/useValidTypeof: <explanation>
+			test: (x) => typeof x === type,
+			callback,
+		});
+	}
+
+	whenUndefined<res>(
+		callback: callbackFn<undefined, res>,
+	): Switch<target, result | res, Exclude<notChecked, undefined>> {
+		return this.#dispatch({
+			test: (x) => x === undefined,
+			callback,
+		});
+	}
+
+	whenNull<res>(
+		callback: callbackFn<null, res>,
+	): Switch<target, result | res, Exclude<notChecked, null>> {
+		return this.#dispatch({
+			test: (x) => x === null,
+			callback,
+		});
+	}
+
+	whenOptional<res>(callback: callbackFn<undefined | null, res>) {
+		return this.#dispatch({
+			test: (x) => x == null,
+			callback,
+		});
+	}
+
+	whenTrue<res>(
+		callback: callbackFn<true, res>,
+	): Switch<target, result | res, Exclude<notChecked, true>> {
+		return this.#dispatch({
+			test: () => true,
+			callback,
+		});
+	}
+
+	whenFalse<res>(
+		callback: callbackFn<false, res>,
+	): Switch<target, result | res, Exclude<notChecked, false>> {
+		return this.#dispatch({
+			test: () => false,
+			callback,
+		});
+	}
+
+	map<res>(fn: (x: result) => res): Switch<target, res, notChecked> {
+		if (this.#mapper == null) {
+			return this.#update({
+				mapper: fn,
+			}) as unknown as Switch<target, res, notChecked>;
+		}
+
+		const oldMapper = this.#mapper;
+		return this.#update({
+			mapper: (x) => fn(oldMapper!(x)),
+		}) as unknown as Switch<target, res, notChecked>;
 	}
 }
 
-export { Switch as t };
+export const switchCase = <data>(data: data) => new Switch(data);
 
-/**
- * Factory function to create a new Switch instance.
- * @template result - The type of result returned by the callbacks.
- * @template data - The type of data being tested.
- * @returns A new instance of Switch.
- */
-export const switchCase = <result, data = unknown>() =>
-	new Switch<data, result>();
+export const compileSwitch = <data>(): Switch<data, never, data> =>
+	new Switch(undefined as any, { unsaved: true });

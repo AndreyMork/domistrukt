@@ -10,3 +10,11 @@ export class SwitchNoMatch extends Err.init({
 		};
 	},
 }) {}
+
+export class CannotRunUnsavedCompileSwitch extends Err.init({
+	constructor() {
+		return {
+			message: 'Cannot run unsaved CompileSwitch',
+		};
+	},
+}) {}
