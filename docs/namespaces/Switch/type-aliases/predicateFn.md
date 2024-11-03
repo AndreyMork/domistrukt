@@ -6,7 +6,7 @@
 
 # Type Alias: predicateFn()\<data\>
 
-> **predicateFn**\<`data`\>: (`value`) => `boolean`
+> **predicateFn**\<`data`\>: (`value`, `ctx`) => `boolean`
 
 ## Type Parameters
 
@@ -16,10 +16,12 @@
 
 • **value**: `data`
 
+• **ctx**: [`SwitchContext`](../classes/SwitchContext.md)
+
 ## Returns
 
 `boolean`
 
 ## Defined in
 
-[src/Switch.ts:9](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/Switch.ts#L9)
+[src/Switch.ts:12](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Switch.ts#L12)

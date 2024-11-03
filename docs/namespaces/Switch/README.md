@@ -11,14 +11,20 @@
 ### Classes
 
 - [Switch](classes/Switch.md)
+- [SwitchContext](classes/SwitchContext.md)
 - [SwitchNoMatch](classes/SwitchNoMatch.md)
 
 ### Type Aliases
 
 - [callbackFn](type-aliases/callbackFn.md)
+- [dispatcher](type-aliases/dispatcher.md)
 - [params](type-aliases/params.md)
 - [predicateFn](type-aliases/predicateFn.md)
 - [typeofName](type-aliases/typeofName.md)
+
+### Variables
+
+- [continueSymbol](variables/continueSymbol.md)
 
 ### Functions
 

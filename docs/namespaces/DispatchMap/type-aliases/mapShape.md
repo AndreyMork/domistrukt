@@ -14,4 +14,4 @@
 
 ## Defined in
 
-[src/DispatchMap.ts:3](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/DispatchMap.ts#L3)
+[src/DispatchMap.ts:3](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/DispatchMap.ts#L3)

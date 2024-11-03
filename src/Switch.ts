@@ -18,7 +18,7 @@ export type predicateFn<data> = (value: data, ctx: SwitchContext) => boolean;
 
 export type typeofName = 'string' | 'number' | 'boolean' | 'symbol' | 'bigint';
 
-type dispatcher = {
+export type dispatcher = {
 	test: predicateFn<any>;
 	callback: callbackFn<any, any>;
 };
