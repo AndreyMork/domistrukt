@@ -1,4 +1,4 @@
 // Stryker disable all
 
-export { SwitchNoMatch, CannotRunUnsavedCompileSwitch } from './Switch.ts';
+export { SwitchNoMatch } from './Switch.ts';
 export { DispatchMapKeyNotFound } from './DispatchMap.ts';

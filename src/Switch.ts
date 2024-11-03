@@ -22,10 +22,10 @@ type dispatcher = {
 	callback: callbackFn<any, any>;
 };
 
-type params<result> = {
+type params<target, result> = {
+	target?: target;
 	dispatchers?: Im.List<dispatcher>;
 	mapper?: callbackFn<result, any>;
-	unsaved?: boolean;
 };
 
 export { Switch, Switch as t };
@@ -36,35 +36,45 @@ export { Switch, Switch as t };
  * @template notChecked - The type of data that has not been checked.
  */
 class Switch<target, result = never, notChecked = target> {
-	readonly target: target;
+	target?: target;
 	#dispatchers: Im.List<dispatcher>;
 	#mapper?: (result: result) => any;
-	#unsaved?: boolean;
 
-	constructor(target: target, params?: params<result>) {
-		this.target = target;
+	constructor(params?: params<target, result>) {
+		this.target = params?.target;
 		this.#dispatchers = Im.List(params?.dispatchers);
 		this.#mapper = params?.mapper;
-		this.#unsaved = params?.unsaved ?? false;
 	}
 
-	#dispatch<t extends Switch<any, any, any>>(dispatcher: dispatcher): t {
-		return this.#update({
-			dispatchers: this.#dispatchers.push(dispatcher),
-		}) as t;
+	clone() {
+		return this.#update();
 	}
 
-	run(): result {
-		if (this.#unsaved) {
-			throw new CannotRunUnsavedCompileSwitch();
-		}
+	#update(params?: Partial<params<target, result>>) {
+		return new Switch({
+			target: params?.target ?? this.target,
+			dispatchers: params?.dispatchers ?? this.#dispatchers,
+			mapper: params?.mapper ?? this.#mapper,
+		});
+	}
 
+	setData(data: target) {
+		this.target = data;
+		return this;
+	}
+
+	save() {
+		const saved = this.#update({ target: undefined });
+		return (data: target): result => saved.setData(data).run();
+	}
+
+	run(target: target | undefined = this.target): result {
 		for (const dispatcher of this.#dispatchers) {
-			if (!dispatcher.test(this.target)) {
+			if (!dispatcher.test(target)) {
 				continue;
 			}
 
-			const result = dispatcher.callback(this.target);
+			const result = dispatcher.callback(target);
 
 			if (this.#mapper != null) {
 				return this.#mapper(result);
@@ -73,7 +83,7 @@ class Switch<target, result = never, notChecked = target> {
 			return result;
 		}
 
-		throw new SwitchNoMatch(this.target);
+		throw new SwitchNoMatch(target);
 	}
 
 	verify(
@@ -84,6 +94,14 @@ class Switch<target, result = never, notChecked = target> {
 		return this;
 	}
 
+	saveStrict(
+		..._notChecked: isNever<notChecked> extends true
+			? []
+			: [never, 'Not all cases are checked:', notChecked]
+	) {
+		return this.save();
+	}
+
 	runStrict(
 		..._notChecked: isNever<notChecked> extends true
 			? []
@@ -92,35 +110,10 @@ class Switch<target, result = never, notChecked = target> {
 		return this.run();
 	}
 
-	clone() {
-		return this.#update();
-	}
-
-	#update(params?: Partial<params<result>> & { data?: target }) {
-		return new Switch(params?.data ?? this.target, {
-			dispatchers: params?.dispatchers ?? this.#dispatchers,
-			unsaved: params?.unsaved ?? this.#unsaved,
-			mapper: params?.mapper ?? this.#mapper,
-		});
-	}
-
-	#setData(data: target) {
-		// @ts-expect-error
-		this.target = data;
-		return this;
-	}
-
-	save() {
-		const saved = this.#update({ unsaved: false });
-		return (data: target): result => saved.#setData(data).run();
-	}
-
-	saveStrict(
-		..._notChecked: isNever<notChecked> extends true
-			? []
-			: [never, 'Not all cases are checked:', notChecked]
-	) {
-		return this.save();
+	#dispatch<t extends Switch<any, any, any>>(dispatcher: dispatcher): t {
+		return this.#update({
+			dispatchers: this.#dispatchers.push(dispatcher),
+		}) as t;
 	}
 
 	when<checked, res = result>(
@@ -321,10 +314,10 @@ class Switch<target, result = never, notChecked = target> {
 	}
 }
 
-export const switchCase = <data>(data: data) => new Switch(data);
+export const switchCase = <target>(target: target) => new Switch({ target });
 
-export const compileSwitch = <data>(): Switch<data, never, data> =>
-	new Switch(undefined as any, { unsaved: true });
+export const compileSwitch = <target>(): Switch<target, never, target> =>
+	new Switch();
 
 // Errors
 
@@ -335,8 +328,4 @@ export class SwitchNoMatch extends Err.init({
 			message: `No match found and no default provided for ${value}`,
 		};
 	},
-}) {}
-
-export class CannotRunUnsavedCompileSwitch extends Err.staticError({
-	message: 'Cannot run unsaved CompileSwitch',
 }) {}
