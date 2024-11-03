@@ -79,8 +79,15 @@ class DispatchMap<shape extends mapShape> {
 
 	@Lib.lazy()
 	get reverse(): DispatchMap<{ [key in typeof this.$$value]: keyof shape }> {
-		const entries = this.entries().map(({ key, value }) => [value, key]);
-		const shape = Object.fromEntries(entries);
+		const shape = {} as any;
+
+		for (const { key, value } of this.entries()) {
+			if (value in shape) {
+				continue;
+			}
+
+			shape[value] = key;
+		}
 
 		return new DispatchMap(shape);
 	}
