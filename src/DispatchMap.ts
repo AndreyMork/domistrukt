@@ -27,22 +27,6 @@ class DispatchMap<shape extends mapShape> {
 		return undefined as any;
 	}
 
-	get<key extends keyof shape>(key: key): shape[key] {
-		if (!this.has(key)) {
-			throw new Error(`Key ${key} not found in shape`);
-		}
-
-		return this.#shape[key];
-	}
-
-	getSafe<key extends keyof shape, notSetValue>(
-		key: key,
-		notSetValue: notSetValue,
-	): shape[key] | notSetValue;
-	getSafe<key extends keyof shape>(key: key): shape[key] | undefined {
-		return this.has(key) ? this.get(key) : undefined;
-	}
-
 	has(key: unknown): key is keyof shape {
 		return (key as PropertyKey) in this.#shape;
 	}
@@ -60,6 +44,36 @@ class DispatchMap<shape extends mapShape> {
 			key: key as keyof shape,
 			value: value as shape[keyof shape],
 		}));
+	}
+
+	get<key extends keyof shape>(key: key): shape[key] {
+		if (!this.has(key)) {
+			throw new Error(`Key ${key} not found in shape`);
+		}
+
+		return this.#shape[key];
+	}
+
+	getSafe<key extends keyof shape, notSetValue = undefined>(
+		key: key,
+		notSetValue?: notSetValue,
+	): shape[key] | notSetValue {
+		if (this.has(key)) {
+			return this.get(key);
+		}
+
+		return notSetValue as notSetValue;
+	}
+
+	index(key: PropertyKey): shape[keyof shape] {
+		return this.get(key);
+	}
+
+	indexSafe<notSetValue = undefined>(
+		key: PropertyKey,
+		notSetValue?: notSetValue,
+	): shape[keyof shape] | notSetValue {
+		return this.getSafe(key, notSetValue);
 	}
 }
 
