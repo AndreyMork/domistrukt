@@ -5,8 +5,11 @@ import * as Err from './Error.ts';
 // import * as Strukt from './Strukt.ts';
 import type * as T from './Types/Types.d.ts';
 
-export type callbackFn<data, result> = (value: data) => result;
-export type predicateFn<data> = (value: data) => boolean;
+export type callbackFn<data, result> = (
+	value: data,
+	ctx: SwitchContext,
+) => result;
+export type predicateFn<data> = (value: data, ctx: SwitchContext) => boolean;
 
 // TODO tests
 // TODO tsdocs
@@ -22,9 +25,37 @@ type dispatcher = {
 
 export type params<target, result> = {
 	target?: target;
+	ctxData?: any;
 	dispatchers?: Im.List<dispatcher>;
 	mapper?: callbackFn<result, any>;
 };
+
+export const continueSymbol: unique symbol = Symbol('switch/continue');
+
+// TODO figure out typing
+export class SwitchContext {
+	data: any;
+	target: any;
+
+	constructor(params: { data: any; target: any }) {
+		this.target = params.target;
+		this.data = params.data;
+	}
+
+	// 	setData(data: any) {
+	// 		this.data = data;
+	// 		return this;
+	// 	}
+	//
+	// 	setTarget(target: any) {
+	// 		this.target = target;
+	// 		return this;
+	// 	}
+
+	continue<t>(): t {
+		return continueSymbol as unknown as t;
+	}
+}
 
 export { Switch, Switch as t };
 /**
@@ -36,7 +67,7 @@ export { Switch, Switch as t };
 class Switch<target, result = never, notChecked = target> {
 	target?: target;
 	#dispatchers: Im.List<dispatcher>;
-	#mapper?: (result: result) => any;
+	#mapper?: callbackFn<result, any>;
 
 	constructor(params?: params<target, result>) {
 		this.target = params?.target;
@@ -56,26 +87,38 @@ class Switch<target, result = never, notChecked = target> {
 		});
 	}
 
-	setData(data: target) {
-		this.target = data;
-		return this;
+	#reset() {
+		return this.#update({ target: undefined });
 	}
 
 	save() {
-		const saved = this.#update({ target: undefined });
-		return (data: target): result => saved.setData(data).run();
+		const saved = this.#reset();
+		return (data: target, ctxData?: any): result => saved.run(data, ctxData);
 	}
 
-	run(target: target | undefined = this.target): result {
+	run(target?: target, ctxData?: any): result {
+		if (target == null) {
+			return this.run(this.target, ctxData);
+		}
+
+		const ctx = new SwitchContext({
+			data: ctxData,
+			target,
+		});
+
 		for (const dispatcher of this.#dispatchers) {
-			if (!dispatcher.test(target)) {
+			if (!dispatcher.test(target, ctx)) {
 				continue;
 			}
 
-			const result = dispatcher.callback(target);
+			const result = dispatcher.callback(target, ctx);
+
+			if (result === continueSymbol) {
+				continue;
+			}
 
 			if (this.#mapper != null) {
-				return this.#mapper(result);
+				return this.#mapper(result, ctx);
 			}
 
 			return result;
@@ -114,7 +157,7 @@ class Switch<target, result = never, notChecked = target> {
 		}) as t;
 	}
 
-	when<checked, res = result>(
+	when<checked = never, res = result>(
 		test: boolean | predicateFn<target>,
 		callback: callbackFn<target, res>,
 	): Switch<target, result | res, Exclude<notChecked, checked>> {
@@ -305,9 +348,9 @@ class Switch<target, result = never, notChecked = target> {
 			}) as unknown as Switch<target, res, notChecked>;
 		}
 
-		const oldMapper = this.#mapper;
+		const oldMapper = this.#mapper!;
 		return this.#update({
-			mapper: (x) => fn(oldMapper!(x)),
+			mapper: (x, ctx) => fn(oldMapper(x, ctx)),
 		}) as unknown as Switch<target, res, notChecked>;
 	}
 }
