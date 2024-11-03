@@ -1,4 +1,5 @@
 import * as Err from './Error.ts';
+import * as Lib from './Lib.ts';
 
 export type mapShape = {
 	[key: PropertyKey]: any;
@@ -74,6 +75,14 @@ class DispatchMap<shape extends mapShape> {
 		notSetValue?: notSetValue,
 	): shape[keyof shape] | notSetValue {
 		return this.getSafe(key, notSetValue);
+	}
+
+	@Lib.lazy()
+	get reverse(): DispatchMap<{ [key in typeof this.$$value]: keyof shape }> {
+		const entries = this.entries().map(({ key, value }) => [value, key]);
+		const shape = Object.fromEntries(entries);
+
+		return new DispatchMap(shape);
 	}
 }
 
