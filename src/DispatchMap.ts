@@ -35,6 +35,14 @@ class DispatchMap<shape extends mapShape> {
 		return this.#shape[key];
 	}
 
+	getSafe<key extends keyof shape, notSetValue>(
+		key: key,
+		notSetValue: notSetValue,
+	): shape[key] | notSetValue;
+	getSafe<key extends keyof shape>(key: key): shape[key] | undefined {
+		return this.has(key) ? this.get(key) : undefined;
+	}
+
 	has(key: unknown): key is keyof shape {
 		return (key as PropertyKey) in this.#shape;
 	}
