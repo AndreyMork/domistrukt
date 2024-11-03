@@ -49,7 +49,7 @@ class DispatchMap<shape extends mapShape> {
 
 	get<key extends keyof shape>(key: key): shape[key] {
 		if (!this.has(key)) {
-			throw new Error(`Key ${key} not found in shape`);
+			throw new DispatchMapKeyNotFound({ key, map: this });
 		}
 
 		return this.#shape[key];
@@ -107,11 +107,12 @@ export class DispatchMapKeyNotFound extends Err.init({
 			keys,
 		};
 
+		const keysString = keys.join(', ');
+		const message = `DispatchMap key not found: ${key}. Available keys: ${keysString}`;
+
 		return {
 			data,
-			message: `DispatchMap key not found: ${key}. Available keys: ${keys.join(
-				', ',
-			)}`,
+			message,
 		};
 	},
 }) {}
