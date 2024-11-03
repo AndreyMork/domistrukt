@@ -8,7 +8,9 @@
 			"#PackageJSON": ["./package.json"],
 			"#Src/*": ["./src/*"],
 			"#Main": ["./src/Main.ts"],
-			"#Tests/*": ["./tests/*"]
+			"#Tests/*": ["./tests/*"],
+			"#Types": ["./src/Types/Types.d.ts"],
+			"#Types/*": ["./src/Types/*"]
 		}
 	}
 }

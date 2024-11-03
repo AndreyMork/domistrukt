@@ -1,6 +1,6 @@
 import * as Im from 'immutable';
 
-import * as Err from './Errors.ts';
+import * as Err from './Error.ts';
 // import * as Lib from './Lib.ts';
 // import * as Strukt from './Strukt.ts';
 import type * as T from './Types/Types.d.ts';
@@ -9,7 +9,9 @@ export type callbackFn<data, result> = (value: data) => result;
 export type predicateFn<data> = (value: data) => boolean;
 
 // TODO tests
+// TODO tsdocs
 // TODO instance structural exclude warning
+// TODO as const warning
 
 export type typeofName = 'string' | 'number' | 'boolean' | 'symbol' | 'bigint';
 
@@ -54,7 +56,7 @@ class Switch<target, result = never, notChecked = target> {
 
 	run(): result {
 		if (this.#unsaved) {
-			throw new Err.CannotRunUnsavedCompileSwitch();
+			throw new CannotRunUnsavedCompileSwitch();
 		}
 
 		for (const dispatcher of this.#dispatchers) {
@@ -71,7 +73,7 @@ class Switch<target, result = never, notChecked = target> {
 			return result;
 		}
 
-		throw new Err.SwitchNoMatch(this.target);
+		throw new SwitchNoMatch(this.target);
 	}
 
 	verify(
@@ -150,7 +152,7 @@ class Switch<target, result = never, notChecked = target> {
 	otherwiseThrow(error?: Error | ((cause: Error) => Error)) {
 		if (error == null) {
 			return this.otherwise(() => {
-				throw new Err.SwitchNoMatch(this.target);
+				throw new SwitchNoMatch(this.target);
 			});
 		}
 
@@ -161,7 +163,7 @@ class Switch<target, result = never, notChecked = target> {
 		}
 
 		return this.otherwise(() => {
-			const cause = new Err.SwitchNoMatch(this.target);
+			const cause = new SwitchNoMatch(this.target);
 			throw error(cause);
 		});
 	}
@@ -323,3 +325,18 @@ export const switchCase = <data>(data: data) => new Switch(data);
 
 export const compileSwitch = <data>(): Switch<data, never, data> =>
 	new Switch(undefined as any, { unsaved: true });
+
+// Errors
+
+export class SwitchNoMatch extends Err.init({
+	constructor(value: any) {
+		return {
+			data: { value },
+			message: `No match found and no default provided for ${value}`,
+		};
+	},
+}) {}
+
+export class CannotRunUnsavedCompileSwitch extends Err.staticError({
+	message: 'Cannot run unsaved CompileSwitch',
+}) {}
