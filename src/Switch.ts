@@ -39,7 +39,7 @@ export class SwitchContext {
 
 	constructor(params: { data: any; target: any }) {
 		this.target = params.target;
-		this.data = params.data;
+		this.data = params.data ?? {};
 	}
 
 	// 	setData(data: any) {
@@ -344,7 +344,7 @@ class Switch<target, result = never, notChecked = target> {
 		});
 	}
 
-	map<res>(fn: (x: result) => res): Switch<target, res, notChecked> {
+	map<res>(fn: callbackFn<result, res>): Switch<target, res, notChecked> {
 		if (this.#mapper == null) {
 			return this.#update({
 				mapper: fn,
@@ -353,7 +353,7 @@ class Switch<target, result = never, notChecked = target> {
 
 		const oldMapper = this.#mapper!;
 		return this.#update({
-			mapper: (x, ctx) => fn(oldMapper(x, ctx)),
+			mapper: (x, ctx) => fn(oldMapper(x, ctx), ctx),
 		}) as unknown as Switch<target, res, notChecked>;
 	}
 }
