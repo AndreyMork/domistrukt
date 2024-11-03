@@ -22,4 +22,4 @@ Represents metadata for an error, including optional message and cause.
 
 ## Defined in
 
-[src/Error.ts:6](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L6)
+[src/Error.ts:6](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L6)

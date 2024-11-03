@@ -54,7 +54,7 @@ Err.init(\{
 
 #### Defined in
 
-[src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L87)
+[src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L87)
 
 ## Properties
 
@@ -130,7 +130,7 @@ Err.init(\{
 
 #### Defined in
 
-[src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L81)
+[src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L81)
 
 ***
 
@@ -162,7 +162,7 @@ Err.init(\{
 
 #### Defined in
 
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L12)
+[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L12)
 
 ***
 
@@ -194,7 +194,7 @@ Err.init(\{
 
 #### Defined in
 
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L13)
+[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L13)
 
 ***
 

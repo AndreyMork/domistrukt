@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/Switch.ts:40](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Switch.ts#L40)
+[src/Switch.ts:40](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L40)
 
 ## Properties
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/Switch.ts:37](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Switch.ts#L37)
+[src/Switch.ts:37](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L37)
 
 ***
 
@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[src/Switch.ts:38](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Switch.ts#L38)
+[src/Switch.ts:38](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L38)
 
 ## Methods
 
@@ -64,4 +64,4 @@
 
 #### Defined in
 
-[src/Switch.ts:55](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Switch.ts#L55)
+[src/Switch.ts:55](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L55)

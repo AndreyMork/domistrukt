@@ -34,7 +34,7 @@ Base class for structured errors with metadata.
 
 #### Defined in
 
-[src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L15)
+[src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L15)
 
 ## Properties
 
@@ -62,7 +62,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Defined in
 
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L12)
+[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L12)
 
 ***
 
@@ -72,7 +72,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Defined in
 
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/a3a0cb5c43a16ed6506fbb5003dcad527e48abe7/src/Error.ts#L13)
+[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L13)
 
 ***
 
