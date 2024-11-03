@@ -36,9 +36,21 @@ Re-exports [classArgsN](namespaces/Types/type-aliases/classArgsN.md)
 
 ***
 
+### compileSwitch
+
+Re-exports [compileSwitch](namespaces/Switch/functions/compileSwitch.md)
+
+***
+
 ### copy
 
 Re-exports [copy](namespaces/FlatObject/functions/copy.md)
+
+***
+
+### dispatchMap
+
+Renames and re-exports [init](namespaces/DispatchMap/functions/init.md)
 
 ***
 
@@ -162,6 +174,7 @@ Re-exports [toFlatObject](namespaces/FlatObject/functions/toFlatObject.md)
 
 ## Namespaces
 
+- [DispatchMap](namespaces/DispatchMap/README.md)
 - [Error](namespaces/Error/README.md)
 - [Errors](namespaces/Errors/README.md)
 - [FlatObject](namespaces/FlatObject/README.md)

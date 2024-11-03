@@ -18,4 +18,4 @@ The class constructor type.
 
 ## Defined in
 
-[src/Types/Types.d.ts:39](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Types/Types.d.ts#L39)
+[src/Types/Types.d.ts:39](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/Types/Types.d.ts#L39)

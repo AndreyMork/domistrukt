@@ -10,4 +10,10 @@
 
 ### Classes
 
-- [SwitchNoMatch](classes/SwitchNoMatch.md)
+- [DispatchMapKeyNotFound](classes/DispatchMapKeyNotFound.md)
+
+## References
+
+### SwitchNoMatch
+
+Re-exports [SwitchNoMatch](../Switch/classes/SwitchNoMatch.md)

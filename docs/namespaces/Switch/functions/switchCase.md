@@ -6,26 +6,20 @@
 
 # Function: switchCase()
 
-> **switchCase**\<`result`, `data`\>(): [`Switch`](../classes/Switch.md)\<`data`, `result`\>
-
-Factory function to create a new Switch instance.
+> **switchCase**\<`target`\>(`target`): [`Switch`](../classes/Switch.md)\<`target`, `never`, `target`\>
 
 ## Type Parameters
 
-• **result**
+• **target**
 
-The type of result returned by the callbacks.
+## Parameters
 
-• **data** = `unknown`
-
-The type of data being tested.
+• **target**: `target`
 
 ## Returns
 
-[`Switch`](../classes/Switch.md)\<`data`, `result`\>
-
-A new instance of Switch.
+[`Switch`](../classes/Switch.md)\<`target`, `never`, `target`\>
 
 ## Defined in
 
-[src/Switch.ts:174](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/Switch.ts#L174)
+[src/Switch.ts:315](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/Switch.ts#L315)

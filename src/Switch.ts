@@ -15,14 +15,12 @@ export type predicateFn<data> = (value: data) => boolean;
 
 export type typeofName = 'string' | 'number' | 'boolean' | 'symbol' | 'bigint';
 
-type isNever<t> = [t] extends [never] ? true : false;
-
 type dispatcher = {
 	test: predicateFn<any>;
 	callback: callbackFn<any, any>;
 };
 
-type params<target, result> = {
+export type params<target, result> = {
 	target?: target;
 	dispatchers?: Im.List<dispatcher>;
 	mapper?: callbackFn<result, any>;
@@ -87,7 +85,7 @@ class Switch<target, result = never, notChecked = target> {
 	}
 
 	verify(
-		..._notChecked: isNever<notChecked> extends true
+		..._notChecked: T.isNever<notChecked> extends true
 			? []
 			: [never, 'Not all cases are checked:', notChecked]
 	): this {
@@ -95,7 +93,7 @@ class Switch<target, result = never, notChecked = target> {
 	}
 
 	saveStrict(
-		..._notChecked: isNever<notChecked> extends true
+		..._notChecked: T.isNever<notChecked> extends true
 			? []
 			: [never, 'Not all cases are checked:', notChecked]
 	) {
@@ -103,7 +101,7 @@ class Switch<target, result = never, notChecked = target> {
 	}
 
 	runStrict(
-		..._notChecked: isNever<notChecked> extends true
+		..._notChecked: T.isNever<notChecked> extends true
 			? []
 			: [never, 'Not all cases are checked:', notChecked]
 	) {

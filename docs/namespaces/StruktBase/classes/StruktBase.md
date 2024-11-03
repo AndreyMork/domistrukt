@@ -42,17 +42,19 @@ The type of data.
 
 #### Defined in
 
-[src/StruktBase.ts:55](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L55)
+[src/StruktBase.ts:55](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L55)
 
 ## Accessors
 
 ### $$args1T
 
-> `get` **$$args1T**(): `args`\[`0`\]
+#### Get Signature
+
+> **get** **$$args1T**(): `args`\[`0`\]
 
 Gets the first argument type.
 
-#### Returns
+##### Returns
 
 `args`\[`0`\]
 
@@ -60,17 +62,19 @@ The first argument type.
 
 #### Defined in
 
-[src/StruktBase.ts:74](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L74)
+[src/StruktBase.ts:74](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L74)
 
 ***
 
 ### $$argsT
 
-> `get` **$$argsT**(): `args`
+#### Get Signature
+
+> **get** **$$argsT**(): `args`
 
 Gets the type of arguments.
 
-#### Returns
+##### Returns
 
 `args`
 
@@ -78,17 +82,19 @@ The type of arguments.
 
 #### Defined in
 
-[src/StruktBase.ts:65](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L65)
+[src/StruktBase.ts:65](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L65)
 
 ***
 
 ### $$dataT
 
-> `get` **$$dataT**(): `data`
+#### Get Signature
+
+> **get** **$$dataT**(): `data`
 
 Gets the type of data returned by the constructor.
 
-#### Returns
+##### Returns
 
 `data`
 
@@ -96,7 +102,7 @@ The type of data.
 
 #### Defined in
 
-[src/StruktBase.ts:82](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L82)
+[src/StruktBase.ts:82](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L82)
 
 ## Methods
 
@@ -114,7 +120,7 @@ A cloned instance of the object.
 
 #### Defined in
 
-[src/StruktBase.ts:122](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L122)
+[src/StruktBase.ts:122](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L122)
 
 ***
 
@@ -138,7 +144,7 @@ A new instance of the object.
 
 #### Defined in
 
-[src/StruktBase.ts:166](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L166)
+[src/StruktBase.ts:166](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L166)
 
 ***
 
@@ -156,7 +162,7 @@ The data object.
 
 #### Defined in
 
-[src/StruktBase.ts:99](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L99)
+[src/StruktBase.ts:99](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L99)
 
 ***
 
@@ -174,7 +180,7 @@ An array of data keys.
 
 #### Defined in
 
-[src/StruktBase.ts:91](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L91)
+[src/StruktBase.ts:91](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L91)
 
 ***
 
@@ -198,7 +204,7 @@ A new instance with the applied patch.
 
 #### Defined in
 
-[src/StruktBase.ts:156](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L156)
+[src/StruktBase.ts:156](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L156)
 
 ***
 
@@ -226,7 +232,7 @@ An object with the selected keys.
 
 #### Defined in
 
-[src/StruktBase.ts:114](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L114)
+[src/StruktBase.ts:114](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L114)
 
 ***
 
@@ -250,4 +256,4 @@ A new instance with the applied patch.
 
 #### Defined in
 
-[src/StruktBase.ts:139](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L139)
+[src/StruktBase.ts:139](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L139)

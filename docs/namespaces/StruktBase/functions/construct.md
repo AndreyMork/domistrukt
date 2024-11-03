@@ -24,4 +24,4 @@ The constructed target object.
 
 ## Defined in
 
-[src/StruktBase.ts:23](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/StruktBase.ts#L23)
+[src/StruktBase.ts:23](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/StruktBase.ts#L23)

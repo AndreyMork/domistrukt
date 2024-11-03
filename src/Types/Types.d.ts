@@ -49,3 +49,5 @@ export type anyConstructor = (...args: any[]) => anyObject;
 export type anyConstructor1 = (arg: any) => anyObject;
 
 export type fnParam1<fn extends anyConstructor> = Parameters<fn>[0];
+
+export type isNever<t> = [t] extends [never] ? true : false;

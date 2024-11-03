@@ -28,35 +28,39 @@ Represents a flat structure of a nested object.
 
 #### Defined in
 
-[src/FlatObject.ts:96](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L96)
+[src/FlatObject.ts:96](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L96)
 
 ## Accessors
 
 ### index
 
-> `get` **index**(): [`index`](../type-aliases/index.md)\<`t`\>
+#### Get Signature
 
-#### Returns
+> **get** **index**(): [`index`](../type-aliases/index.md)\<`t`\>
+
+##### Returns
 
 [`index`](../type-aliases/index.md)\<`t`\>
 
 #### Defined in
 
-[src/FlatObject.ts:100](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L100)
+[src/FlatObject.ts:100](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L100)
 
 ***
 
 ### size
 
-> `get` **size**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **size**(): `number`
+
+##### Returns
 
 `number`
 
 #### Defined in
 
-[src/FlatObject.ts:250](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L250)
+[src/FlatObject.ts:250](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L250)
 
 ## Methods
 
@@ -78,7 +82,7 @@ Represents a flat structure of a nested object.
 
 #### Defined in
 
-[src/FlatObject.ts:240](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L240)
+[src/FlatObject.ts:240](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L240)
 
 ***
 
@@ -109,7 +113,7 @@ console.log(filtered.toJS()); // Outputs only properties with values greater tha
 
 #### Defined in
 
-[src/FlatObject.ts:217](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L217)
+[src/FlatObject.ts:217](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L217)
 
 ***
 
@@ -144,7 +148,7 @@ console.log(value); // Outputs: 1
 
 #### Defined in
 
-[src/FlatObject.ts:112](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L112)
+[src/FlatObject.ts:112](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L112)
 
 ***
 
@@ -175,7 +179,7 @@ console.log(exists); // Outputs: true or false
 
 #### Defined in
 
-[src/FlatObject.ts:152](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L152)
+[src/FlatObject.ts:152](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L152)
 
 ***
 
@@ -189,7 +193,7 @@ console.log(exists); // Outputs: true or false
 
 #### Defined in
 
-[src/FlatObject.ts:254](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L254)
+[src/FlatObject.ts:254](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L254)
 
 ***
 
@@ -203,7 +207,7 @@ console.log(exists); // Outputs: true or false
 
 #### Defined in
 
-[src/FlatObject.ts:258](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L258)
+[src/FlatObject.ts:258](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L258)
 
 ***
 
@@ -217,7 +221,7 @@ console.log(exists); // Outputs: true or false
 
 #### Defined in
 
-[src/FlatObject.ts:232](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L232)
+[src/FlatObject.ts:232](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L232)
 
 ***
 
@@ -251,7 +255,7 @@ const mapped = flatObject.map<number>((value, keys) => value * 2);
 
 #### Defined in
 
-[src/FlatObject.ts:205](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L205)
+[src/FlatObject.ts:205](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L205)
 
 ***
 
@@ -285,7 +289,7 @@ const merged = flatObject.merge(otherFlatObject);
 
 #### Defined in
 
-[src/FlatObject.ts:228](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L228)
+[src/FlatObject.ts:228](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L228)
 
 ***
 
@@ -320,7 +324,7 @@ console.log(newFlat.get(['a', 'b'])); // Outputs: 2
 
 #### Defined in
 
-[src/FlatObject.ts:125](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L125)
+[src/FlatObject.ts:125](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L125)
 
 ***
 
@@ -355,7 +359,7 @@ console.log(flatObject.get(['a', 'b'])); // Outputs: 2
 
 #### Defined in
 
-[src/FlatObject.ts:139](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L139)
+[src/FlatObject.ts:139](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L139)
 
 ***
 
@@ -386,7 +390,7 @@ console.log(obj); // Outputs: { a: { b: 1 } }
 
 #### Defined in
 
-[src/FlatObject.ts:164](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L164)
+[src/FlatObject.ts:164](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L164)
 
 ***
 
@@ -420,7 +424,7 @@ const transformed = flatObject.transform(index => index.map(value => value * 2))
 
 #### Defined in
 
-[src/FlatObject.ts:193](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L193)
+[src/FlatObject.ts:193](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L193)
 
 ***
 
@@ -434,4 +438,4 @@ const transformed = flatObject.transform(index => index.map(value => value * 2))
 
 #### Defined in
 
-[src/FlatObject.ts:236](https://github.com/AndreyMork/domistrukt/blob/f762a0db7b22ee8086aa8c6327967c318f1b8b4e/src/FlatObject.ts#L236)
+[src/FlatObject.ts:236](https://github.com/AndreyMork/domistrukt/blob/edcfe9ca26584b5845c6864b1bb3eb94a6a879e3/src/FlatObject.ts#L236)
