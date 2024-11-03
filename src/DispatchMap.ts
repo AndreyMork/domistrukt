@@ -108,7 +108,7 @@ export class DispatchMapKeyNotFound extends Err.init({
 		};
 
 		const keysString = keys.join(', ');
-		const message = `DispatchMap key not found: ${key}. Available keys: ${keysString}`;
+		const message = `Key not found: ${key}. Available keys: ${keysString}`;
 
 		return {
 			data,
