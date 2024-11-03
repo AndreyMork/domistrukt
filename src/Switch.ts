@@ -159,7 +159,10 @@ class Switch<target, result = never, notChecked = target> {
 
 	when<checked = never, res = result>(
 		test: boolean | predicateFn<target>,
-		callback: callbackFn<target, res>,
+		callback: callbackFn<
+			T.isNever<checked> extends true ? target : checked,
+			res
+		>,
 	): Switch<target, result | res, Exclude<notChecked, checked>> {
 		if (typeof test === 'boolean') {
 			return this.#dispatch({
