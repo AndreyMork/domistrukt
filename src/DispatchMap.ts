@@ -92,10 +92,14 @@ class DispatchMap<shape extends mapShape> {
 		return new DispatchMap(shape);
 	}
 
-	reverseSearch(value: shape[keyof shape]) {
+	reverseSearch(value: typeof this.$$value) {
 		return this.entries()
 			.filter((entry) => entry.value === value)
 			.map(({ key }) => key);
+	}
+
+	reverseIndexSearch(value: unknown) {
+		return this.reverseSearch(value as typeof this.$$value);
 	}
 }
 
