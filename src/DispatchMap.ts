@@ -91,6 +91,12 @@ class DispatchMap<shape extends mapShape> {
 
 		return new DispatchMap(shape);
 	}
+
+	reverseSearch(value: shape[keyof shape]) {
+		return this.entries()
+			.filter((entry) => entry.value === value)
+			.map(({ key }) => key);
+	}
 }
 
 export const init = <shape extends mapShape>(shape: shape) =>
