@@ -186,7 +186,9 @@ class Switch<target, result = never, notChecked = target> {
 		});
 	}
 
-	otherwiseThrow(error?: Error | ((cause: Error) => Error)) {
+	otherwiseThrow(
+		error?: Error | ((params: { data: notChecked; cause: Error }) => Error),
+	) {
 		if (error == null) {
 			return this.otherwise(() => {
 				throw new SwitchNoMatch(this.target);
@@ -199,9 +201,9 @@ class Switch<target, result = never, notChecked = target> {
 			});
 		}
 
-		return this.otherwise(() => {
+		return this.otherwise((data) => {
 			const cause = new SwitchNoMatch(this.target);
-			throw error(cause);
+			throw error({ data, cause });
 		});
 	}
 
