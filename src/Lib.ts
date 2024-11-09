@@ -192,3 +192,17 @@ export const lazy = (opts?: lazyOpts) => {
 		};
 	};
 };
+
+export const promiseObject = async <
+	shape extends { [key: string]: Promise<any> },
+>(
+	promiseShape: shape,
+): Promise<{ [k in keyof shape]: Awaited<shape[k]> }> => {
+	const promises = Object.entries(promiseShape).map(([key, promise]) =>
+		promise.then((value) => [key, value]),
+	);
+
+	const entries = await Promise.all(promises);
+
+	return Object.fromEntries(entries) as any;
+};
