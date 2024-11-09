@@ -11,6 +11,12 @@ export type callbackFn<data, result> = (
 ) => result;
 export type predicateFn<data> = (value: data, ctx: SwitchContext) => boolean;
 
+export type errorCallback<t> = (params: {
+	target: t;
+	ctx: SwitchContext;
+	cause: Error;
+}) => Error;
+
 // TODO tests
 // TODO tsdocs
 // TODO instance structural exclude warning
@@ -186,9 +192,7 @@ class Switch<target, result = never, notChecked = target> {
 		});
 	}
 
-	otherwiseThrow(
-		error?: Error | ((params: { data: notChecked; cause: Error }) => Error),
-	) {
+	otherwiseThrow(error?: Error | errorCallback<notChecked>) {
 		if (error == null) {
 			return this.otherwise(() => {
 				throw new SwitchNoMatch(this.target);
@@ -201,9 +205,9 @@ class Switch<target, result = never, notChecked = target> {
 			});
 		}
 
-		return this.otherwise((data) => {
+		return this.otherwise((target, ctx) => {
 			const cause = new SwitchNoMatch(this.target);
-			throw error({ data, cause });
+			throw error({ target, ctx, cause });
 		});
 	}
 
