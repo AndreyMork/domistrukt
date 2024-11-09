@@ -29,5 +29,8 @@ export {
 export * as DispatchMap from './DispatchMap.ts';
 export { init as dispatchMap } from './DispatchMap.ts';
 
+export * as Enum from './Enum.ts';
+export { init as initEnum } from './Enum.ts';
+
 export type * as Types from './Types/Types.d.ts';
 export type { classArgs, classArgs1, classArgsN } from './Types/Types.d.ts';

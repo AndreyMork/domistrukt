@@ -7,7 +7,7 @@ export type klass<args extends Array<any> = Array<any>, instance = any> = {
 	new (...args: args): instance;
 };
 
-export type anyKlass = klass<any[], any>;
+export type anyClass = klass<any[], any>;
 
 /**
  * Represents a class constructor type with a single input parameter.

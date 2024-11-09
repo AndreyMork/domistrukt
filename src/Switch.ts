@@ -205,11 +205,11 @@ class Switch<target, result = never, notChecked = target> {
 		});
 	}
 
-	whenValue<val extends any[], res>(
+	whenValue<val extends notChecked[], res>(
 		value: val,
 		callback: callbackFn<val[number], res>,
 	): Switch<target, result | res, Exclude<notChecked, val[number]>>;
-	whenValue<val, res>(
+	whenValue<val extends notChecked, res>(
 		value: val,
 		callback: callbackFn<val, res>,
 	): Switch<target, result | res, Exclude<notChecked, val>>;
@@ -228,16 +228,16 @@ class Switch<target, result = never, notChecked = target> {
 		});
 	}
 
-	whenInstance<k extends T.anyKlass, res>(
+	whenInstance<k extends T.anyClass, res>(
 		klass: k,
 		callback: callbackFn<InstanceType<k>, res>,
 	): Switch<target, result | res, Exclude<notChecked, InstanceType<k>>>;
-	whenInstance<k extends T.anyKlass[], res>(
+	whenInstance<k extends T.anyClass[], res>(
 		klasses: k,
 		callback: callbackFn<InstanceType<k[number]>, res>,
 	): Switch<target, result | res, Exclude<notChecked, InstanceType<k[number]>>>;
 	whenInstance(
-		klass: T.anyKlass | T.anyKlass[],
+		klass: T.anyClass | T.anyClass[],
 		callback: callbackFn<unknown, unknown>,
 	) {
 		if (!Array.isArray(klass)) {
