@@ -5,6 +5,8 @@ export type mapShape = {
 	[key: PropertyKey]: any;
 };
 
+export type findFn<t> = (value: t) => boolean;
+
 export { DispatchMap, DispatchMap as t };
 
 // TODO tsdoc
@@ -25,6 +27,10 @@ class DispatchMap<shape extends mapShape> {
 	}
 
 	get $$value(): shape[keyof shape] {
+		return undefined as any;
+	}
+
+	get $$entry(): { key: keyof shape; value: shape[keyof shape] } {
 		return undefined as any;
 	}
 
@@ -92,14 +98,25 @@ class DispatchMap<shape extends mapShape> {
 		return new DispatchMap(shape);
 	}
 
-	reverseSearch(value: typeof this.$$value) {
-		return this.entries()
-			.filter((entry) => entry.value === value)
-			.map(({ key }) => key);
+	reverseFind(fn: findFn<typeof this.$$entry>) {
+		const item = this.entries().find((entry) => fn(entry));
+		return item?.key;
 	}
 
-	reverseIndexSearch(value: unknown) {
-		return this.reverseSearch(value as typeof this.$$value);
+	reverseFindOne(fn: findFn<typeof this.$$entry>) {
+		for (const entry of this.entries()) {
+			if (fn(entry)) {
+				return entry.key;
+			}
+		}
+
+		throw new DispatchMapSearchFailed({ map: this });
+	}
+
+	reverseFindMany(fn: findFn<typeof this.$$entry>) {
+		return this.entries()
+			.filter((entry) => fn(entry))
+			.map(({ key }) => key);
 	}
 }
 
@@ -120,6 +137,22 @@ export class DispatchMapKeyNotFound extends Err.init({
 		const keysString = keys.join(', ');
 		const message = `Key not found: ${key}. Available keys: ${keysString}`;
 
+		return {
+			data,
+			message,
+		};
+	},
+}) {}
+
+export class DispatchMapSearchFailed extends Err.init({
+	constructor(params: { map: DispatchMap<any> }) {
+		const { map } = params;
+
+		const data = {
+			map,
+		};
+
+		const message = 'Search failed';
 		return {
 			data,
 			message,
