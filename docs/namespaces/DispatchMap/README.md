@@ -11,9 +11,11 @@
 ### Classes
 
 - [DispatchMap](classes/DispatchMap.md)
+- [DispatchMapSearchFailed](classes/DispatchMapSearchFailed.md)
 
 ### Type Aliases
 
+- [findFn](type-aliases/findFn.md)
 - [mapShape](type-aliases/mapShape.md)
 
 ### Functions

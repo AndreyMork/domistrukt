@@ -84,6 +84,12 @@ Re-exports [initBasic](namespaces/Strukt/functions/initBasic.md)
 
 ***
 
+### initEnum
+
+Renames and re-exports [init](namespaces/Enum/functions/init.md)
+
+***
+
 ### initFlatObject
 
 Renames and re-exports [flatObject](namespaces/FlatObject/functions/flatObject.md)
@@ -144,6 +150,12 @@ Re-exports [params](namespaces/Strukt/type-aliases/params.md)
 
 ***
 
+### promiseObject
+
+Re-exports [promiseObject](namespaces/Lib/functions/promiseObject.md)
+
+***
+
 ### redefineAsAccessors
 
 Re-exports [redefineAsAccessors](namespaces/Lib/functions/redefineAsAccessors.md)
@@ -175,6 +187,7 @@ Re-exports [toFlatObject](namespaces/FlatObject/functions/toFlatObject.md)
 ## Namespaces
 
 - [DispatchMap](namespaces/DispatchMap/README.md)
+- [Enum](namespaces/Enum/README.md)
 - [Error](namespaces/Error/README.md)
 - [Errors](namespaces/Errors/README.md)
 - [FlatObject](namespaces/FlatObject/README.md)

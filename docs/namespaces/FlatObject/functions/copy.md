@@ -36,4 +36,4 @@ console.log(copyObj); // Outputs: { a: { b: 1 } }
 
 ## Defined in
 
-[src/FlatObject.ts:72](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/FlatObject.ts#L72)
+[src/FlatObject.ts:72](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L72)

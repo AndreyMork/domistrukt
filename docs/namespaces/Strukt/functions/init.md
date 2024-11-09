@@ -47,4 +47,4 @@ console.log(instance); // Output: MyClass { x: 1, y: 2, sum: 3 }
 
 ## Defined in
 
-[src/Strukt.ts:50](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Strukt.ts#L50)
+[src/Strukt.ts:50](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Strukt.ts#L50)

@@ -40,7 +40,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:72](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L72)
+[src/Switch.ts:72](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L72)
 
 ## Properties
 
@@ -50,7 +50,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:67](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L67)
+[src/Switch.ts:67](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L67)
 
 ## Methods
 
@@ -64,7 +64,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:78](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L78)
+[src/Switch.ts:78](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L78)
 
 ***
 
@@ -78,7 +78,7 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **fn**
+• **fn**: [`callbackFn`](../type-aliases/callbackFn.md)\<`result`, `res`\>
 
 #### Returns
 
@@ -86,7 +86,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:347](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L347)
+[src/Switch.ts:347](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L347)
 
 ***
 
@@ -108,7 +108,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:180](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L180)
+[src/Switch.ts:180](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L180)
 
 ***
 
@@ -126,7 +126,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:189](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L189)
+[src/Switch.ts:189](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L189)
 
 ***
 
@@ -146,7 +146,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:99](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L99)
+[src/Switch.ts:99](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L99)
 
 ***
 
@@ -164,7 +164,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:146](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L146)
+[src/Switch.ts:146](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L146)
 
 ***
 
@@ -188,7 +188,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:94](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L94)
+[src/Switch.ts:94](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L94)
 
 ***
 
@@ -216,7 +216,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:138](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L138)
+[src/Switch.ts:138](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L138)
 
 ***
 
@@ -234,7 +234,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:130](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L130)
+[src/Switch.ts:130](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L130)
 
 ***
 
@@ -260,7 +260,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:160](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L160)
+[src/Switch.ts:160](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L160)
 
 ***
 
@@ -282,7 +282,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:272](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L272)
+[src/Switch.ts:272](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L272)
 
 ***
 
@@ -304,7 +304,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:264](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L264)
+[src/Switch.ts:264](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L264)
 
 ***
 
@@ -326,7 +326,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:338](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L338)
+[src/Switch.ts:338](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L338)
 
 ***
 
@@ -338,7 +338,7 @@ The type of data that has not been checked.
 
 ##### Type Parameters
 
-• **k** *extends* [`anyKlass`](../../Types/type-aliases/anyKlass.md)
+• **k** *extends* [`anyClass`](../../Types/type-aliases/anyClass.md)
 
 • **res**
 
@@ -354,7 +354,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:231](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L231)
+[src/Switch.ts:231](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L231)
 
 #### whenInstance(klasses, callback)
 
@@ -362,7 +362,7 @@ The type of data that has not been checked.
 
 ##### Type Parameters
 
-• **k** *extends* [`anyKlass`](../../Types/type-aliases/anyKlass.md)[]
+• **k** *extends* [`anyClass`](../../Types/type-aliases/anyClass.md)[]
 
 • **res**
 
@@ -378,7 +378,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:235](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L235)
+[src/Switch.ts:235](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L235)
 
 ***
 
@@ -400,7 +400,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:313](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L313)
+[src/Switch.ts:313](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L313)
 
 ***
 
@@ -422,7 +422,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:260](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L260)
+[src/Switch.ts:260](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L260)
 
 ***
 
@@ -444,7 +444,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:322](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L322)
+[src/Switch.ts:322](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L322)
 
 ***
 
@@ -466,7 +466,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:256](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L256)
+[src/Switch.ts:256](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L256)
 
 ***
 
@@ -488,7 +488,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:268](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L268)
+[src/Switch.ts:268](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L268)
 
 ***
 
@@ -510,7 +510,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:329](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L329)
+[src/Switch.ts:329](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L329)
 
 ***
 
@@ -536,7 +536,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:276](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L276)
+[src/Switch.ts:276](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L276)
 
 #### whenTypeOf(type, callback)
 
@@ -558,7 +558,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:280](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L280)
+[src/Switch.ts:280](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L280)
 
 #### whenTypeOf(type, callback)
 
@@ -580,7 +580,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:284](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L284)
+[src/Switch.ts:284](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L284)
 
 #### whenTypeOf(type, callback)
 
@@ -602,7 +602,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:288](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L288)
+[src/Switch.ts:288](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L288)
 
 #### whenTypeOf(type, callback)
 
@@ -624,7 +624,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:292](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L292)
+[src/Switch.ts:292](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L292)
 
 ***
 
@@ -646,7 +646,7 @@ The type of data that has not been checked.
 
 #### Defined in
 
-[src/Switch.ts:304](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L304)
+[src/Switch.ts:304](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L304)
 
 ***
 
@@ -658,7 +658,7 @@ The type of data that has not been checked.
 
 ##### Type Parameters
 
-• **val** *extends* `any`[]
+• **val** *extends* `notChecked`[]
 
 • **res**
 
@@ -674,7 +674,7 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:208](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L208)
+[src/Switch.ts:208](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L208)
 
 #### whenValue(value, callback)
 
@@ -698,4 +698,4 @@ The type of data that has not been checked.
 
 ##### Defined in
 
-[src/Switch.ts:212](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Switch.ts#L212)
+[src/Switch.ts:212](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L212)

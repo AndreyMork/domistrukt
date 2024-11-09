@@ -11,6 +11,7 @@
 ### Classes
 
 - [DispatchMapKeyNotFound](classes/DispatchMapKeyNotFound.md)
+- [EnumAssertionError](classes/EnumAssertionError.md)
 
 ## References
 

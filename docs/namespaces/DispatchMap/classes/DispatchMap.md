@@ -26,9 +26,33 @@
 
 #### Defined in
 
-[src/DispatchMap.ts:14](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L14)
+[src/DispatchMap.ts:17](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L17)
 
 ## Accessors
+
+### $$entry
+
+#### Get Signature
+
+> **get** **$$entry**(): `object`
+
+##### Returns
+
+`object`
+
+###### key
+
+> **key**: keyof `shape`
+
+###### value
+
+> **value**: `shape`\[keyof `shape`\]
+
+#### Defined in
+
+[src/DispatchMap.ts:33](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L33)
+
+***
 
 ### $$key
 
@@ -42,7 +66,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:22](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L22)
+[src/DispatchMap.ts:25](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L25)
 
 ***
 
@@ -58,7 +82,23 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:26](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L26)
+[src/DispatchMap.ts:29](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L29)
+
+***
+
+### reverse
+
+#### Get Signature
+
+> **get** **reverse**(): [`DispatchMap`](DispatchMap.md)\<`{ [key in any]: keyof shape }`\>
+
+##### Returns
+
+[`DispatchMap`](DispatchMap.md)\<`{ [key in any]: keyof shape }`\>
+
+#### Defined in
+
+[src/DispatchMap.ts:87](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L87)
 
 ***
 
@@ -74,7 +114,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:18](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L18)
+[src/DispatchMap.ts:21](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L21)
 
 ## Methods
 
@@ -88,7 +128,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:42](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L42)
+[src/DispatchMap.ts:49](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L49)
 
 ***
 
@@ -110,7 +150,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:49](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L49)
+[src/DispatchMap.ts:56](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L56)
 
 ***
 
@@ -136,7 +176,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:57](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L57)
+[src/DispatchMap.ts:64](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L64)
 
 ***
 
@@ -154,7 +194,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:30](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L30)
+[src/DispatchMap.ts:37](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L37)
 
 ***
 
@@ -172,7 +212,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:68](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L68)
+[src/DispatchMap.ts:75](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L75)
 
 ***
 
@@ -196,7 +236,7 @@ keyof `shape`
 
 #### Defined in
 
-[src/DispatchMap.ts:72](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L72)
+[src/DispatchMap.ts:79](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L79)
 
 ***
 
@@ -210,7 +250,61 @@ keyof `shape`[]
 
 #### Defined in
 
-[src/DispatchMap.ts:34](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L34)
+[src/DispatchMap.ts:41](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L41)
+
+***
+
+### reverseFind()
+
+> **reverseFind**(`fn`): `undefined` \| keyof `shape`
+
+#### Parameters
+
+• **fn**: [`findFn`](../type-aliases/findFn.md)\<`object`\>
+
+#### Returns
+
+`undefined` \| keyof `shape`
+
+#### Defined in
+
+[src/DispatchMap.ts:101](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L101)
+
+***
+
+### reverseFindMany()
+
+> **reverseFindMany**(`fn`): keyof `shape`[]
+
+#### Parameters
+
+• **fn**: [`findFn`](../type-aliases/findFn.md)\<`object`\>
+
+#### Returns
+
+keyof `shape`[]
+
+#### Defined in
+
+[src/DispatchMap.ts:116](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L116)
+
+***
+
+### reverseFindOne()
+
+> **reverseFindOne**(`fn`): keyof `shape`
+
+#### Parameters
+
+• **fn**: [`findFn`](../type-aliases/findFn.md)\<`object`\>
+
+#### Returns
+
+keyof `shape`
+
+#### Defined in
+
+[src/DispatchMap.ts:106](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L106)
 
 ***
 
@@ -224,4 +318,4 @@ keyof `shape`[]
 
 #### Defined in
 
-[src/DispatchMap.ts:38](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/DispatchMap.ts#L38)
+[src/DispatchMap.ts:45](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/DispatchMap.ts#L45)

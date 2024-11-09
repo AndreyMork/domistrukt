@@ -43,18 +43,19 @@ Err.init(\{
 			keys,
 		\};
 
+		const keysString = keys.join(', ');
+		const message = \`Key not found: $\{key\}. Available keys: $\{keysString\}\`;
+
 		return \{
 			data,
-			message: \`DispatchMap key not found: $\{key\}. Available keys: $\{keys.join(
-				', ',
-			)\}\`,
+			message,
 		\};
 	\},
 \}).constructor
 
 #### Defined in
 
-[src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L87)
+[src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L87)
 
 ## Properties
 
@@ -75,11 +76,12 @@ Err.init(\{
 			keys,
 		\};
 
+		const keysString = keys.join(', ');
+		const message = \`Key not found: $\{key\}. Available keys: $\{keysString\}\`;
+
 		return \{
 			data,
-			message: \`DispatchMap key not found: $\{key\}. Available keys: $\{keys.join(
-				', ',
-			)\}\`,
+			message,
 		\};
 	\},
 \}).cause
@@ -119,18 +121,19 @@ Err.init(\{
 			keys,
 		\};
 
+		const keysString = keys.join(', ');
+		const message = \`Key not found: $\{key\}. Available keys: $\{keysString\}\`;
+
 		return \{
 			data,
-			message: \`DispatchMap key not found: $\{key\}. Available keys: $\{keys.join(
-				', ',
-			)\}\`,
+			message,
 		\};
 	\},
 \}).data
 
 #### Defined in
 
-[src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L81)
+[src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L81)
 
 ***
 
@@ -151,18 +154,19 @@ Err.init(\{
 			keys,
 		\};
 
+		const keysString = keys.join(', ');
+		const message = \`Key not found: $\{key\}. Available keys: $\{keysString\}\`;
+
 		return \{
 			data,
-			message: \`DispatchMap key not found: $\{key\}. Available keys: $\{keys.join(
-				', ',
-			)\}\`,
+			message,
 		\};
 	\},
 \}).message
 
 #### Defined in
 
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L12)
+[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L12)
 
 ***
 
@@ -183,18 +187,19 @@ Err.init(\{
 			keys,
 		\};
 
+		const keysString = keys.join(', ');
+		const message = \`Key not found: $\{key\}. Available keys: $\{keysString\}\`;
+
 		return \{
 			data,
-			message: \`DispatchMap key not found: $\{key\}. Available keys: $\{keys.join(
-				', ',
-			)\}\`,
+			message,
 		\};
 	\},
 \}).meta
 
 #### Defined in
 
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Error.ts#L13)
+[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L13)
 
 ***
 
@@ -215,11 +220,12 @@ Err.init(\{
 			keys,
 		\};
 
+		const keysString = keys.join(', ');
+		const message = \`Key not found: $\{key\}. Available keys: $\{keysString\}\`;
+
 		return \{
 			data,
-			message: \`DispatchMap key not found: $\{key\}. Available keys: $\{keys.join(
-				', ',
-			)\}\`,
+			message,
 		\};
 	\},
 \}).name
@@ -247,11 +253,12 @@ Err.init(\{
 			keys,
 		\};
 
+		const keysString = keys.join(', ');
+		const message = \`Key not found: $\{key\}. Available keys: $\{keysString\}\`;
+
 		return \{
 			data,
-			message: \`DispatchMap key not found: $\{key\}. Available keys: $\{keys.join(
-				', ',
-			)\}\`,
+			message,
 		\};
 	\},
 \}).stack

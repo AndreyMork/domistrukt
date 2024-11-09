@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[src/StruktBase.ts:34](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/StruktBase.ts#L34)
+[src/StruktBase.ts:34](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/StruktBase.ts#L34)

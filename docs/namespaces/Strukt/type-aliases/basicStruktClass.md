@@ -22,4 +22,4 @@
 
 ## Defined in
 
-[src/Strukt.ts:16](https://github.com/AndreyMork/domistrukt/blob/afa9cf17027abfba6baa33ec45e8c09e6e425aa7/src/Strukt.ts#L16)
+[src/Strukt.ts:16](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Strukt.ts#L16)
