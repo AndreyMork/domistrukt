@@ -6,6 +6,7 @@ import * as StruktBase from './StruktBase.ts';
 import * as Switch from './Switch.ts';
 
 export type enumValue = string | number;
+export type enumValues = Iterable<enumValue>;
 
 export type enumStrukt<values extends enumValue> = Enum<values> & {
 	[key in values]: key;
@@ -46,6 +47,10 @@ class Enum<values extends enumValue> {
 		return this.#values.has(value as values);
 	}
 
+	$is<target extends values>(target: target, value: unknown): value is target {
+		return target === value;
+	}
+
 	$assert<subValues extends values>(
 		value: unknown,
 		subValues?: Iterable<subValues>,
@@ -68,6 +73,17 @@ class Enum<values extends enumValue> {
 
 	$subEnum<subValues extends values>(subValues: Iterable<subValues>) {
 		return init(subValues);
+	}
+
+	$add<newValues extends enumValue>(...values: newValues[]) {
+		return init(this.#values.union(values));
+	}
+
+	$remove<removedValues extends values>(...values: removedValues[]) {
+		const newSet = this.#values.subtract(values) as Im.Set<
+			Exclude<values, removedValues>
+		>;
+		return init(newSet);
 	}
 
 	$switchCase(value: values) {
