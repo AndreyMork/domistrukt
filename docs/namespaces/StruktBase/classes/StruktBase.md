@@ -6,7 +6,7 @@
 
 # Class: StruktBase\<args, data\>
 
-Defined in: [src/StruktBase.ts:48](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L48)
+Defined in: [src/StruktBase.ts:48](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L48)
 
 Base class for Strukt.
 
@@ -30,7 +30,7 @@ The type of data.
 
 > **new StruktBase**\<`args`, `data`\>(`params`): [`StruktBase`](StruktBase.md)\<`args`, `data`\>
 
-Defined in: [src/StruktBase.ts:55](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L55)
+Defined in: [src/StruktBase.ts:55](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L55)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Defined in: [src/StruktBase.ts:55](https://github.com/AndreyMork/domistrukt/blob
 
 > **get** **$$args1T**(): `args`\[`0`\]
 
-Defined in: [src/StruktBase.ts:74](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L74)
+Defined in: [src/StruktBase.ts:74](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L74)
 
 Gets the first argument type.
 
@@ -72,7 +72,7 @@ The first argument type.
 
 > **get** **$$argsT**(): `args`
 
-Defined in: [src/StruktBase.ts:65](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L65)
+Defined in: [src/StruktBase.ts:65](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L65)
 
 Gets the type of arguments.
 
@@ -90,7 +90,7 @@ The type of arguments.
 
 > **get** **$$dataT**(): `data`
 
-Defined in: [src/StruktBase.ts:82](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L82)
+Defined in: [src/StruktBase.ts:82](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L82)
 
 Gets the type of data returned by the constructor.
 
@@ -106,7 +106,7 @@ The type of data.
 
 > **$clone**(): `this`
 
-Defined in: [src/StruktBase.ts:122](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L122)
+Defined in: [src/StruktBase.ts:122](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L122)
 
 Creates a clone of the current object.
 
@@ -122,7 +122,7 @@ A cloned instance of the object.
 
 > **$create**(...`args`): `this`
 
-Defined in: [src/StruktBase.ts:166](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L166)
+Defined in: [src/StruktBase.ts:166](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L166)
 
 Creates a new instance of the object.
 
@@ -146,7 +146,7 @@ A new instance of the object.
 
 > **$data**(): `data`
 
-Defined in: [src/StruktBase.ts:99](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L99)
+Defined in: [src/StruktBase.ts:99](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L99)
 
 Creates a data object from the instance.
 
@@ -162,7 +162,7 @@ The data object.
 
 > **$dataKeys**(): keyof `data`[]
 
-Defined in: [src/StruktBase.ts:91](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L91)
+Defined in: [src/StruktBase.ts:91](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L91)
 
 Retrieves the keys of the data returned by the constructor.
 
@@ -178,7 +178,7 @@ An array of data keys.
 
 > **$patch**(`fn`): `this`
 
-Defined in: [src/StruktBase.ts:156](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L156)
+Defined in: [src/StruktBase.ts:156](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L156)
 
 Applies a patch function to the object.
 
@@ -202,7 +202,7 @@ A new instance with the applied patch.
 
 > **$selectKeys**\<`keys`\>(`keys`): `{ -readonly [k in keyof StruktBase<args, data>]: StruktBase<args, data>[k] }`
 
-Defined in: [src/StruktBase.ts:114](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L114)
+Defined in: [src/StruktBase.ts:114](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L114)
 
 Selects specific keys from the object.
 
@@ -230,7 +230,7 @@ An object with the selected keys.
 
 > **$update**(`patch`): `this`
 
-Defined in: [src/StruktBase.ts:139](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L139)
+Defined in: [src/StruktBase.ts:139](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/StruktBase.ts#L139)
 
 Updates the object with a patch.
 

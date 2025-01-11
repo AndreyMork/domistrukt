@@ -6,7 +6,7 @@
 
 # Class: Enum\<values\>
 
-Defined in: [src/Enum.ts:16](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L16)
+Defined in: [src/Enum.ts:16](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L16)
 
 ## Type Parameters
 
@@ -18,7 +18,7 @@ Defined in: [src/Enum.ts:16](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **new Enum**\<`values`\>(`values`): [`Enum`](Enum.md)\<`values`\>
 
-Defined in: [src/Enum.ts:19](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L19)
+Defined in: [src/Enum.ts:19](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L19)
 
 #### Parameters
 
@@ -38,7 +38,7 @@ Defined in: [src/Enum.ts:19](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **get** **$$t**(): `values`
 
-Defined in: [src/Enum.ts:34](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L34)
+Defined in: [src/Enum.ts:34](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L34)
 
 ##### Returns
 
@@ -52,7 +52,7 @@ Defined in: [src/Enum.ts:34](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **get** **$values**(): `Set`\<`values`\>
 
-Defined in: [src/Enum.ts:38](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L38)
+Defined in: [src/Enum.ts:38](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L38)
 
 ##### Returns
 
@@ -64,7 +64,7 @@ Defined in: [src/Enum.ts:38](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **\[iterator\]**(): `IterableIterator`\<`values`\>
 
-Defined in: [src/Enum.ts:42](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L42)
+Defined in: [src/Enum.ts:42](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L42)
 
 #### Returns
 
@@ -76,7 +76,7 @@ Defined in: [src/Enum.ts:42](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$add**\<`newValues`\>(...`values`): [`enumStrukt`](../type-aliases/enumStrukt.md)\<`values` \| `newValues`\>
 
-Defined in: [src/Enum.ts:78](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L78)
+Defined in: [src/Enum.ts:78](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L78)
 
 #### Type Parameters
 
@@ -98,7 +98,7 @@ Defined in: [src/Enum.ts:78](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$assert**\<`subValues`\>(`value`, `subValues`?): `values`
 
-Defined in: [src/Enum.ts:54](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L54)
+Defined in: [src/Enum.ts:54](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L54)
 
 #### Type Parameters
 
@@ -124,7 +124,7 @@ Defined in: [src/Enum.ts:54](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$assertSwitchCase**(`value`): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
 
-Defined in: [src/Enum.ts:93](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L93)
+Defined in: [src/Enum.ts:93](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L93)
 
 #### Parameters
 
@@ -142,7 +142,7 @@ Defined in: [src/Enum.ts:93](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$compileSwitch**(): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
 
-Defined in: [src/Enum.ts:97](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L97)
+Defined in: [src/Enum.ts:97](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L97)
 
 #### Returns
 
@@ -154,7 +154,7 @@ Defined in: [src/Enum.ts:97](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$has**(`value`): `value is values`
 
-Defined in: [src/Enum.ts:46](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L46)
+Defined in: [src/Enum.ts:46](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L46)
 
 #### Parameters
 
@@ -172,7 +172,7 @@ Defined in: [src/Enum.ts:46](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$is**\<`target`\>(`target`, `value`): `value is target`
 
-Defined in: [src/Enum.ts:50](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L50)
+Defined in: [src/Enum.ts:50](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L50)
 
 #### Type Parameters
 
@@ -198,7 +198,7 @@ Defined in: [src/Enum.ts:50](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$remove**\<`removedValues`\>(...`values`): [`enumStrukt`](../type-aliases/enumStrukt.md)\<`Exclude`\<`values`, `removedValues`\>\>
 
-Defined in: [src/Enum.ts:82](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L82)
+Defined in: [src/Enum.ts:82](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L82)
 
 #### Type Parameters
 
@@ -220,7 +220,7 @@ Defined in: [src/Enum.ts:82](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$subEnum**\<`subValues`\>(`subValues`): [`enumStrukt`](../type-aliases/enumStrukt.md)\<`subValues`\>
 
-Defined in: [src/Enum.ts:74](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L74)
+Defined in: [src/Enum.ts:74](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L74)
 
 #### Type Parameters
 
@@ -242,7 +242,7 @@ Defined in: [src/Enum.ts:74](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$switchCase**(`value`): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
 
-Defined in: [src/Enum.ts:89](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L89)
+Defined in: [src/Enum.ts:89](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L89)
 
 #### Parameters
 
@@ -260,7 +260,7 @@ Defined in: [src/Enum.ts:89](https://github.com/AndreyMork/domistrukt/blob/d336c
 
 > **$toArray**(): `values`[]
 
-Defined in: [src/Enum.ts:70](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L70)
+Defined in: [src/Enum.ts:70](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L70)
 
 #### Returns
 

@@ -8,4 +8,4 @@
 
 > **enumValues**: `Iterable`\<[`enumValue`](enumValue.md)\>
 
-Defined in: [src/Enum.ts:9](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L9)
+Defined in: [src/Enum.ts:9](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Enum.ts#L9)

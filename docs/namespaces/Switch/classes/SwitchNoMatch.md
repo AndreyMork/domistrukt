@@ -6,7 +6,7 @@
 
 # Class: SwitchNoMatch
 
-Defined in: [src/Switch.ts:374](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L374)
+Defined in: [src/Switch.ts:374](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L374)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [src/Switch.ts:374](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **new SwitchNoMatch**(`args`, `meta`?): [`SwitchNoMatch`](SwitchNoMatch.md)
 
-Defined in: [src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L87)
+Defined in: [src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Error.ts#L87)
 
 #### Parameters
 
@@ -56,7 +56,7 @@ Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/li
 
 > **data**: `object`
 
-Defined in: [src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L81)
+Defined in: [src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Error.ts#L81)
 
 #### value
 
@@ -72,7 +72,7 @@ Defined in: [src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/d336
 
 > **message**: `string`
 
-Defined in: [src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L12)
+Defined in: [src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Error.ts#L12)
 
 #### Inherited from
 
@@ -84,7 +84,7 @@ Defined in: [src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/d336
 
 > `readonly` **meta**: [`errorMeta`](../../Error/type-aliases/errorMeta.md)
 
-Defined in: [src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L13)
+Defined in: [src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Error.ts#L13)
 
 #### Inherited from
 

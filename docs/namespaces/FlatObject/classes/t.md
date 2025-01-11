@@ -6,7 +6,7 @@
 
 # Class: t\<t\>
 
-Defined in: [src/FlatObject.ts:93](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L93)
+Defined in: [src/FlatObject.ts:93](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L93)
 
 Represents a flat structure of a nested object.
 
@@ -20,7 +20,7 @@ Represents a flat structure of a nested object.
 
 > **new t**\<`t`\>(`index`): [`t`](t.md)\<`t`\>
 
-Defined in: [src/FlatObject.ts:96](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L96)
+Defined in: [src/FlatObject.ts:96](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L96)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/FlatObject.ts:96](https://github.com/AndreyMork/domistrukt/blob
 
 > **get** **index**(): [`index`](../type-aliases/index.md)\<`t`\>
 
-Defined in: [src/FlatObject.ts:100](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L100)
+Defined in: [src/FlatObject.ts:100](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L100)
 
 ##### Returns
 
@@ -54,7 +54,7 @@ Defined in: [src/FlatObject.ts:100](https://github.com/AndreyMork/domistrukt/blo
 
 > **get** **size**(): `number`
 
-Defined in: [src/FlatObject.ts:250](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L250)
+Defined in: [src/FlatObject.ts:250](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L250)
 
 ##### Returns
 
@@ -66,7 +66,7 @@ Defined in: [src/FlatObject.ts:250](https://github.com/AndreyMork/domistrukt/blo
 
 > **entries**(): `List`\<\{ `keys`: [`keys`](../type-aliases/keys.md); `value`: `t`; \}\>
 
-Defined in: [src/FlatObject.ts:240](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L240)
+Defined in: [src/FlatObject.ts:240](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L240)
 
 #### Returns
 
@@ -78,7 +78,7 @@ Defined in: [src/FlatObject.ts:240](https://github.com/AndreyMork/domistrukt/blo
 
 > **filter**(`fn`): [`t`](t.md)\<`t`\>
 
-Defined in: [src/FlatObject.ts:217](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L217)
+Defined in: [src/FlatObject.ts:217](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L217)
 
 Filters the FlatObject based on a predicate function.
 
@@ -109,7 +109,7 @@ console.log(filtered.toJS()); // Outputs only properties with values greater tha
 
 > **get**\<`k`\>(`keys`): `k`
 
-Defined in: [src/FlatObject.ts:112](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L112)
+Defined in: [src/FlatObject.ts:112](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L112)
 
 Retrieves a value from the FlatObject.
 
@@ -144,7 +144,7 @@ console.log(value); // Outputs: 1
 
 > **has**(`keys`): `boolean`
 
-Defined in: [src/FlatObject.ts:152](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L152)
+Defined in: [src/FlatObject.ts:152](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L152)
 
 Checks if the FlatObject contains the specified keys.
 
@@ -175,7 +175,7 @@ console.log(exists); // Outputs: true or false
 
 > **isEmpty**(): `boolean`
 
-Defined in: [src/FlatObject.ts:254](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L254)
+Defined in: [src/FlatObject.ts:254](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L254)
 
 #### Returns
 
@@ -187,7 +187,7 @@ Defined in: [src/FlatObject.ts:254](https://github.com/AndreyMork/domistrukt/blo
 
 > **isNotEmpty**(): `boolean`
 
-Defined in: [src/FlatObject.ts:258](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L258)
+Defined in: [src/FlatObject.ts:258](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L258)
 
 #### Returns
 
@@ -199,7 +199,7 @@ Defined in: [src/FlatObject.ts:258](https://github.com/AndreyMork/domistrukt/blo
 
 > **keys**(): `List`\<[`keys`](../type-aliases/keys.md)\>
 
-Defined in: [src/FlatObject.ts:232](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L232)
+Defined in: [src/FlatObject.ts:232](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L232)
 
 #### Returns
 
@@ -211,7 +211,7 @@ Defined in: [src/FlatObject.ts:232](https://github.com/AndreyMork/domistrukt/blo
 
 > **map**\<`r`\>(`fn`): [`t`](t.md)\<`r`\>
 
-Defined in: [src/FlatObject.ts:205](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L205)
+Defined in: [src/FlatObject.ts:205](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L205)
 
 Maps each value in the FlatObject to a new value.
 
@@ -245,7 +245,7 @@ const mapped = flatObject.map<number>((value, keys) => value * 2);
 
 > **merge**\<`r`\>(`other`): [`t`](t.md)\<`t` \| `r`\>
 
-Defined in: [src/FlatObject.ts:228](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L228)
+Defined in: [src/FlatObject.ts:228](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L228)
 
 Merges another FlatObject into this one.
 
@@ -279,7 +279,7 @@ const merged = flatObject.merge(otherFlatObject);
 
 > **set**(`keys`, `value`): [`t`](t.md)\<`t`\>
 
-Defined in: [src/FlatObject.ts:125](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L125)
+Defined in: [src/FlatObject.ts:125](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L125)
 
 Sets a value in the FlatObject and returns a new instance.
 
@@ -316,7 +316,7 @@ console.log(newFlat.get(['a', 'b'])); // Outputs: 2
 
 > **setMut**(`keys`, `value`): [`t`](t.md)\<`t`\>
 
-Defined in: [src/FlatObject.ts:139](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L139)
+Defined in: [src/FlatObject.ts:139](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L139)
 
 Sets a value in the FlatObject in place.
 
@@ -353,7 +353,7 @@ console.log(flatObject.get(['a', 'b'])); // Outputs: 2
 
 > **toJS**\<`r`\>(): `r`
 
-Defined in: [src/FlatObject.ts:164](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L164)
+Defined in: [src/FlatObject.ts:164](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L164)
 
 Converts the FlatObject back to a regular JavaScript object.
 
@@ -382,7 +382,7 @@ console.log(obj); // Outputs: { a: { b: 1 } }
 
 > **transform**\<`r`\>(`fn`): [`t`](t.md)\<`r`\>
 
-Defined in: [src/FlatObject.ts:193](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L193)
+Defined in: [src/FlatObject.ts:193](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L193)
 
 Transforms the FlatObject using a provided function.
 
@@ -416,7 +416,7 @@ const transformed = flatObject.transform(index => index.map(value => value * 2))
 
 > **values**(): `List`\<`t`\>
 
-Defined in: [src/FlatObject.ts:236](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L236)
+Defined in: [src/FlatObject.ts:236](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/FlatObject.ts#L236)
 
 #### Returns
 

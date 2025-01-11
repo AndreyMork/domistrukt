@@ -8,7 +8,7 @@
 
 > **selectKeys**\<`t`, `key`\>(`target`, `keys`): \{ -readonly \[k in string \| number \| symbol\]: t\[k\] \}
 
-Defined in: [src/Lib.ts:35](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Lib.ts#L35)
+Defined in: [src/Lib.ts:35](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Lib.ts#L35)
 
 Selects specified keys from a target object in a type-safe manner.
 

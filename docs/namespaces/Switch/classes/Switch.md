@@ -6,7 +6,7 @@
 
 # Class: Switch\<target, result, notChecked\>
 
-Defined in: [src/Switch.ts:73](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L73)
+Defined in: [src/Switch.ts:73](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L73)
 
 A class that allows for conditional execution of callbacks based on various criteria.
 
@@ -32,7 +32,7 @@ The type of data that has not been checked.
 
 > **new Switch**\<`target`, `result`, `notChecked`\>(`params`?): [`Switch`](Switch.md)\<`result`, `notChecked`\>
 
-Defined in: [src/Switch.ts:78](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L78)
+Defined in: [src/Switch.ts:78](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L78)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [src/Switch.ts:78](https://github.com/AndreyMork/domistrukt/blob/d33
 
 > `optional` **target**: `target`
 
-Defined in: [src/Switch.ts:73](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L73)
+Defined in: [src/Switch.ts:73](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L73)
 
 ## Methods
 
@@ -58,7 +58,7 @@ Defined in: [src/Switch.ts:73](https://github.com/AndreyMork/domistrukt/blob/d33
 
 > **clone**(): [`Switch`](Switch.md)\<`result`\>
 
-Defined in: [src/Switch.ts:84](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L84)
+Defined in: [src/Switch.ts:84](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L84)
 
 #### Returns
 
@@ -70,7 +70,7 @@ Defined in: [src/Switch.ts:84](https://github.com/AndreyMork/domistrukt/blob/d33
 
 > **map**\<`res`\>(`fn`): [`Switch`](Switch.md)\<`res`, `notChecked`\>
 
-Defined in: [src/Switch.ts:353](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L353)
+Defined in: [src/Switch.ts:353](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L353)
 
 #### Type Parameters
 
@@ -92,7 +92,7 @@ Defined in: [src/Switch.ts:353](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **otherwise**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`\>
 
-Defined in: [src/Switch.ts:186](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L186)
+Defined in: [src/Switch.ts:186](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L186)
 
 #### Type Parameters
 
@@ -114,7 +114,7 @@ Defined in: [src/Switch.ts:186](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **otherwiseThrow**(`error`?): [`Switch`](Switch.md)\<`result`\>
 
-Defined in: [src/Switch.ts:195](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L195)
+Defined in: [src/Switch.ts:195](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L195)
 
 #### Parameters
 
@@ -132,7 +132,7 @@ Defined in: [src/Switch.ts:195](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **run**(`target`?, `ctxData`?): `result`
 
-Defined in: [src/Switch.ts:105](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L105)
+Defined in: [src/Switch.ts:105](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L105)
 
 #### Parameters
 
@@ -154,7 +154,7 @@ Defined in: [src/Switch.ts:105](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **runStrict**(...`_notChecked`): `result`
 
-Defined in: [src/Switch.ts:152](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L152)
+Defined in: [src/Switch.ts:152](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L152)
 
 #### Parameters
 
@@ -172,7 +172,7 @@ Defined in: [src/Switch.ts:152](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **save**(): (`data`, `ctxData`?) => `result`
 
-Defined in: [src/Switch.ts:100](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L100)
+Defined in: [src/Switch.ts:100](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L100)
 
 #### Returns
 
@@ -198,7 +198,7 @@ Defined in: [src/Switch.ts:100](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **saveStrict**(...`_notChecked`): (`data`, `ctxData`?) => `result`
 
-Defined in: [src/Switch.ts:144](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L144)
+Defined in: [src/Switch.ts:144](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L144)
 
 #### Parameters
 
@@ -230,7 +230,7 @@ Defined in: [src/Switch.ts:144](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **verify**(...`_notChecked`): `this`
 
-Defined in: [src/Switch.ts:136](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L136)
+Defined in: [src/Switch.ts:136](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L136)
 
 #### Parameters
 
@@ -248,7 +248,7 @@ Defined in: [src/Switch.ts:136](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **when**\<`checked`, `res`\>(`test`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `checked`\>\>
 
-Defined in: [src/Switch.ts:166](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L166)
+Defined in: [src/Switch.ts:166](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L166)
 
 #### Type Parameters
 
@@ -276,7 +276,7 @@ Defined in: [src/Switch.ts:166](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenBigint**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
 
-Defined in: [src/Switch.ts:278](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L278)
+Defined in: [src/Switch.ts:278](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L278)
 
 #### Type Parameters
 
@@ -298,7 +298,7 @@ Defined in: [src/Switch.ts:278](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenBoolean**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
 
-Defined in: [src/Switch.ts:270](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L270)
+Defined in: [src/Switch.ts:270](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L270)
 
 #### Type Parameters
 
@@ -320,7 +320,7 @@ Defined in: [src/Switch.ts:270](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenFalse**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `false`\>\>
 
-Defined in: [src/Switch.ts:344](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L344)
+Defined in: [src/Switch.ts:344](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L344)
 
 #### Type Parameters
 
@@ -344,7 +344,7 @@ Defined in: [src/Switch.ts:344](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenInstance**\<`k`, `res`\>(`klass`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\>\>\>
 
-Defined in: [src/Switch.ts:237](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L237)
+Defined in: [src/Switch.ts:237](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L237)
 
 ##### Type Parameters
 
@@ -370,7 +370,7 @@ Defined in: [src/Switch.ts:237](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenInstance**\<`k`, `res`\>(`klasses`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\[`number`\]\>\>\>
 
-Defined in: [src/Switch.ts:241](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L241)
+Defined in: [src/Switch.ts:241](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L241)
 
 ##### Type Parameters
 
@@ -398,7 +398,7 @@ Defined in: [src/Switch.ts:241](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenNull**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `null`\>\>
 
-Defined in: [src/Switch.ts:319](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L319)
+Defined in: [src/Switch.ts:319](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L319)
 
 #### Type Parameters
 
@@ -420,7 +420,7 @@ Defined in: [src/Switch.ts:319](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenNumber**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
 
-Defined in: [src/Switch.ts:266](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L266)
+Defined in: [src/Switch.ts:266](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L266)
 
 #### Type Parameters
 
@@ -442,7 +442,7 @@ Defined in: [src/Switch.ts:266](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenOptional**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`any`, `any`, `any`\>
 
-Defined in: [src/Switch.ts:328](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L328)
+Defined in: [src/Switch.ts:328](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L328)
 
 #### Type Parameters
 
@@ -464,7 +464,7 @@ Defined in: [src/Switch.ts:328](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenString**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
 
-Defined in: [src/Switch.ts:262](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L262)
+Defined in: [src/Switch.ts:262](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L262)
 
 #### Type Parameters
 
@@ -486,7 +486,7 @@ Defined in: [src/Switch.ts:262](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenSymbol**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
 
-Defined in: [src/Switch.ts:274](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L274)
+Defined in: [src/Switch.ts:274](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L274)
 
 #### Type Parameters
 
@@ -508,7 +508,7 @@ Defined in: [src/Switch.ts:274](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenTrue**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `true`\>\>
 
-Defined in: [src/Switch.ts:335](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L335)
+Defined in: [src/Switch.ts:335](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L335)
 
 #### Type Parameters
 
@@ -532,7 +532,7 @@ Defined in: [src/Switch.ts:335](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
 
-Defined in: [src/Switch.ts:282](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L282)
+Defined in: [src/Switch.ts:282](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L282)
 
 ##### Type Parameters
 
@@ -556,7 +556,7 @@ Defined in: [src/Switch.ts:282](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
 
-Defined in: [src/Switch.ts:286](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L286)
+Defined in: [src/Switch.ts:286](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L286)
 
 ##### Type Parameters
 
@@ -580,7 +580,7 @@ Defined in: [src/Switch.ts:286](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
 
-Defined in: [src/Switch.ts:290](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L290)
+Defined in: [src/Switch.ts:290](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L290)
 
 ##### Type Parameters
 
@@ -604,7 +604,7 @@ Defined in: [src/Switch.ts:290](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
 
-Defined in: [src/Switch.ts:294](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L294)
+Defined in: [src/Switch.ts:294](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L294)
 
 ##### Type Parameters
 
@@ -628,7 +628,7 @@ Defined in: [src/Switch.ts:294](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
 
-Defined in: [src/Switch.ts:298](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L298)
+Defined in: [src/Switch.ts:298](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L298)
 
 ##### Type Parameters
 
@@ -654,7 +654,7 @@ Defined in: [src/Switch.ts:298](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenUndefined**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `undefined`\>\>
 
-Defined in: [src/Switch.ts:310](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L310)
+Defined in: [src/Switch.ts:310](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L310)
 
 #### Type Parameters
 
@@ -678,7 +678,7 @@ Defined in: [src/Switch.ts:310](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenValue**\<`val`, `res`\>(`value`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `val`\[`number`\]\>\>
 
-Defined in: [src/Switch.ts:214](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L214)
+Defined in: [src/Switch.ts:214](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L214)
 
 ##### Type Parameters
 
@@ -704,7 +704,7 @@ Defined in: [src/Switch.ts:214](https://github.com/AndreyMork/domistrukt/blob/d3
 
 > **whenValue**\<`val`, `res`\>(`value`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `val`\>\>
 
-Defined in: [src/Switch.ts:218](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L218)
+Defined in: [src/Switch.ts:218](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L218)
 
 ##### Type Parameters
 

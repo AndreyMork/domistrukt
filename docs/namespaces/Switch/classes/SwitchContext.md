@@ -6,7 +6,7 @@
 
 # Class: SwitchContext
 
-Defined in: [src/Switch.ts:42](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L42)
+Defined in: [src/Switch.ts:42](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L42)
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: [src/Switch.ts:42](https://github.com/AndreyMork/domistrukt/blob/d33
 
 > **new SwitchContext**(`params`): [`SwitchContext`](SwitchContext.md)
 
-Defined in: [src/Switch.ts:46](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L46)
+Defined in: [src/Switch.ts:46](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L46)
 
 #### Parameters
 
@@ -38,7 +38,7 @@ Defined in: [src/Switch.ts:46](https://github.com/AndreyMork/domistrukt/blob/d33
 
 > **data**: `any`
 
-Defined in: [src/Switch.ts:43](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L43)
+Defined in: [src/Switch.ts:43](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L43)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/Switch.ts:43](https://github.com/AndreyMork/domistrukt/blob/d33
 
 > **target**: `any`
 
-Defined in: [src/Switch.ts:44](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L44)
+Defined in: [src/Switch.ts:44](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L44)
 
 ## Methods
 
@@ -54,7 +54,7 @@ Defined in: [src/Switch.ts:44](https://github.com/AndreyMork/domistrukt/blob/d33
 
 > **continue**\<`t`\>(): `t`
 
-Defined in: [src/Switch.ts:61](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L61)
+Defined in: [src/Switch.ts:61](https://github.com/AndreyMork/domistrukt/blob/8b5cf3c2b6165986c4aa42ad9bdd7f6c43c22c84/src/Switch.ts#L61)
 
 #### Type Parameters
 
