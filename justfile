@@ -62,6 +62,7 @@ full-check:
     -@just typecheck
     -@just test
     -@just stryker
+    -@just publint
 
 [group('Maintenance')]
 full-check-strict:
@@ -69,6 +70,7 @@ full-check-strict:
     @just lint
     @just typecheck
     @just test
+    @just publint
 
 [group('Maintenance')]
 test *args:
@@ -85,6 +87,10 @@ typecheck:
 [group('Maintenance')]
 lint *args:
     npx biome lint . {{ args }}
+
+[group('Maintenance')]
+publint *args:
+    npx publint {{ args }}
 
 [group('Maintenance')]
 stryker *args:

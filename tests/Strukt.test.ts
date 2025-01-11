@@ -452,7 +452,7 @@ test.group('Strukt: types', () => {
 
 		expectTypeOf(instance).toMatchTypeOf<data>();
 		expectTypeOf(TestClass).constructorParameters.toEqualTypeOf<
-			[input?: number] | []
+			[input?: number | undefined]
 		>();
 	});
 

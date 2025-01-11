@@ -65,7 +65,8 @@ test.group('Strukt/Error: ErrorStruktBase', () => {
 		expectTypeOf(error.meta).toBeObject();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[] | [message: string, meta?: Strukt.Error.errorMeta | undefined]
+			| [message: string, meta?: Strukt.Error.errorMeta | undefined]
+			| [meta?: Strukt.Error.errorMeta]
 		>();
 	});
 });
@@ -193,7 +194,7 @@ test.group('Strukt/Error', () => {
 		expectTypeOf(error.data).toBeUnknown();
 
 		expectTypeOf(MyError).constructorParameters.toEqualTypeOf<
-			[data?: undefined, meta?: Strukt.Error.errorMeta] | []
+			[data?: undefined, meta?: Strukt.Error.errorMeta]
 		>();
 
 		class MyError2 extends Strukt.error({
@@ -205,7 +206,7 @@ test.group('Strukt/Error', () => {
 		expectTypeOf(error2.data).toBeNumber();
 
 		expectTypeOf(MyError2).constructorParameters.toEqualTypeOf<
-			[data?: undefined, meta?: Strukt.Error.errorMeta] | []
+			[data?: undefined, meta?: Strukt.Error.errorMeta]
 		>();
 
 		expectTypeOf(MyError2).constructorParameters.not.toEqualTypeOf<
