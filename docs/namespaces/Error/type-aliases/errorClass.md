@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,10 +8,8 @@
 
 > **errorClass**\<`constructor`\>: [`fnParam1`](../../Types/type-aliases/fnParam1.md)\<`constructor`\> *extends* `Exclude`\<[`fnParam1`](../../Types/type-aliases/fnParam1.md)\<`constructor`\>, `undefined`\> ? (`args`, `meta`?) => [`errorInstance`](errorInstance.md)\<[`constructorData`](constructorData.md)\<`constructor`\>\> : (`args`?, `meta`?) => [`errorInstance`](errorInstance.md)\<[`constructorData`](constructorData.md)\<`constructor`\>\>
 
+Defined in: [src/Error.ts:84](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L84)
+
 ## Type Parameters
 
 • **constructor** *extends* [`anyErrConstructor`](anyErrConstructor.md)
-
-## Defined in
-
-[src/Error.ts:84](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L84)

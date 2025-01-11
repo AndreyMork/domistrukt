@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [StruktBase](../README.md) / BasicStrukt
 
 # Class: BasicStrukt
+
+Defined in: [src/StruktBase.ts:33](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L33)
 
 ## Extended by
 
@@ -16,14 +18,14 @@
 
 > **new BasicStrukt**(`params`): [`BasicStrukt`](BasicStrukt.md)
 
+Defined in: [src/StruktBase.ts:34](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/StruktBase.ts#L34)
+
 #### Parameters
 
-• **params**: [`params`](../type-aliases/params.md)\<`any`\>
+##### params
+
+[`params`](../type-aliases/params.md)\<`any`\>
 
 #### Returns
 
 [`BasicStrukt`](BasicStrukt.md)
-
-#### Defined in
-
-[src/StruktBase.ts:34](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/StruktBase.ts#L34)

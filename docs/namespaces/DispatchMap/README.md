@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,19 +6,17 @@
 
 # DispatchMap
 
-## Index
-
-### Classes
+## Classes
 
 - [DispatchMap](classes/DispatchMap.md)
 - [DispatchMapSearchFailed](classes/DispatchMapSearchFailed.md)
 
-### Type Aliases
+## Type Aliases
 
 - [findFn](type-aliases/findFn.md)
 - [mapShape](type-aliases/mapShape.md)
 
-### Functions
+## Functions
 
 - [init](functions/init.md)
 

@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [DispatchMap](../README.md) / DispatchMapSearchFailed
 
 # Class: DispatchMapSearchFailed
+
+Defined in: [src/DispatchMap.ts:147](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/DispatchMap.ts#L147)
 
 ## Extends
 
@@ -16,13 +18,19 @@
 
 > **new DispatchMapSearchFailed**(`args`, `meta`?): [`DispatchMapSearchFailed`](DispatchMapSearchFailed.md)
 
+Defined in: [src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L87)
+
 #### Parameters
 
-• **args**
+##### args
 
-• **args.map**: [`DispatchMap`](DispatchMap.md)\<`any`\>
+###### map
 
-• **meta?**: [`errorMeta`](../../Error/type-aliases/errorMeta.md)
+[`DispatchMap`](DispatchMap.md)\<`any`\>
+
+##### meta?
+
+[`errorMeta`](../../Error/type-aliases/errorMeta.md)
 
 #### Returns
 
@@ -30,25 +38,7 @@
 
 #### Inherited from
 
-`Err.init({
-	constructor(params: { map: DispatchMap<any> }) {
-		const { map } = params;
-
-		const data = {
-			map,
-		};
-
-		const message = 'Search failed';
-		return {
-			data,
-			message,
-		};
-	},
-}).constructor`
-
-#### Defined in
-
-[src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L87)
+`Err.init({ 	constructor(params: { map: DispatchMap<any> }) { 		const { map } = params; 		const data = { 			map, 		}; 		const message = 'Search failed'; 		return { 			data, 			message, 		}; 	}, }).constructor`
 
 ## Properties
 
@@ -56,27 +46,11 @@
 
 > `optional` **cause**: `unknown`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:26
+
 #### Inherited from
 
-`Err.init({
-	constructor(params: { map: DispatchMap<any> }) {
-		const { map } = params;
-
-		const data = {
-			map,
-		};
-
-		const message = 'Search failed';
-		return {
-			data,
-			message,
-		};
-	},
-}).cause`
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
+`Err.init({ 	constructor(params: { map: DispatchMap<any> }) { 		const { map } = params; 		const data = { 			map, 		}; 		const message = 'Search failed'; 		return { 			data, 			message, 		}; 	}, }).cause`
 
 ***
 
@@ -84,31 +58,15 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > **data**: `object`
 
+Defined in: [src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L81)
+
 #### map
 
 > **map**: [`DispatchMap`](DispatchMap.md)\<`any`\>
 
 #### Inherited from
 
-`Err.init({
-	constructor(params: { map: DispatchMap<any> }) {
-		const { map } = params;
-
-		const data = {
-			map,
-		};
-
-		const message = 'Search failed';
-		return {
-			data,
-			message,
-		};
-	},
-}).data`
-
-#### Defined in
-
-[src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L81)
+`Err.init({ 	constructor(params: { map: DispatchMap<any> }) { 		const { map } = params; 		const data = { 			map, 		}; 		const message = 'Search failed'; 		return { 			data, 			message, 		}; 	}, }).data`
 
 ***
 
@@ -116,27 +74,11 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > **message**: `string`
 
+Defined in: [src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L12)
+
 #### Inherited from
 
-`Err.init({
-	constructor(params: { map: DispatchMap<any> }) {
-		const { map } = params;
-
-		const data = {
-			map,
-		};
-
-		const message = 'Search failed';
-		return {
-			data,
-			message,
-		};
-	},
-}).message`
-
-#### Defined in
-
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L12)
+`Err.init({ 	constructor(params: { map: DispatchMap<any> }) { 		const { map } = params; 		const data = { 			map, 		}; 		const message = 'Search failed'; 		return { 			data, 			message, 		}; 	}, }).message`
 
 ***
 
@@ -144,27 +86,11 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > `readonly` **meta**: [`errorMeta`](../../Error/type-aliases/errorMeta.md)
 
+Defined in: [src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L13)
+
 #### Inherited from
 
-`Err.init({
-	constructor(params: { map: DispatchMap<any> }) {
-		const { map } = params;
-
-		const data = {
-			map,
-		};
-
-		const message = 'Search failed';
-		return {
-			data,
-			message,
-		};
-	},
-}).meta`
-
-#### Defined in
-
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L13)
+`Err.init({ 	constructor(params: { map: DispatchMap<any> }) { 		const { map } = params; 		const data = { 			map, 		}; 		const message = 'Search failed'; 		return { 			data, 			message, 		}; 	}, }).meta`
 
 ***
 
@@ -172,27 +98,11 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > **name**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+
 #### Inherited from
 
-`Err.init({
-	constructor(params: { map: DispatchMap<any> }) {
-		const { map } = params;
-
-		const data = {
-			map,
-		};
-
-		const message = 'Search failed';
-		return {
-			data,
-			message,
-		};
-	},
-}).name`
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+`Err.init({ 	constructor(params: { map: DispatchMap<any> }) { 		const { map } = params; 		const data = { 			map, 		}; 		const message = 'Search failed'; 		return { 			data, 			message, 		}; 	}, }).name`
 
 ***
 
@@ -200,24 +110,8 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1
 
 > `optional` **stack**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
+
 #### Inherited from
 
-`Err.init({
-	constructor(params: { map: DispatchMap<any> }) {
-		const { map } = params;
-
-		const data = {
-			map,
-		};
-
-		const message = 'Search failed';
-		return {
-			data,
-			message,
-		};
-	},
-}).stack`
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
+`Err.init({ 	constructor(params: { map: DispatchMap<any> }) { 		const { map } = params; 		const data = { 			map, 		}; 		const message = 'Search failed'; 		return { 			data, 			message, 		}; 	}, }).stack`

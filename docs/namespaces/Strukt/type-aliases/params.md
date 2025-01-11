@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Type Alias: params\<constructor\>
 
 > **params**\<`constructor`\>: `object`
+
+Defined in: [src/Strukt.ts:11](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Strukt.ts#L11)
 
 Parameters for initializing a Strukt.
 
@@ -25,7 +27,3 @@ The constructor function.
 ### hidden?
 
 > `optional` **hidden**: keyof `ReturnType`\<`constructor`\>[]
-
-## Defined in
-
-[src/Strukt.ts:11](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Strukt.ts#L11)

@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,18 +8,18 @@
 
 > **basicStruktClass**\<`constructor`\>: (...`params`) => [`BasicStrukt`](../../StruktBase/classes/BasicStrukt.md) & `ReturnType`\<`constructor`\>
 
+Defined in: [src/Strukt.ts:16](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Strukt.ts#L16)
+
 ## Type Parameters
 
 • **constructor** *extends* [`anyConstructor`](../../Types/type-aliases/anyConstructor.md)
 
 ## Parameters
 
-• ...**params**: `Parameters`\<`constructor`\>
+### params
+
+...`Parameters`\<`constructor`\>
 
 ## Returns
 
 [`BasicStrukt`](../../StruktBase/classes/BasicStrukt.md) & `ReturnType`\<`constructor`\>
-
-## Defined in
-
-[src/Strukt.ts:16](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Strukt.ts#L16)

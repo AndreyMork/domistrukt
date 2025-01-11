@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **copy**\<`t`\>(`obj`): `t`
 
+Defined in: [src/FlatObject.ts:72](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L72)
+
 Creates a deep copy of an object using FlatObject.
 
 ## Type Parameters
@@ -16,7 +18,9 @@ Creates a deep copy of an object using FlatObject.
 
 ## Parameters
 
-• **obj**: `t`
+### obj
+
+`t`
 
 The object to copy.
 
@@ -33,7 +37,3 @@ const original = { a: { b: 1 } };
 const copyObj = copy(original);
 console.log(copyObj); // Outputs: { a: { b: 1 } }
 ```
-
-## Defined in
-
-[src/FlatObject.ts:72](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L72)

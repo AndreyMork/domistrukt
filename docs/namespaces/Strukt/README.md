@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,15 +6,13 @@
 
 # Strukt
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [basicStruktClass](type-aliases/basicStruktClass.md)
 - [params](type-aliases/params.md)
 - [struktClass](type-aliases/struktClass.md)
 
-### Functions
+## Functions
 
 - [init](functions/init.md)
 - [initBasic](functions/initBasic.md)

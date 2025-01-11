@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **init**\<`constructor`\>(`params`): [`errorClass`](../type-aliases/errorClass.md)\<`constructor`\>
 
+Defined in: [src/Error.ts:141](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L141)
+
 Initializes an error class with a given constructor.
 
 ## Type Parameters
@@ -16,7 +18,9 @@ Initializes an error class with a given constructor.
 
 ## Parameters
 
-• **params**: [`params`](../type-aliases/params.md)\<`constructor`\>
+### params
+
+[`params`](../type-aliases/params.md)\<`constructor`\>
 
 Parameters including the constructor function.
 
@@ -44,7 +48,3 @@ const errorInstance = new MyError({ value: 42 });
 console.log(errorInstance.message); // Output: 'Error with value 42'
 console.log(errorInstance.data); // Output: { value: 42, isEven: true }
 ```
-
-## Defined in
-
-[src/Error.ts:141](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L141)

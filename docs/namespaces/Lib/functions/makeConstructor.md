@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: makeConstructor()
 
 > **makeConstructor**\<`k`\>(`klass`): (...`params`) => `InstanceType`\<`k`\>
+
+Defined in: [src/Lib.ts:65](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Lib.ts#L65)
 
 Creates a function that initializes an instance of a given class.
 
@@ -18,7 +20,9 @@ The type of the class constructor.
 
 ## Parameters
 
-• **klass**: `k`
+### klass
+
+`k`
 
 The class constructor to create an initializer for.
 
@@ -30,7 +34,9 @@ A function that takes constructor parameters and returns a new instance of the c
 
 ### Parameters
 
-• ...**params**: `ConstructorParameters`\<`k`\>
+#### params
+
+...`ConstructorParameters`\<`k`\>
 
 ### Returns
 
@@ -47,7 +53,3 @@ const initPerson = makeConstructor(Person);
 const john = initPerson('John', 30);
 console.log(john); // Person { name: 'John', age: 30 }
 ```
-
-## Defined in
-
-[src/Lib.ts:65](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Lib.ts#L65)

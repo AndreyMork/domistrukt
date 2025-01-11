@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,19 +6,17 @@
 
 # FlatObject
 
-## Index
-
-### Classes
+## Classes
 
 - [t](classes/t.md)
 
-### Type Aliases
+## Type Aliases
 
 - [index](type-aliases/index.md)
 - [keys](type-aliases/keys.md)
 - [keysLike](type-aliases/keysLike.md)
 
-### Functions
+## Functions
 
 - [copy](functions/copy.md)
 - [flatObject](functions/flatObject.md)

@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: redefineAsAccessors()
 
 > **redefineAsAccessors**\<`t`, `key`\>(`target`, `props`): `t`
+
+Defined in: [src/Lib.ts:98](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Lib.ts#L98)
 
 Redefines specified properties of an object as accessors (getters and setters).
 This function mutates the original object and returns it.
@@ -26,11 +28,15 @@ The type of the keys to be redefined, must be a subset of keyof t.
 
 ## Parameters
 
-• **target**: `t`
+### target
+
+`t`
 
 The object whose properties are to be redefined.
 
-• **props**: `Iterable`\<`key`, `any`, `any`\>
+### props
+
+`Iterable`\<`key`\>
 
 An iterable of property names to be redefined as accessors.
 
@@ -50,7 +56,3 @@ obj.a = 4;
 console.log(obj.a); // Outputs: 4
 console.log(Object.getOwnPropertyDescriptor(obj, 'a')); // Shows getter and setter
 ```
-
-## Defined in
-
-[src/Lib.ts:98](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Lib.ts#L98)

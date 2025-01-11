@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Type Alias: errConstructor()\<input, data\>
 
 > **errConstructor**\<`input`, `data`\>: (`input`) => `object`
+
+Defined in: [src/Error.ts:108](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L108)
 
 Represents a constructor function for errors.
 
@@ -18,7 +20,9 @@ Represents a constructor function for errors.
 
 ## Parameters
 
-• **input**: `input`
+### input
+
+`input`
 
 ## Returns
 
@@ -31,7 +35,3 @@ Represents a constructor function for errors.
 ### message?
 
 > `optional` **message**: `string`
-
-## Defined in
-
-[src/Error.ts:108](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L108)

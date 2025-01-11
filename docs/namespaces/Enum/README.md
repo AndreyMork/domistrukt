@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,18 +6,17 @@
 
 # Enum
 
-## Index
-
-### Classes
+## Classes
 
 - [Enum](classes/Enum.md)
 
-### Type Aliases
+## Type Aliases
 
 - [enumStrukt](type-aliases/enumStrukt.md)
 - [enumValue](type-aliases/enumValue.md)
+- [enumValues](type-aliases/enumValues.md)
 
-### Functions
+## Functions
 
 - [init](functions/init.md)
 

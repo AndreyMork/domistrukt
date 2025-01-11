@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [Errors](../README.md) / EnumAssertionError
 
 # Class: EnumAssertionError
+
+Defined in: [src/Enum.ts:106](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L106)
 
 ## Extends
 
@@ -16,15 +18,23 @@
 
 > **new EnumAssertionError**(`args`, `meta`?): [`EnumAssertionError`](EnumAssertionError.md)
 
+Defined in: [src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L87)
+
 #### Parameters
 
-• **args**
+##### args
 
-• **args.expected**: [`enumValue`](../../Enum/type-aliases/enumValue.md)[]
+###### expected
 
-• **args.target?**: `unknown`
+[`enumValue`](../../Enum/type-aliases/enumValue.md)[]
 
-• **meta?**: [`errorMeta`](../../Error/type-aliases/errorMeta.md)
+###### target
+
+`unknown`
+
+##### meta?
+
+[`errorMeta`](../../Error/type-aliases/errorMeta.md)
 
 #### Returns
 
@@ -32,25 +42,7 @@
 
 #### Inherited from
 
-Err.init(\{
-	constructor(params: \{ target: unknown; expected: enumValue\[\] \}) \{
-		const \{ target, expected \} = params;
-		const data = \{ target, expected \};
-
-		const message = \`Invalid enum value: $\{target\}. Expected one of: $\{expected.join(
-			', ',
-		)\}\`;
-
-		return \{
-			message,
-			data,
-		\};
-	\},
-\}).constructor
-
-#### Defined in
-
-[src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L87)
+`` Err.init({ 	constructor(params: { target: unknown; expected: enumValue[] }) { 		const { target, expected } = params; 		const data = { target, expected }; 		const message = `Invalid enum value: ${target}. Expected one of: ${expected.join( 			', ', 		)}`; 		return { 			message, 			data, 		}; 	}, }).constructor ``
 
 ## Properties
 
@@ -58,33 +50,19 @@ Err.init(\{
 
 > `optional` **cause**: `unknown`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:26
+
 #### Inherited from
 
-Err.init(\{
-	constructor(params: \{ target: unknown; expected: enumValue\[\] \}) \{
-		const \{ target, expected \} = params;
-		const data = \{ target, expected \};
-
-		const message = \`Invalid enum value: $\{target\}. Expected one of: $\{expected.join(
-			', ',
-		)\}\`;
-
-		return \{
-			message,
-			data,
-		\};
-	\},
-\}).cause
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
+`` Err.init({ 	constructor(params: { target: unknown; expected: enumValue[] }) { 		const { target, expected } = params; 		const data = { target, expected }; 		const message = `Invalid enum value: ${target}. Expected one of: ${expected.join( 			', ', 		)}`; 		return { 			message, 			data, 		}; 	}, }).cause ``
 
 ***
 
 ### data
 
 > **data**: `object`
+
+Defined in: [src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L81)
 
 #### expected
 
@@ -96,25 +74,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 #### Inherited from
 
-Err.init(\{
-	constructor(params: \{ target: unknown; expected: enumValue\[\] \}) \{
-		const \{ target, expected \} = params;
-		const data = \{ target, expected \};
-
-		const message = \`Invalid enum value: $\{target\}. Expected one of: $\{expected.join(
-			', ',
-		)\}\`;
-
-		return \{
-			message,
-			data,
-		\};
-	\},
-\}).data
-
-#### Defined in
-
-[src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L81)
+`` Err.init({ 	constructor(params: { target: unknown; expected: enumValue[] }) { 		const { target, expected } = params; 		const data = { target, expected }; 		const message = `Invalid enum value: ${target}. Expected one of: ${expected.join( 			', ', 		)}`; 		return { 			message, 			data, 		}; 	}, }).data ``
 
 ***
 
@@ -122,27 +82,11 @@ Err.init(\{
 
 > **message**: `string`
 
+Defined in: [src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L12)
+
 #### Inherited from
 
-Err.init(\{
-	constructor(params: \{ target: unknown; expected: enumValue\[\] \}) \{
-		const \{ target, expected \} = params;
-		const data = \{ target, expected \};
-
-		const message = \`Invalid enum value: $\{target\}. Expected one of: $\{expected.join(
-			', ',
-		)\}\`;
-
-		return \{
-			message,
-			data,
-		\};
-	\},
-\}).message
-
-#### Defined in
-
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L12)
+`` Err.init({ 	constructor(params: { target: unknown; expected: enumValue[] }) { 		const { target, expected } = params; 		const data = { target, expected }; 		const message = `Invalid enum value: ${target}. Expected one of: ${expected.join( 			', ', 		)}`; 		return { 			message, 			data, 		}; 	}, }).message ``
 
 ***
 
@@ -150,27 +94,11 @@ Err.init(\{
 
 > `readonly` **meta**: [`errorMeta`](../../Error/type-aliases/errorMeta.md)
 
+Defined in: [src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L13)
+
 #### Inherited from
 
-Err.init(\{
-	constructor(params: \{ target: unknown; expected: enumValue\[\] \}) \{
-		const \{ target, expected \} = params;
-		const data = \{ target, expected \};
-
-		const message = \`Invalid enum value: $\{target\}. Expected one of: $\{expected.join(
-			', ',
-		)\}\`;
-
-		return \{
-			message,
-			data,
-		\};
-	\},
-\}).meta
-
-#### Defined in
-
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L13)
+`` Err.init({ 	constructor(params: { target: unknown; expected: enumValue[] }) { 		const { target, expected } = params; 		const data = { target, expected }; 		const message = `Invalid enum value: ${target}. Expected one of: ${expected.join( 			', ', 		)}`; 		return { 			message, 			data, 		}; 	}, }).meta ``
 
 ***
 
@@ -178,27 +106,11 @@ Err.init(\{
 
 > **name**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+
 #### Inherited from
 
-Err.init(\{
-	constructor(params: \{ target: unknown; expected: enumValue\[\] \}) \{
-		const \{ target, expected \} = params;
-		const data = \{ target, expected \};
-
-		const message = \`Invalid enum value: $\{target\}. Expected one of: $\{expected.join(
-			', ',
-		)\}\`;
-
-		return \{
-			message,
-			data,
-		\};
-	\},
-\}).name
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+`` Err.init({ 	constructor(params: { target: unknown; expected: enumValue[] }) { 		const { target, expected } = params; 		const data = { target, expected }; 		const message = `Invalid enum value: ${target}. Expected one of: ${expected.join( 			', ', 		)}`; 		return { 			message, 			data, 		}; 	}, }).name ``
 
 ***
 
@@ -206,24 +118,8 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1
 
 > `optional` **stack**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
+
 #### Inherited from
 
-Err.init(\{
-	constructor(params: \{ target: unknown; expected: enumValue\[\] \}) \{
-		const \{ target, expected \} = params;
-		const data = \{ target, expected \};
-
-		const message = \`Invalid enum value: $\{target\}. Expected one of: $\{expected.join(
-			', ',
-		)\}\`;
-
-		return \{
-			message,
-			data,
-		\};
-	\},
-\}).stack
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
+`` Err.init({ 	constructor(params: { target: unknown; expected: enumValue[] }) { 		const { target, expected } = params; 		const data = { target, expected }; 		const message = `Invalid enum value: ${target}. Expected one of: ${expected.join( 			', ', 		)}`; 		return { 			message, 			data, 		}; 	}, }).stack ``

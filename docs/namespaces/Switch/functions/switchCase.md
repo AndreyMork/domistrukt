@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: switchCase()
 
-> **switchCase**\<`target`\>(`target`): [`Switch`](../classes/Switch.md)\<`target`, `never`, `target`\>
+> **switchCase**\<`target`\>(`target`): [`Switch`](../classes/Switch.md)\<`target`, `target`\>
+
+Defined in: [src/Switch.ts:367](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L367)
 
 ## Type Parameters
 
@@ -14,12 +16,10 @@
 
 ## Parameters
 
-• **target**: `target`
+### target
+
+`target`
 
 ## Returns
 
-[`Switch`](../classes/Switch.md)\<`target`, `never`, `target`\>
-
-## Defined in
-
-[src/Switch.ts:361](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L361)
+[`Switch`](../classes/Switch.md)\<`target`, `target`\>

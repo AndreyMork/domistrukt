@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **flatObject**\<`t`\>(`index`?): [`t`](../classes/t.md)\<`t`\>
 
+Defined in: [src/FlatObject.ts:80](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L80)
+
 Creates a new FlatObject instance from an index map.
 
 ## Type Parameters
@@ -16,7 +18,9 @@ Creates a new FlatObject instance from an index map.
 
 ## Parameters
 
-• **index?**: [`index`](../type-aliases/index.md)\<`t`\>
+### index?
+
+[`index`](../type-aliases/index.md)\<`t`\>
 
 The index map for the FlatObject.
 
@@ -25,7 +29,3 @@ The index map for the FlatObject.
 [`t`](../classes/t.md)\<`t`\>
 
 A new FlatObject instance.
-
-## Defined in
-
-[src/FlatObject.ts:80](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L80)

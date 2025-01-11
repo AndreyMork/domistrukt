@@ -1,4 +1,4 @@
-**@ayka/domistrukt** • [**Docs**](globals.md)
+**@ayka/domistrukt**
 
 ***
 

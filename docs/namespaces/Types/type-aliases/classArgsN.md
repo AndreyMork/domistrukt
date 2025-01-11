@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Type Alias: classArgsN\<t, n\>
 
 > **classArgsN**\<`t`, `n`\>: `ConstructorParameters`\<`t`\>\[`n`\]
+
+Defined in: [src/Types/Types.d.ts:30](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Types/Types.d.ts#L30)
 
 Extracts the nth constructor parameter of a class type.
 
@@ -19,7 +21,3 @@ The class constructor type.
 • **n** *extends* `number`
 
 The index of the constructor parameter to extract.
-
-## Defined in
-
-[src/Types/Types.d.ts:30](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Types/Types.d.ts#L30)

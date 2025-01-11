@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](README.md) • **Docs**
+[**@ayka/domistrukt**](README.md)
 
 ***
 

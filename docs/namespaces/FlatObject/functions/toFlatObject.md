@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **toFlatObject**\<`t`\>(`obj`): [`t`](../classes/t.md)\<`t`\>
 
+Defined in: [src/FlatObject.ts:30](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L30)
+
 Converts a nested object into a FlatObject.
 
 ## Type Parameters
@@ -16,7 +18,9 @@ Converts a nested object into a FlatObject.
 
 ## Parameters
 
-• **obj**: `Record`\<`string`, `any`\>
+### obj
+
+`Record`\<`string`, `any`\>
 
 The object to convert.
 
@@ -32,7 +36,3 @@ A FlatObject representation of the input object.
 const flat = fromObject({ a: { b: 1 } });
 console.log(flat.get(['a', 'b'])); // Outputs: 1
 ```
-
-## Defined in
-
-[src/FlatObject.ts:30](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L30)

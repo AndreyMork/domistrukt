@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,19 +6,17 @@
 
 # StruktBase
 
-## Index
-
-### Classes
+## Classes
 
 - [BasicStrukt](classes/BasicStrukt.md)
 - [StruktBase](classes/StruktBase.md)
 
-### Type Aliases
+## Type Aliases
 
 - [constructParams](type-aliases/constructParams.md)
 - [params](type-aliases/params.md)
 
-### Functions
+## Functions
 
 - [construct](functions/construct.md)
 

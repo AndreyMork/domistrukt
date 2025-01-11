@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -6,27 +6,31 @@
 
 # Class: SwitchContext
 
+Defined in: [src/Switch.ts:42](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L42)
+
 ## Constructors
 
 ### new SwitchContext()
 
 > **new SwitchContext**(`params`): [`SwitchContext`](SwitchContext.md)
 
+Defined in: [src/Switch.ts:46](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L46)
+
 #### Parameters
 
-• **params**
+##### params
 
-• **params.data**: `any`
+###### data
 
-• **params.target**: `any`
+`any`
+
+###### target
+
+`any`
 
 #### Returns
 
 [`SwitchContext`](SwitchContext.md)
-
-#### Defined in
-
-[src/Switch.ts:40](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L40)
 
 ## Properties
 
@@ -34,9 +38,7 @@
 
 > **data**: `any`
 
-#### Defined in
-
-[src/Switch.ts:37](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L37)
+Defined in: [src/Switch.ts:43](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L43)
 
 ***
 
@@ -44,15 +46,15 @@
 
 > **target**: `any`
 
-#### Defined in
-
-[src/Switch.ts:38](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L38)
+Defined in: [src/Switch.ts:44](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L44)
 
 ## Methods
 
 ### continue()
 
 > **continue**\<`t`\>(): `t`
+
+Defined in: [src/Switch.ts:61](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L61)
 
 #### Type Parameters
 
@@ -61,7 +63,3 @@
 #### Returns
 
 `t`
-
-#### Defined in
-
-[src/Switch.ts:55](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L55)

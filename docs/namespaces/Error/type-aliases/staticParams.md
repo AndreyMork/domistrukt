@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **staticParams**: `object`
 
+Defined in: [src/Error.ts:42](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L42)
+
 Parameters for creating a static error.
 
 ## Type declaration
@@ -15,7 +17,3 @@ Parameters for creating a static error.
 ### message?
 
 > `optional` **message**: `string`
-
-## Defined in
-
-[src/Error.ts:42](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L42)

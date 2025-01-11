@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Types
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [anyArgs](type-aliases/anyArgs.md)
 - [anyClass](type-aliases/anyClass.md)

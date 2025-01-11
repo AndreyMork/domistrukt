@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [Switch](../README.md) / Switch
 
 # Class: Switch\<target, result, notChecked\>
+
+Defined in: [src/Switch.ts:73](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L73)
 
 A class that allows for conditional execution of callbacks based on various criteria.
 
@@ -28,49 +30,47 @@ The type of data that has not been checked.
 
 ### new Switch()
 
-> **new Switch**\<`target`, `result`, `notChecked`\>(`params`?): [`Switch`](Switch.md)\<`target`, `result`, `notChecked`\>
+> **new Switch**\<`target`, `result`, `notChecked`\>(`params`?): [`Switch`](Switch.md)\<`result`, `notChecked`\>
+
+Defined in: [src/Switch.ts:78](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L78)
 
 #### Parameters
 
-• **params?**: [`params`](../type-aliases/params.md)\<`target`, `result`\>
+##### params?
+
+[`params`](../type-aliases/params.md)\<`target`, `result`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result`, `notChecked`\>
-
-#### Defined in
-
-[src/Switch.ts:72](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L72)
+[`Switch`](Switch.md)\<`result`, `notChecked`\>
 
 ## Properties
 
-### target
+### target?
 
-> **target**: `undefined` \| `target`
+> `optional` **target**: `target`
 
-#### Defined in
-
-[src/Switch.ts:67](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L67)
+Defined in: [src/Switch.ts:73](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L73)
 
 ## Methods
 
 ### clone()
 
-> **clone**(): [`Switch`](Switch.md)\<`target`, `result`, `target`\>
+> **clone**(): [`Switch`](Switch.md)\<`result`\>
+
+Defined in: [src/Switch.ts:84](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L84)
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result`, `target`\>
-
-#### Defined in
-
-[src/Switch.ts:78](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L78)
+[`Switch`](Switch.md)\<`result`\>
 
 ***
 
 ### map()
 
-> **map**\<`res`\>(`fn`): [`Switch`](Switch.md)\<`target`, `res`, `notChecked`\>
+> **map**\<`res`\>(`fn`): [`Switch`](Switch.md)\<`res`, `notChecked`\>
+
+Defined in: [src/Switch.ts:353](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L353)
 
 #### Type Parameters
 
@@ -78,21 +78,21 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **fn**: [`callbackFn`](../type-aliases/callbackFn.md)\<`result`, `res`\>
+##### fn
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`result`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `res`, `notChecked`\>
-
-#### Defined in
-
-[src/Switch.ts:347](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L347)
+[`Switch`](Switch.md)\<`res`, `notChecked`\>
 
 ***
 
 ### otherwise()
 
-> **otherwise**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `never`\>
+> **otherwise**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`\>
+
+Defined in: [src/Switch.ts:186](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L186)
 
 #### Type Parameters
 
@@ -100,33 +100,31 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`notChecked`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`notChecked`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `never`\>
-
-#### Defined in
-
-[src/Switch.ts:180](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L180)
+[`Switch`](Switch.md)\<`result` \| `res`\>
 
 ***
 
 ### otherwiseThrow()
 
-> **otherwiseThrow**(`error`?): [`Switch`](Switch.md)\<`target`, `result`, `never`\>
+> **otherwiseThrow**(`error`?): [`Switch`](Switch.md)\<`result`\>
+
+Defined in: [src/Switch.ts:195](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L195)
 
 #### Parameters
 
-• **error?**: `Error` \| (`cause`) => `Error`
+##### error?
+
+`Error` | [`errorCallback`](../type-aliases/errorCallback.md)\<`notChecked`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result`, `never`\>
-
-#### Defined in
-
-[src/Switch.ts:189](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L189)
+[`Switch`](Switch.md)\<`result`\>
 
 ***
 
@@ -134,19 +132,21 @@ The type of data that has not been checked.
 
 > **run**(`target`?, `ctxData`?): `result`
 
+Defined in: [src/Switch.ts:105](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L105)
+
 #### Parameters
 
-• **target?**: `target`
+##### target?
 
-• **ctxData?**: `any`
+`target`
+
+##### ctxData?
+
+`any`
 
 #### Returns
 
 `result`
-
-#### Defined in
-
-[src/Switch.ts:99](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L99)
 
 ***
 
@@ -154,17 +154,17 @@ The type of data that has not been checked.
 
 > **runStrict**(...`_notChecked`): `result`
 
+Defined in: [src/Switch.ts:152](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L152)
+
 #### Parameters
 
-• ...**\_notChecked**: [`isNever`](../../Types/type-aliases/isNever.md)\<`notChecked`\> *extends* `true` ? [] : [`never`, `"Not all cases are checked:"`, `notChecked`]
+##### \_notChecked
+
+...[`isNever`](../../Types/type-aliases/isNever.md)\<`notChecked`\> *extends* `true` ? \[\] : \[`never`, `"Not all cases are checked:"`, `notChecked`\]
 
 #### Returns
 
 `result`
-
-#### Defined in
-
-[src/Switch.ts:146](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L146)
 
 ***
 
@@ -172,23 +172,25 @@ The type of data that has not been checked.
 
 > **save**(): (`data`, `ctxData`?) => `result`
 
+Defined in: [src/Switch.ts:100](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L100)
+
 #### Returns
 
 `Function`
 
 ##### Parameters
 
-• **data**: `target`
+###### data
 
-• **ctxData?**: `any`
+`target`
+
+###### ctxData?
+
+`any`
 
 ##### Returns
 
 `result`
-
-#### Defined in
-
-[src/Switch.ts:94](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L94)
 
 ***
 
@@ -196,9 +198,13 @@ The type of data that has not been checked.
 
 > **saveStrict**(...`_notChecked`): (`data`, `ctxData`?) => `result`
 
+Defined in: [src/Switch.ts:144](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L144)
+
 #### Parameters
 
-• ...**\_notChecked**: [`isNever`](../../Types/type-aliases/isNever.md)\<`notChecked`\> *extends* `true` ? [] : [`never`, `"Not all cases are checked:"`, `notChecked`]
+##### \_notChecked
+
+...[`isNever`](../../Types/type-aliases/isNever.md)\<`notChecked`\> *extends* `true` ? \[\] : \[`never`, `"Not all cases are checked:"`, `notChecked`\]
 
 #### Returns
 
@@ -206,17 +212,17 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **data**: `target`
+###### data
 
-• **ctxData?**: `any`
+`target`
+
+###### ctxData?
+
+`any`
 
 ##### Returns
 
 `result`
-
-#### Defined in
-
-[src/Switch.ts:138](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L138)
 
 ***
 
@@ -224,23 +230,25 @@ The type of data that has not been checked.
 
 > **verify**(...`_notChecked`): `this`
 
+Defined in: [src/Switch.ts:136](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L136)
+
 #### Parameters
 
-• ...**\_notChecked**: [`isNever`](../../Types/type-aliases/isNever.md)\<`notChecked`\> *extends* `true` ? [] : [`never`, `"Not all cases are checked:"`, `notChecked`]
+##### \_notChecked
+
+...[`isNever`](../../Types/type-aliases/isNever.md)\<`notChecked`\> *extends* `true` ? \[\] : \[`never`, `"Not all cases are checked:"`, `notChecked`\]
 
 #### Returns
 
 `this`
 
-#### Defined in
-
-[src/Switch.ts:130](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L130)
-
 ***
 
 ### when()
 
-> **when**\<`checked`, `res`\>(`test`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `checked`\>\>
+> **when**\<`checked`, `res`\>(`test`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `checked`\>\>
+
+Defined in: [src/Switch.ts:166](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L166)
 
 #### Type Parameters
 
@@ -250,23 +258,25 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **test**: `boolean` \| [`predicateFn`](../type-aliases/predicateFn.md)\<`target`\>
+##### test
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<[`isNever`](../../Types/type-aliases/isNever.md)\<`checked`\> *extends* `true` ? `target` : `checked`, `res`\>
+`boolean` | [`predicateFn`](../type-aliases/predicateFn.md)\<`target`\>
+
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<[`isNever`](../../Types/type-aliases/isNever.md)\<`checked`\> *extends* `true` ? `target` : `checked`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `checked`\>\>
-
-#### Defined in
-
-[src/Switch.ts:160](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L160)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `checked`\>\>
 
 ***
 
 ### whenBigint()
 
-> **whenBigint**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
+> **whenBigint**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
+
+Defined in: [src/Switch.ts:278](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L278)
 
 #### Type Parameters
 
@@ -274,21 +284,21 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`bigint`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`bigint`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
-
-#### Defined in
-
-[src/Switch.ts:272](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L272)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
 
 ***
 
 ### whenBoolean()
 
-> **whenBoolean**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
+> **whenBoolean**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
+
+Defined in: [src/Switch.ts:270](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L270)
 
 #### Type Parameters
 
@@ -296,21 +306,21 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`boolean`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`boolean`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
-
-#### Defined in
-
-[src/Switch.ts:264](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L264)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
 
 ***
 
 ### whenFalse()
 
-> **whenFalse**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `false`\>\>
+> **whenFalse**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `false`\>\>
+
+Defined in: [src/Switch.ts:344](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L344)
 
 #### Type Parameters
 
@@ -318,23 +328,23 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`false`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`false`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `false`\>\>
-
-#### Defined in
-
-[src/Switch.ts:338](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L338)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `false`\>\>
 
 ***
 
 ### whenInstance()
 
-#### whenInstance(klass, callback)
+#### Call Signature
 
-> **whenInstance**\<`k`, `res`\>(`klass`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\>\>\>
+> **whenInstance**\<`k`, `res`\>(`klass`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\>\>\>
+
+Defined in: [src/Switch.ts:237](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L237)
 
 ##### Type Parameters
 
@@ -344,21 +354,23 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **klass**: `k`
+###### klass
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`InstanceType`\<`k`\>, `res`\>
+`k`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`InstanceType`\<`k`\>, `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\>\>\>
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\>\>\>
 
-##### Defined in
+#### Call Signature
 
-[src/Switch.ts:231](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L231)
+> **whenInstance**\<`k`, `res`\>(`klasses`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\[`number`\]\>\>\>
 
-#### whenInstance(klasses, callback)
-
-> **whenInstance**\<`k`, `res`\>(`klasses`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\[`number`\]\>\>\>
+Defined in: [src/Switch.ts:241](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L241)
 
 ##### Type Parameters
 
@@ -368,23 +380,25 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **klasses**: `k`
+###### klasses
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`InstanceType`\<`k`\[`number`\]\>, `res`\>
+`k`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`InstanceType`\<`k`\[`number`\]\>, `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\[`number`\]\>\>\>
-
-##### Defined in
-
-[src/Switch.ts:235](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L235)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `InstanceType`\<`k`\[`number`\]\>\>\>
 
 ***
 
 ### whenNull()
 
-> **whenNull**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `null`\>\>
+> **whenNull**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `null`\>\>
+
+Defined in: [src/Switch.ts:319](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L319)
 
 #### Type Parameters
 
@@ -392,21 +406,21 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`null`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`null`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `null`\>\>
-
-#### Defined in
-
-[src/Switch.ts:313](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L313)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `null`\>\>
 
 ***
 
 ### whenNumber()
 
-> **whenNumber**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
+> **whenNumber**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
+
+Defined in: [src/Switch.ts:266](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L266)
 
 #### Type Parameters
 
@@ -414,15 +428,13 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`number`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`number`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
-
-#### Defined in
-
-[src/Switch.ts:260](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L260)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
 
 ***
 
@@ -430,27 +442,29 @@ The type of data that has not been checked.
 
 > **whenOptional**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`any`, `any`, `any`\>
 
+Defined in: [src/Switch.ts:328](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L328)
+
 #### Type Parameters
 
 • **res**
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`undefined` \| `null`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`undefined` \| `null`, `res`\>
 
 #### Returns
 
 [`Switch`](Switch.md)\<`any`, `any`, `any`\>
 
-#### Defined in
-
-[src/Switch.ts:322](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L322)
-
 ***
 
 ### whenString()
 
-> **whenString**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
+> **whenString**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
+
+Defined in: [src/Switch.ts:262](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L262)
 
 #### Type Parameters
 
@@ -458,21 +472,21 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`string`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`string`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
-
-#### Defined in
-
-[src/Switch.ts:256](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L256)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
 
 ***
 
 ### whenSymbol()
 
-> **whenSymbol**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
+> **whenSymbol**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
+
+Defined in: [src/Switch.ts:274](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L274)
 
 #### Type Parameters
 
@@ -480,21 +494,21 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`symbol`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`symbol`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
-
-#### Defined in
-
-[src/Switch.ts:268](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L268)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
 
 ***
 
 ### whenTrue()
 
-> **whenTrue**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `true`\>\>
+> **whenTrue**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `true`\>\>
+
+Defined in: [src/Switch.ts:335](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L335)
 
 #### Type Parameters
 
@@ -502,45 +516,23 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`true`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`true`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `true`\>\>
-
-#### Defined in
-
-[src/Switch.ts:329](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L329)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `true`\>\>
 
 ***
 
 ### whenTypeOf()
 
-#### whenTypeOf(type, callback)
+#### Call Signature
 
-> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
+> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
 
-##### Type Parameters
-
-• **res**
-
-##### Parameters
-
-• **type**: `"string"`
-
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`string`, `res`\>
-
-##### Returns
-
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
-
-##### Defined in
-
-[src/Switch.ts:276](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L276)
-
-#### whenTypeOf(type, callback)
-
-> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
+Defined in: [src/Switch.ts:282](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L282)
 
 ##### Type Parameters
 
@@ -548,21 +540,23 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **type**: `"number"`
+###### type
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`number`, `res`\>
+`"string"`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`string`, `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `string`\>\>
 
-##### Defined in
+#### Call Signature
 
-[src/Switch.ts:280](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L280)
+> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
 
-#### whenTypeOf(type, callback)
-
-> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
+Defined in: [src/Switch.ts:286](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L286)
 
 ##### Type Parameters
 
@@ -570,21 +564,23 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **type**: `"boolean"`
+###### type
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`boolean`, `res`\>
+`"number"`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`number`, `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `number`\>\>
 
-##### Defined in
+#### Call Signature
 
-[src/Switch.ts:284](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L284)
+> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
 
-#### whenTypeOf(type, callback)
-
-> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
+Defined in: [src/Switch.ts:290](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L290)
 
 ##### Type Parameters
 
@@ -592,21 +588,23 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **type**: `"symbol"`
+###### type
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`symbol`, `res`\>
+`"boolean"`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`boolean`, `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `boolean`\>\>
 
-##### Defined in
+#### Call Signature
 
-[src/Switch.ts:288](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L288)
+> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
 
-#### whenTypeOf(type, callback)
-
-> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
+Defined in: [src/Switch.ts:294](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L294)
 
 ##### Type Parameters
 
@@ -614,23 +612,49 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **type**: `"bigint"`
+###### type
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`bigint`, `res`\>
+`"symbol"`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`symbol`, `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `symbol`\>\>
 
-##### Defined in
+#### Call Signature
 
-[src/Switch.ts:292](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L292)
+> **whenTypeOf**\<`res`\>(`type`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
+
+Defined in: [src/Switch.ts:298](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L298)
+
+##### Type Parameters
+
+• **res**
+
+##### Parameters
+
+###### type
+
+`"bigint"`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`bigint`, `res`\>
+
+##### Returns
+
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `bigint`\>\>
 
 ***
 
 ### whenUndefined()
 
-> **whenUndefined**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `undefined`\>\>
+> **whenUndefined**\<`res`\>(`callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `undefined`\>\>
+
+Defined in: [src/Switch.ts:310](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L310)
 
 #### Type Parameters
 
@@ -638,23 +662,23 @@ The type of data that has not been checked.
 
 #### Parameters
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`undefined`, `res`\>
+##### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`undefined`, `res`\>
 
 #### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `undefined`\>\>
-
-#### Defined in
-
-[src/Switch.ts:304](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L304)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `undefined`\>\>
 
 ***
 
 ### whenValue()
 
-#### whenValue(value, callback)
+#### Call Signature
 
-> **whenValue**\<`val`, `res`\>(`value`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `val`\[`number`\]\>\>
+> **whenValue**\<`val`, `res`\>(`value`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `val`\[`number`\]\>\>
+
+Defined in: [src/Switch.ts:214](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L214)
 
 ##### Type Parameters
 
@@ -664,21 +688,23 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **value**: `val`
+###### value
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`val`\[`number`\], `res`\>
+`val`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`val`\[`number`\], `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `val`\[`number`\]\>\>
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `val`\[`number`\]\>\>
 
-##### Defined in
+#### Call Signature
 
-[src/Switch.ts:208](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L208)
+> **whenValue**\<`val`, `res`\>(`value`, `callback`): [`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `val`\>\>
 
-#### whenValue(value, callback)
-
-> **whenValue**\<`val`, `res`\>(`value`, `callback`): [`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `val`\>\>
+Defined in: [src/Switch.ts:218](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L218)
 
 ##### Type Parameters
 
@@ -688,14 +714,14 @@ The type of data that has not been checked.
 
 ##### Parameters
 
-• **value**: `val`
+###### value
 
-• **callback**: [`callbackFn`](../type-aliases/callbackFn.md)\<`val`, `res`\>
+`val`
+
+###### callback
+
+[`callbackFn`](../type-aliases/callbackFn.md)\<`val`, `res`\>
 
 ##### Returns
 
-[`Switch`](Switch.md)\<`target`, `result` \| `res`, `Exclude`\<`notChecked`, `val`\>\>
-
-##### Defined in
-
-[src/Switch.ts:212](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L212)
+[`Switch`](Switch.md)\<`result` \| `res`, `Exclude`\<`notChecked`, `val`\>\>

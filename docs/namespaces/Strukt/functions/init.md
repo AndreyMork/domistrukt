@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: init()
 
 > **init**\<`constructor`\>(`params`): [`struktClass`](../type-aliases/struktClass.md)\<`constructor`\>
+
+Defined in: [src/Strukt.ts:50](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Strukt.ts#L50)
 
 Initializes a Strukt class.
 
@@ -18,7 +20,9 @@ The constructor type.
 
 ## Parameters
 
-• **params**: [`params`](../type-aliases/params.md)\<`constructor`\>
+### params
+
+[`params`](../type-aliases/params.md)\<`constructor`\>
 
 The parameters for initialization.
 
@@ -44,7 +48,3 @@ class MyClass extends init({
 const instance = new MyClass({ x: 1, y: 2 });
 console.log(instance); // Output: MyClass { x: 1, y: 2, sum: 3 }
 ```
-
-## Defined in
-
-[src/Strukt.ts:50](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Strukt.ts#L50)

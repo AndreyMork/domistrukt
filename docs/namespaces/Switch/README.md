@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,27 +6,26 @@
 
 # Switch
 
-## Index
-
-### Classes
+## Classes
 
 - [Switch](classes/Switch.md)
 - [SwitchContext](classes/SwitchContext.md)
 - [SwitchNoMatch](classes/SwitchNoMatch.md)
 
-### Type Aliases
+## Type Aliases
 
 - [callbackFn](type-aliases/callbackFn.md)
 - [dispatcher](type-aliases/dispatcher.md)
+- [errorCallback](type-aliases/errorCallback.md)
 - [params](type-aliases/params.md)
 - [predicateFn](type-aliases/predicateFn.md)
 - [typeofName](type-aliases/typeofName.md)
 
-### Variables
+## Variables
 
 - [continueSymbol](variables/continueSymbol.md)
 
-### Functions
+## Functions
 
 - [compileSwitch](functions/compileSwitch.md)
 - [switchCase](functions/switchCase.md)

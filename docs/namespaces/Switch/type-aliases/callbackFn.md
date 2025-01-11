@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **callbackFn**\<`data`, `result`\>: (`value`, `ctx`) => `result`
 
+Defined in: [src/Switch.ts:8](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L8)
+
 ## Type Parameters
 
 • **data**
@@ -16,14 +18,14 @@
 
 ## Parameters
 
-• **value**: `data`
+### value
 
-• **ctx**: [`SwitchContext`](../classes/SwitchContext.md)
+`data`
+
+### ctx
+
+[`SwitchContext`](../classes/SwitchContext.md)
 
 ## Returns
 
 `result`
-
-## Defined in
-
-[src/Switch.ts:8](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Switch.ts#L8)

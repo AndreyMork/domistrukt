@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: selectKeys()
 
 > **selectKeys**\<`t`, `key`\>(`target`, `keys`): \{ -readonly \[k in string \| number \| symbol\]: t\[k\] \}
+
+Defined in: [src/Lib.ts:35](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Lib.ts#L35)
 
 Selects specified keys from a target object in a type-safe manner.
 
@@ -22,11 +24,15 @@ The type of the keys to select, extending keyof t.
 
 ## Parameters
 
-• **target**: `t`
+### target
+
+`t`
 
 The target object to select keys from.
 
-• **keys**: `Iterable`\<`key`, `any`, `any`\>
+### keys
+
+`Iterable`\<`key`\>
 
 An iterable of keys to select.
 
@@ -55,7 +61,3 @@ const person = new Person('John', 30, '123-45-6789');
 const result = person.toObject();
 console.log(result); // Output: { name: 'John', age: 30 }
 ```
-
-## Defined in
-
-[src/Lib.ts:35](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Lib.ts#L35)

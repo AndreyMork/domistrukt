@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -8,11 +8,15 @@
 
 > **lazy**(`opts`?): (`_target`, `propertyKey`, `descriptor`) => `void`
 
+Defined in: [src/Lib.ts:149](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Lib.ts#L149)
+
 A decorator that lazily initializes a property.
 
 ## Parameters
 
-• **opts?**: [`lazyOpts`](../type-aliases/lazyOpts.md)
+### opts?
+
+[`lazyOpts`](../type-aliases/lazyOpts.md)
 
 Options for the lazy initialization.
 
@@ -24,11 +28,17 @@ A property decorator function.
 
 ### Parameters
 
-• **\_target**: `any`
+#### \_target
 
-• **propertyKey**: `PropertyKey`
+`any`
 
-• **descriptor**: `PropertyDescriptor`
+#### propertyKey
+
+`PropertyKey`
+
+#### descriptor
+
+`PropertyDescriptor`
 
 ### Returns
 
@@ -49,7 +59,3 @@ const instance = new Example();
 console.log(instance.expensiveValue); // Logs "Calculating..." then "42"
 console.log(instance.expensiveValue); // Logs "42" without recalculating
 ```
-
-## Defined in
-
-[src/Lib.ts:149](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Lib.ts#L149)

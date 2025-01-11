@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [FlatObject](../README.md) / t
 
 # Class: t\<t\>
+
+Defined in: [src/FlatObject.ts:93](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L93)
 
 Represents a flat structure of a nested object.
 
@@ -18,17 +20,17 @@ Represents a flat structure of a nested object.
 
 > **new t**\<`t`\>(`index`): [`t`](t.md)\<`t`\>
 
+Defined in: [src/FlatObject.ts:96](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L96)
+
 #### Parameters
 
-• **index**: [`index`](../type-aliases/index.md)\<`t`\>
+##### index
+
+[`index`](../type-aliases/index.md)\<`t`\>
 
 #### Returns
 
 [`t`](t.md)\<`t`\>
-
-#### Defined in
-
-[src/FlatObject.ts:96](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L96)
 
 ## Accessors
 
@@ -38,13 +40,11 @@ Represents a flat structure of a nested object.
 
 > **get** **index**(): [`index`](../type-aliases/index.md)\<`t`\>
 
+Defined in: [src/FlatObject.ts:100](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L100)
+
 ##### Returns
 
 [`index`](../type-aliases/index.md)\<`t`\>
-
-#### Defined in
-
-[src/FlatObject.ts:100](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L100)
 
 ***
 
@@ -54,35 +54,23 @@ Represents a flat structure of a nested object.
 
 > **get** **size**(): `number`
 
+Defined in: [src/FlatObject.ts:250](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L250)
+
 ##### Returns
 
 `number`
-
-#### Defined in
-
-[src/FlatObject.ts:250](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L250)
 
 ## Methods
 
 ### entries()
 
-> **entries**(): `List`\<`object`\>
+> **entries**(): `List`\<\{ `keys`: [`keys`](../type-aliases/keys.md); `value`: `t`; \}\>
+
+Defined in: [src/FlatObject.ts:240](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L240)
 
 #### Returns
 
-`List`\<`object`\>
-
-##### keys
-
-> **keys**: [`keys`](../type-aliases/keys.md)
-
-##### value
-
-> **value**: `t`
-
-#### Defined in
-
-[src/FlatObject.ts:240](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L240)
+`List`\<\{ `keys`: [`keys`](../type-aliases/keys.md); `value`: `t`; \}\>
 
 ***
 
@@ -90,11 +78,15 @@ Represents a flat structure of a nested object.
 
 > **filter**(`fn`): [`t`](t.md)\<`t`\>
 
+Defined in: [src/FlatObject.ts:217](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L217)
+
 Filters the FlatObject based on a predicate function.
 
 #### Parameters
 
-• **fn**
+##### fn
+
+(`value`, `keys`) => `boolean`
 
 The predicate function to filter values. It receives the value and keys as arguments.
 
@@ -111,15 +103,13 @@ const filtered = flatObject.filter((value, keys) => value > 1);
 console.log(filtered.toJS()); // Outputs only properties with values greater than 1
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:217](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L217)
-
 ***
 
 ### get()
 
 > **get**\<`k`\>(`keys`): `k`
+
+Defined in: [src/FlatObject.ts:112](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L112)
 
 Retrieves a value from the FlatObject.
 
@@ -129,7 +119,9 @@ Retrieves a value from the FlatObject.
 
 #### Parameters
 
-• **keys**: `Iterable`\<`string`, `any`, `any`\>
+##### keys
+
+`Iterable`\<`string`\>
 
 The keys to retrieve the value for.
 
@@ -146,21 +138,21 @@ const value = flatObject.get<number>(['a', 'b']);
 console.log(value); // Outputs: 1
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:112](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L112)
-
 ***
 
 ### has()
 
 > **has**(`keys`): `boolean`
 
+Defined in: [src/FlatObject.ts:152](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L152)
+
 Checks if the FlatObject contains the specified keys.
 
 #### Parameters
 
-• **keys**: `Iterable`\<`string`, `any`, `any`\>
+##### keys
+
+`Iterable`\<`string`\>
 
 The keys to check for.
 
@@ -177,23 +169,17 @@ const exists = flatObject.has(['a', 'b']);
 console.log(exists); // Outputs: true or false
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:152](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L152)
-
 ***
 
 ### isEmpty()
 
 > **isEmpty**(): `boolean`
 
+Defined in: [src/FlatObject.ts:254](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L254)
+
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-[src/FlatObject.ts:254](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L254)
 
 ***
 
@@ -201,13 +187,11 @@ console.log(exists); // Outputs: true or false
 
 > **isNotEmpty**(): `boolean`
 
+Defined in: [src/FlatObject.ts:258](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L258)
+
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-[src/FlatObject.ts:258](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L258)
 
 ***
 
@@ -215,19 +199,19 @@ console.log(exists); // Outputs: true or false
 
 > **keys**(): `List`\<[`keys`](../type-aliases/keys.md)\>
 
+Defined in: [src/FlatObject.ts:232](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L232)
+
 #### Returns
 
 `List`\<[`keys`](../type-aliases/keys.md)\>
-
-#### Defined in
-
-[src/FlatObject.ts:232](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L232)
 
 ***
 
 ### map()
 
 > **map**\<`r`\>(`fn`): [`t`](t.md)\<`r`\>
+
+Defined in: [src/FlatObject.ts:205](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L205)
 
 Maps each value in the FlatObject to a new value.
 
@@ -237,7 +221,9 @@ Maps each value in the FlatObject to a new value.
 
 #### Parameters
 
-• **fn**
+##### fn
+
+(`value`, `keys`) => `r`
 
 The function to map each value.
 
@@ -253,15 +239,13 @@ A new FlatObject with mapped values.
 const mapped = flatObject.map<number>((value, keys) => value * 2);
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:205](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L205)
-
 ***
 
 ### merge()
 
 > **merge**\<`r`\>(`other`): [`t`](t.md)\<`t` \| `r`\>
+
+Defined in: [src/FlatObject.ts:228](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L228)
 
 Merges another FlatObject into this one.
 
@@ -271,7 +255,9 @@ Merges another FlatObject into this one.
 
 #### Parameters
 
-• **other**: [`t`](t.md)\<`r`\>
+##### other
+
+[`t`](t.md)\<`r`\>
 
 The other FlatObject to merge.
 
@@ -287,25 +273,27 @@ A new FlatObject with merged values.
 const merged = flatObject.merge(otherFlatObject);
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:228](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L228)
-
 ***
 
 ### set()
 
 > **set**(`keys`, `value`): [`t`](t.md)\<`t`\>
 
+Defined in: [src/FlatObject.ts:125](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L125)
+
 Sets a value in the FlatObject and returns a new instance.
 
 #### Parameters
 
-• **keys**: `Iterable`\<`string`, `any`, `any`\>
+##### keys
+
+`Iterable`\<`string`\>
 
 The keys to set the value for.
 
-• **value**: `t`
+##### value
+
+`t`
 
 The value to set.
 
@@ -322,25 +310,27 @@ const newFlat = flatObject.set(['a', 'b'], 2);
 console.log(newFlat.get(['a', 'b'])); // Outputs: 2
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:125](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L125)
-
 ***
 
 ### setMut()
 
 > **setMut**(`keys`, `value`): [`t`](t.md)\<`t`\>
 
+Defined in: [src/FlatObject.ts:139](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L139)
+
 Sets a value in the FlatObject in place.
 
 #### Parameters
 
-• **keys**: `Iterable`\<`string`, `any`, `any`\>
+##### keys
+
+`Iterable`\<`string`\>
 
 The keys to set the value for.
 
-• **value**: `t`
+##### value
+
+`t`
 
 The value to set.
 
@@ -357,15 +347,13 @@ flatObject.setMut(['a', 'b'], 2);
 console.log(flatObject.get(['a', 'b'])); // Outputs: 2
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:139](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L139)
-
 ***
 
 ### toJS()
 
 > **toJS**\<`r`\>(): `r`
+
+Defined in: [src/FlatObject.ts:164](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L164)
 
 Converts the FlatObject back to a regular JavaScript object.
 
@@ -388,15 +376,13 @@ const obj = flatObject.toJS();
 console.log(obj); // Outputs: { a: { b: 1 } }
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:164](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L164)
-
 ***
 
 ### transform()
 
 > **transform**\<`r`\>(`fn`): [`t`](t.md)\<`r`\>
+
+Defined in: [src/FlatObject.ts:193](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L193)
 
 Transforms the FlatObject using a provided function.
 
@@ -406,7 +392,9 @@ Transforms the FlatObject using a provided function.
 
 #### Parameters
 
-• **fn**
+##### fn
+
+(`index`) => [`index`](../type-aliases/index.md)\<`r`\>
 
 The function to transform the index.
 
@@ -422,20 +410,14 @@ A new FlatObject with the transformed index.
 const transformed = flatObject.transform(index => index.map(value => value * 2));
 ```
 
-#### Defined in
-
-[src/FlatObject.ts:193](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L193)
-
 ***
 
 ### values()
 
 > **values**(): `List`\<`t`\>
 
+Defined in: [src/FlatObject.ts:236](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/FlatObject.ts#L236)
+
 #### Returns
 
 `List`\<`t`\>
-
-#### Defined in
-
-[src/FlatObject.ts:236](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/FlatObject.ts#L236)

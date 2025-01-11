@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [Switch](../README.md) / SwitchNoMatch
 
 # Class: SwitchNoMatch
+
+Defined in: [src/Switch.ts:374](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Switch.ts#L374)
 
 ## Extends
 
@@ -16,11 +18,17 @@
 
 > **new SwitchNoMatch**(`args`, `meta`?): [`SwitchNoMatch`](SwitchNoMatch.md)
 
+Defined in: [src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L87)
+
 #### Parameters
 
-• **args**: `any`
+##### args
 
-• **meta?**: [`errorMeta`](../../Error/type-aliases/errorMeta.md)
+`any`
+
+##### meta?
+
+[`errorMeta`](../../Error/type-aliases/errorMeta.md)
 
 #### Returns
 
@@ -28,18 +36,7 @@
 
 #### Inherited from
 
-Err.init(\{
-	constructor(value: any) \{
-		return \{
-			data: \{ value \},
-			message: \`No match found and no default provided for $\{value\}\`,
-		\};
-	\},
-\}).constructor
-
-#### Defined in
-
-[src/Error.ts:87](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L87)
+`` Err.init({ 	constructor(value: any) { 		return { 			data: { value }, 			message: `No match found and no default provided for ${value}`, 		}; 	}, }).constructor ``
 
 ## Properties
 
@@ -47,20 +44,11 @@ Err.init(\{
 
 > `optional` **cause**: `unknown`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:26
+
 #### Inherited from
 
-Err.init(\{
-	constructor(value: any) \{
-		return \{
-			data: \{ value \},
-			message: \`No match found and no default provided for $\{value\}\`,
-		\};
-	\},
-\}).cause
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
+`` Err.init({ 	constructor(value: any) { 		return { 			data: { value }, 			message: `No match found and no default provided for ${value}`, 		}; 	}, }).cause ``
 
 ***
 
@@ -68,24 +56,15 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > **data**: `object`
 
+Defined in: [src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L81)
+
 #### value
 
 > **value**: `any`
 
 #### Inherited from
 
-Err.init(\{
-	constructor(value: any) \{
-		return \{
-			data: \{ value \},
-			message: \`No match found and no default provided for $\{value\}\`,
-		\};
-	\},
-\}).data
-
-#### Defined in
-
-[src/Error.ts:81](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L81)
+`` Err.init({ 	constructor(value: any) { 		return { 			data: { value }, 			message: `No match found and no default provided for ${value}`, 		}; 	}, }).data ``
 
 ***
 
@@ -93,20 +72,11 @@ Err.init(\{
 
 > **message**: `string`
 
+Defined in: [src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L12)
+
 #### Inherited from
 
-Err.init(\{
-	constructor(value: any) \{
-		return \{
-			data: \{ value \},
-			message: \`No match found and no default provided for $\{value\}\`,
-		\};
-	\},
-\}).message
-
-#### Defined in
-
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L12)
+`` Err.init({ 	constructor(value: any) { 		return { 			data: { value }, 			message: `No match found and no default provided for ${value}`, 		}; 	}, }).message ``
 
 ***
 
@@ -114,20 +84,11 @@ Err.init(\{
 
 > `readonly` **meta**: [`errorMeta`](../../Error/type-aliases/errorMeta.md)
 
+Defined in: [src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L13)
+
 #### Inherited from
 
-Err.init(\{
-	constructor(value: any) \{
-		return \{
-			data: \{ value \},
-			message: \`No match found and no default provided for $\{value\}\`,
-		\};
-	\},
-\}).meta
-
-#### Defined in
-
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L13)
+`` Err.init({ 	constructor(value: any) { 		return { 			data: { value }, 			message: `No match found and no default provided for ${value}`, 		}; 	}, }).meta ``
 
 ***
 
@@ -135,20 +96,11 @@ Err.init(\{
 
 > **name**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+
 #### Inherited from
 
-Err.init(\{
-	constructor(value: any) \{
-		return \{
-			data: \{ value \},
-			message: \`No match found and no default provided for $\{value\}\`,
-		\};
-	\},
-\}).name
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+`` Err.init({ 	constructor(value: any) { 		return { 			data: { value }, 			message: `No match found and no default provided for ${value}`, 		}; 	}, }).name ``
 
 ***
 
@@ -156,17 +108,8 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1
 
 > `optional` **stack**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
+
 #### Inherited from
 
-Err.init(\{
-	constructor(value: any) \{
-		return \{
-			data: \{ value \},
-			message: \`No match found and no default provided for $\{value\}\`,
-		\};
-	\},
-\}).stack
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
+`` Err.init({ 	constructor(value: any) { 		return { 			data: { value }, 			message: `No match found and no default provided for ${value}`, 		}; 	}, }).stack ``

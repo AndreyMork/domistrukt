@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [Error](../README.md) / ErrorStruktBase
 
 # Class: ErrorStruktBase
+
+Defined in: [src/Error.ts:11](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L11)
 
 Base class for structured errors with metadata.
 
@@ -18,11 +20,17 @@ Base class for structured errors with metadata.
 
 > **new ErrorStruktBase**(`msg`, `metaInput`?): [`ErrorStruktBase`](ErrorStruktBase.md)
 
+Defined in: [src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L15)
+
 #### Parameters
 
-• **msg**: `string`
+##### msg
 
-• **metaInput?**: [`errorMeta`](../type-aliases/errorMeta.md)
+`string`
+
+##### metaInput?
+
+[`errorMeta`](../type-aliases/errorMeta.md)
 
 #### Returns
 
@@ -32,23 +40,17 @@ Base class for structured errors with metadata.
 
 `Error.constructor`
 
-#### Defined in
-
-[src/Error.ts:15](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L15)
-
 ## Properties
 
 ### cause?
 
 > `optional` **cause**: `unknown`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:26
+
 #### Inherited from
 
 `Error.cause`
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 ***
 
@@ -56,13 +58,11 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > **message**: `string`
 
+Defined in: [src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L12)
+
 #### Overrides
 
 `Error.message`
-
-#### Defined in
-
-[src/Error.ts:12](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L12)
 
 ***
 
@@ -70,9 +70,7 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > `readonly` **meta**: [`errorMeta`](../type-aliases/errorMeta.md)
 
-#### Defined in
-
-[src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Error.ts#L13)
+Defined in: [src/Error.ts:13](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Error.ts#L13)
 
 ***
 
@@ -80,13 +78,11 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es2022.err
 
 > **name**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+
 #### Inherited from
 
 `Error.name`
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 ***
 
@@ -94,13 +90,11 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1
 
 > `optional` **stack**: `string`
 
+Defined in: node\_modules/.pnpm/typescript@5.7.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
+
 #### Inherited from
 
 `Error.stack`
-
-#### Defined in
-
-node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 ***
 
@@ -108,13 +102,19 @@ node\_modules/.pnpm/typescript@5.6.3/node\_modules/typescript/lib/lib.es5.d.ts:1
 
 > `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
 
+Defined in: node\_modules/.pnpm/@types+node@22.10.5/node\_modules/@types/node/globals.d.ts:143
+
 Optional override for formatting stack traces
 
 #### Parameters
 
-• **err**: `Error`
+##### err
 
-• **stackTraces**: `CallSite`[]
+`Error`
+
+##### stackTraces
+
+`CallSite`[]
 
 #### Returns
 
@@ -128,23 +128,17 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 `Error.prepareStackTrace`
 
-#### Defined in
-
-node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:143
-
 ***
 
 ### stackTraceLimit
 
 > `static` **stackTraceLimit**: `number`
 
+Defined in: node\_modules/.pnpm/@types+node@22.10.5/node\_modules/@types/node/globals.d.ts:145
+
 #### Inherited from
 
 `Error.stackTraceLimit`
-
-#### Defined in
-
-node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:145
 
 ## Methods
 
@@ -152,13 +146,19 @@ node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:14
 
 > `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
 
+Defined in: node\_modules/.pnpm/@types+node@22.10.5/node\_modules/@types/node/globals.d.ts:136
+
 Create .stack property on a target object
 
 #### Parameters
 
-• **targetObject**: `object`
+##### targetObject
 
-• **constructorOpt?**: `Function`
+`object`
+
+##### constructorOpt?
+
+`Function`
 
 #### Returns
 
@@ -167,7 +167,3 @@ Create .stack property on a target object
 #### Inherited from
 
 `Error.captureStackTrace`
-
-#### Defined in
-
-node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:136

@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,13 +6,11 @@
 
 # Lib
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [lazyOpts](type-aliases/lazyOpts.md)
 
-### Functions
+## Functions
 
 - [klass](functions/klass.md)
 - [lazy](functions/lazy.md)

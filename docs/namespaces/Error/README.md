@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,13 +6,11 @@
 
 # Error
 
-## Index
-
-### Classes
+## Classes
 
 - [ErrorStruktBase](classes/ErrorStruktBase.md)
 
-### Type Aliases
+## Type Aliases
 
 - [anyErrConstructor](type-aliases/anyErrConstructor.md)
 - [constructorData](type-aliases/constructorData.md)
@@ -25,7 +23,7 @@
 - [staticErrorInstance](type-aliases/staticErrorInstance.md)
 - [staticParams](type-aliases/staticParams.md)
 
-### Functions
+## Functions
 
 - [init](functions/init.md)
 - [isErrorStrukt](functions/isErrorStrukt.md)

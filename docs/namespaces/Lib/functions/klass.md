@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: klass()
 
-> **klass**\<`t`\>(): [`klass`](../../Types/type-aliases/klass.md)\<[], `t`\>
+> **klass**\<`t`\>(): [`klass`](../../Types/type-aliases/klass.md)\<\[\], `t`\>
+
+Defined in: [src/Lib.ts:8](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Lib.ts#L8)
 
 Creates a class constructor type with no arguments.
 
@@ -18,10 +20,6 @@ The type of the instance created by the constructor.
 
 ## Returns
 
-[`klass`](../../Types/type-aliases/klass.md)\<[], `t`\>
+[`klass`](../../Types/type-aliases/klass.md)\<\[\], `t`\>
 
 A class constructor type.
-
-## Defined in
-
-[src/Lib.ts:8](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Lib.ts#L8)

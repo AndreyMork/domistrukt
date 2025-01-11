@@ -1,10 +1,12 @@
-[**@ayka/domistrukt**](../../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../../README.md)
 
 ***
 
 [@ayka/domistrukt](../../../globals.md) / [Enum](../README.md) / Enum
 
 # Class: Enum\<values\>
+
+Defined in: [src/Enum.ts:16](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L16)
 
 ## Type Parameters
 
@@ -16,17 +18,17 @@
 
 > **new Enum**\<`values`\>(`values`): [`Enum`](Enum.md)\<`values`\>
 
+Defined in: [src/Enum.ts:19](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L19)
+
 #### Parameters
 
-• **values**: `Iterable`\<`values`, `any`, `any`\>
+##### values
+
+`Iterable`\<`values`\>
 
 #### Returns
 
 [`Enum`](Enum.md)\<`values`\>
-
-#### Defined in
-
-[src/Enum.ts:18](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L18)
 
 ## Accessors
 
@@ -36,13 +38,11 @@
 
 > **get** **$$t**(): `values`
 
+Defined in: [src/Enum.ts:34](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L34)
+
 ##### Returns
 
 `values`
-
-#### Defined in
-
-[src/Enum.ts:33](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L33)
 
 ***
 
@@ -52,27 +52,45 @@
 
 > **get** **$values**(): `Set`\<`values`\>
 
+Defined in: [src/Enum.ts:38](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L38)
+
 ##### Returns
 
 `Set`\<`values`\>
-
-#### Defined in
-
-[src/Enum.ts:37](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L37)
 
 ## Methods
 
 ### \[iterator\]()
 
-> **\[iterator\]**(): `IterableIterator`\<`values`, `any`, `any`\>
+> **\[iterator\]**(): `IterableIterator`\<`values`\>
+
+Defined in: [src/Enum.ts:42](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L42)
 
 #### Returns
 
-`IterableIterator`\<`values`, `any`, `any`\>
+`IterableIterator`\<`values`\>
 
-#### Defined in
+***
 
-[src/Enum.ts:41](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L41)
+### $add()
+
+> **$add**\<`newValues`\>(...`values`): [`enumStrukt`](../type-aliases/enumStrukt.md)\<`values` \| `newValues`\>
+
+Defined in: [src/Enum.ts:78](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L78)
+
+#### Type Parameters
+
+• **newValues** *extends* [`enumValue`](../type-aliases/enumValue.md)
+
+#### Parameters
+
+##### values
+
+...`newValues`[]
+
+#### Returns
+
+[`enumStrukt`](../type-aliases/enumStrukt.md)\<`values` \| `newValues`\>
 
 ***
 
@@ -80,55 +98,55 @@
 
 > **$assert**\<`subValues`\>(`value`, `subValues`?): `values`
 
+Defined in: [src/Enum.ts:54](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L54)
+
 #### Type Parameters
 
 • **subValues** *extends* [`enumValue`](../type-aliases/enumValue.md)
 
 #### Parameters
 
-• **value**: `unknown`
+##### value
 
-• **subValues?**: `Iterable`\<`subValues`, `any`, `any`\>
+`unknown`
+
+##### subValues?
+
+`Iterable`\<`subValues`\>
 
 #### Returns
 
 `values`
 
-#### Defined in
-
-[src/Enum.ts:49](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L49)
-
 ***
 
 ### $assertSwitchCase()
 
-> **$assertSwitchCase**(`value`): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `never`, `values`\>
+> **$assertSwitchCase**(`value`): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
+
+Defined in: [src/Enum.ts:93](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L93)
 
 #### Parameters
 
-• **value**: `unknown`
+##### value
+
+`unknown`
 
 #### Returns
 
-[`Switch`](../../Switch/classes/Switch.md)\<`values`, `never`, `values`\>
-
-#### Defined in
-
-[src/Enum.ts:77](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L77)
+[`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
 
 ***
 
 ### $compileSwitch()
 
-> **$compileSwitch**(): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `never`, `values`\>
+> **$compileSwitch**(): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
+
+Defined in: [src/Enum.ts:97](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L97)
 
 #### Returns
 
-[`Switch`](../../Switch/classes/Switch.md)\<`values`, `never`, `values`\>
-
-#### Defined in
-
-[src/Enum.ts:81](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L81)
+[`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
 
 ***
 
@@ -136,17 +154,65 @@
 
 > **$has**(`value`): `value is values`
 
+Defined in: [src/Enum.ts:46](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L46)
+
 #### Parameters
 
-• **value**: `unknown`
+##### value
+
+`unknown`
 
 #### Returns
 
 `value is values`
 
-#### Defined in
+***
 
-[src/Enum.ts:45](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L45)
+### $is()
+
+> **$is**\<`target`\>(`target`, `value`): `value is target`
+
+Defined in: [src/Enum.ts:50](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L50)
+
+#### Type Parameters
+
+• **target** *extends* [`enumValue`](../type-aliases/enumValue.md)
+
+#### Parameters
+
+##### target
+
+`target`
+
+##### value
+
+`unknown`
+
+#### Returns
+
+`value is target`
+
+***
+
+### $remove()
+
+> **$remove**\<`removedValues`\>(...`values`): [`enumStrukt`](../type-aliases/enumStrukt.md)\<`Exclude`\<`values`, `removedValues`\>\>
+
+Defined in: [src/Enum.ts:82](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L82)
+
+#### Type Parameters
+
+• **removedValues** *extends* [`enumValue`](../type-aliases/enumValue.md)
+
+#### Parameters
+
+##### values
+
+...`removedValues`[]
+
+#### Returns
+
+[`enumStrukt`](../type-aliases/enumStrukt.md)\<`Exclude`\<`values`, `removedValues`\>\>
 
 ***
 
@@ -154,39 +220,39 @@
 
 > **$subEnum**\<`subValues`\>(`subValues`): [`enumStrukt`](../type-aliases/enumStrukt.md)\<`subValues`\>
 
+Defined in: [src/Enum.ts:74](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L74)
+
 #### Type Parameters
 
 • **subValues** *extends* [`enumValue`](../type-aliases/enumValue.md)
 
 #### Parameters
 
-• **subValues**: `Iterable`\<`subValues`, `any`, `any`\>
+##### subValues
+
+`Iterable`\<`subValues`\>
 
 #### Returns
 
 [`enumStrukt`](../type-aliases/enumStrukt.md)\<`subValues`\>
 
-#### Defined in
-
-[src/Enum.ts:69](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L69)
-
 ***
 
 ### $switchCase()
 
-> **$switchCase**(`value`): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `never`, `values`\>
+> **$switchCase**(`value`): [`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
+
+Defined in: [src/Enum.ts:89](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L89)
 
 #### Parameters
 
-• **value**: `values`
+##### value
+
+`values`
 
 #### Returns
 
-[`Switch`](../../Switch/classes/Switch.md)\<`values`, `never`, `values`\>
-
-#### Defined in
-
-[src/Enum.ts:73](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L73)
+[`Switch`](../../Switch/classes/Switch.md)\<`values`, `values`\>
 
 ***
 
@@ -194,10 +260,8 @@
 
 > **$toArray**(): `values`[]
 
+Defined in: [src/Enum.ts:70](https://github.com/AndreyMork/domistrukt/blob/d336ce883f586949cec0ae80ccb1b178d7aa8196/src/Enum.ts#L70)
+
 #### Returns
 
 `values`[]
-
-#### Defined in
-
-[src/Enum.ts:65](https://github.com/AndreyMork/domistrukt/blob/c8d404d2a2ad3b5db17fcead4d4e5821b1cc97ac/src/Enum.ts#L65)

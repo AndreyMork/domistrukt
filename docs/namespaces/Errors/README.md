@@ -1,4 +1,4 @@
-[**@ayka/domistrukt**](../../README.md) • **Docs**
+[**@ayka/domistrukt**](../../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Errors
 
-## Index
-
-### Classes
+## Classes
 
 - [DispatchMapKeyNotFound](classes/DispatchMapKeyNotFound.md)
 - [EnumAssertionError](classes/EnumAssertionError.md)
