@@ -18,6 +18,7 @@
 	},
 	"license": "MIT",
 	"type": "module",
+	"main": "./dist/Main.js",
 	"exports": {
 		".": {
 			"import": {
